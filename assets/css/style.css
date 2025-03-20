@@ -490,6 +490,14 @@ hr#sperator {
   background-color: var(--navyBlue);
 }
 
+#hero .container .row .info .con.st i {
+  color: #F48024;
+}
+
+#hero .container .row .info .con.st:hover i {
+  background-color: #F48024;
+}
+
 #hero .container .row .info .con.gh i {
   color: #171515;
 }
