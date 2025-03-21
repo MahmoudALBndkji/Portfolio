@@ -1430,7 +1430,15 @@ section {
   background-image: url(https://cdn-icons-png.flaticon.com/512/4387/4387430.png);
 }
 
+.googl-drive-btn {
+  background-color: whitesmoke;
+  background-image: url(https://icon2.cleanpng.com/20180805/hfv/30de6d43dcfc928888cb34e63ab95381.webp);
 
+}
+
+.googl-drive-btn:hover {
+  background-color: white;
+}
 
 /*--------------------------------------------------------------
 # Footer
