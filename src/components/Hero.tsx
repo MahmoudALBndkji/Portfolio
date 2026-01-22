@@ -6,6 +6,7 @@ import { ReactTyped } from "react-typed";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { BiLogoLinkedin, BiLogoStackOverflow, BiLogoGithub, BiLogoBehance, BiLogoFacebook, BiLogoGoogle, BiCaretRight } from "react-icons/bi";
+import HeroImage from "../../public/assets/img/hero_scetion/hero-img.gif";
 
 export default function Hero() {
   useEffect(() => {
@@ -27,21 +28,21 @@ export default function Hero() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center">
           <div
-            className="w-full lg:w-1/2 flex flex-col justify-center order-2 lg:order-1 pt-4 lg:pt-0"
+            className="w-full lg:w-1/2 flex flex-col justify-center order-2 lg:order-1 pt-4 lg:pt-0 px-20"
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            <h2 className="text-2xl lg:text-3xl font-medium mb-4 flex items-center text-[rgba(255,255,255,0.8)] font-jost">
+            <h2 className="text-xl md:text-2xl font-medium mb-4 flex items-center text-[rgba(255,255,255,0.8)] font-jost sm:justify-center lg:justify-start">
               Welcome To My Portfolio !
               <span className="ml-2 wave">
                 <Image src="/assets/img/hero_scetion/hi.gif" alt="hi" width={35} height={35} />
               </span>
             </h2>
-            <h1 className="text-4xl lg:text-5xl font-bold mb-4 font-jost text-white">Mahmoud AL-Bndkji</h1>
-            <div className="flex items-center text-xl lg:text-2xl mb-8 font-jost text-[rgba(255,255,255,0.8)] border-b-2 border-transparent pb-2">
+            <h1 className="text-3xl lg:text-4xl font-bold mb-4 font-jost text-white text-nowrap sm:text-center lg:text-start">Mahmoud AL-Bndkji</h1>
+            <div className="flex items-center text-xl lg:text-2xl mb-8 font-jost text-[rgba(255,255,255,0.8)] border-b-2 border-transparent pb-2 sm:justify-center lg:justify-start">
                <BiCaretRight className="text-light-blue mr-2" />
-               <span>I'm a </span>
-               <span className="ml-2 text-white border-b-2 border-light-blue pb-1">
+               <span className="text-nowrap">I'm a </span>
+               <span className="ml-2 text-white border-b-2 border-light-blue pb-1 text-nowrap">
                  <ReactTyped
                   strings={[
                     "Software Engineer",
@@ -69,8 +70,7 @@ export default function Hero() {
                 Download CV
               </a>
             </div>
-
-            <div className="flex justify-center lg:justify-start space-x-4">
+            <div className="flex justify-center lg:justify-start space-x-4 mb-10 md:mb-0">
               {[
                 { icon: BiLogoLinkedin, href: "https://www.linkedin.com/in/mahmoud-al-bndkji-619a14241", color: "#0077b5" },
                 { icon: BiLogoStackOverflow, href: "https://stackoverflow.com/users/19486739/mahmoud-al-bndkji", color: "#ef8236" },
@@ -99,7 +99,7 @@ export default function Hero() {
             data-aos-delay="200"
           >
             <Image
-              src="/assets/img/hero_scetion/hero-img.gif"
+              src={HeroImage}
               className="img-fluid animated max-w-full h-auto animate-float"
               alt="hero image"
               width={500}

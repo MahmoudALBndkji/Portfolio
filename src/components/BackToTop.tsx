@@ -32,6 +32,7 @@ export default function BackToTop() {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
+      
     });
     // Play audio
     const audio = new Audio("/assets/audios/mouseClick.mp3");

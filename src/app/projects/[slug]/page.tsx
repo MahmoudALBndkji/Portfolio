@@ -43,7 +43,7 @@ export default function ProjectDetails() {
       </section>
 
       {/* Portfolio Details Section */}
-      <section id="portfolio-details" className="py-16">
+      <section id="portfolio-details" className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Image Slider - 8 cols on large screens */}
@@ -62,7 +62,7 @@ export default function ProjectDetails() {
               >
                 {project.images.map((img, index) => (
                   <SwiperSlide key={index}>
-                    <div className="relative w-full h-[400px] md:h-[600px] flex justify-center items-center bg-gray-50 rounded-lg overflow-hidden">
+                    <div className="relative w-full h-100 md:h-150 flex justify-center items-center bg-gray-50 rounded-lg overflow-hidden">
                        <Image
                         src={img}
                         alt={`Slide ${index + 1}`}

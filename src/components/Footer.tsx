@@ -1,16 +1,21 @@
-"use client";
-
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer id="footer" className="bg-[rgba(40,58,90,0.9)] py-8 shadow-[0_-2px_10px_rgba(0,0,0,0.1)]">
-      <div className="container mx-auto px-4 text-center">
-        <div className="text-darkness-blue font-bold text-lg mb-2">
-          &copy; Copyright <strong><span>Mahmoud AL-Bndkji</span></strong>
-        </div>
-        <div className="text-sm text-white">
-          Developed with <span className="text-middle-blue">&#10084;</span>
+    <footer
+      id="footer"
+      className="bg-darkness-blue py-6 md:py-10 shadow-[0_-2px_10px_rgba(0,0,0,0.1)]"
+    >
+      <div className="container mx-auto md:px-20">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-0">
+          <div className="text-light-blue font-bold text-lg text-center md:text-left">
+            &copy; Copyright <span className="text-white">Mahmoud AL-Bndkji</span>
+          </div>
+
+          <div className="text-lg text-white flex items-center justify-center md:justify-end gap-2 font-bold">
+            Developed with
+            <span className="text-middle-blue text-3xl leading-none">
+              &#10084;
+            </span>
+          </div>
         </div>
       </div>
     </footer>

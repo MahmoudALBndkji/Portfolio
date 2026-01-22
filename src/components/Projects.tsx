@@ -34,10 +34,10 @@ export default function Projects() {
   };
 
   return (
-    <section id="portfolio" className="py-16 bg-section-bg">
+    <section id="portfolio" className="py-20 bg-section-bg">
       <div className="container mx-auto px-4" data-aos="fade-up">
         <div className="text-center pb-12">
-          <h2 className="text-3xl font-bold uppercase relative pb-5 font-jost text-darkness-blue before:content-[''] before:absolute before:block before:w-32 before:h-px before:bg-light-grey before:bottom-[1px] before:left-[calc(50%-64px)] after:content-[''] after:absolute after:block after:w-10 after:h-[3px] after:bg-middle-blue after:bottom-0 after:left-[calc(50%-20px)]">
+          <h2 className="text-3xl font-bold uppercase relative pb-5 font-jost text-darkness-blue before:content-[''] before:absolute before:block before:w-32 before:h-px before:bg-light-grey before:bottom-px before:left-[calc(50%-64px)] after:content-[''] after:absolute after:block after:w-10 after:h-0.75 after:bg-middle-blue after:bottom-0 after:left-[calc(50%-20px)]">
             Projects
           </h2>
           <h5 className="text-lg text-gray-600 mt-4 italic">My Recent Work</h5>
@@ -88,7 +88,7 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="200">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="group relative bg-white shadow-lg overflow-hidden h-[300px] rounded-lg">
+            <div key={project.id} className="group relative bg-white shadow-lg overflow-hidden h-75 rounded-lg">
               <div className="relative w-full h-full">
                 <Image
                   src={project.mainImage}

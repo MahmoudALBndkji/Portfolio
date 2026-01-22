@@ -4,14 +4,13 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="about" className="py-16 bg-white text-dark-color">
+    <section id="about" className="py-20 bg-white text-dark-color">
       <div className="container mx-auto px-4" data-aos="fade-up">
         <div className="text-center pb-12">
-          <h2 className="text-3xl font-bold uppercase relative pb-5 font-jost text-darkness-blue before:content-[''] before:absolute before:block before:w-32 before:h-px before:bg-light-grey before:bottom-[1px] before:left-[calc(50%-64px)] after:content-[''] after:absolute after:block after:w-10 after:h-[3px] after:bg-middle-blue after:bottom-0 after:left-[calc(50%-20px)]">
+          <h2 className="text-3xl font-bold uppercase relative pb-5 font-jost text-darkness-blue before:content-[''] before:absolute before:block before:w-32 before:h-px before:bg-light-grey before:bottom-px before:left-[calc(50%-64px)] after:content-[''] after:absolute after:block after:w-10 after:h-0.75 after:bg-middle-blue after:bottom-0 after:left-[calc(50%-20px)]">
             About Me
           </h2>
         </div>
-
         <div className="flex flex-col lg:flex-row">
           <div className="lg:w-1/2 flex items-center justify-center mb-8 lg:mb-0" data-aos="fade-right" data-aos-delay="100">
             <Image
@@ -42,7 +41,7 @@ export default function About() {
             
             <div className="mb-6">
                <h3 className="text-xl font-bold font-jost">⏹️ Associate Degree TCI Software Engineering</h3>
-               <h4 className="mt-2 text-base ml-8">Damascus University [ 16/09/2020 – 20/09/2022 ]</h4>
+               <h4 className="mt-2 text-base ml-8">Damascus University [ 16/09/2020 - 20/09/2022 ]</h4>
                <h5 className="mt-1 text-base ml-9">Final grade: 86.49%</h5>
             </div>
 
@@ -50,7 +49,7 @@ export default function About() {
 
              <div className="mb-6">
                <h3 className="text-xl font-bold font-jost">⏹️ Bachelor's Degree in Computer Technologies</h3>
-               <h4 className="mt-2 text-base ml-8">Damascus University [ 18/09/2022 – 21/09/2025 ]</h4>
+               <h4 className="mt-2 text-base ml-8">Damascus University [ 18/09/2022 - 21/09/2025 ]</h4>
                <h5 className="mt-1 text-base ml-9">Final grade: 80%</h5>
             </div>
 
