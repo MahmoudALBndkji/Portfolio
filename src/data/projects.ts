@@ -1,0 +1,334 @@
+export interface Project {
+  id: string;
+  title: string;
+  category: "Mobile Application" | "Web Application" | "Desktop Application" | "Mobile & Web Application";
+  date?: string;
+  description: string;
+  technologies: string[];
+  mainImage: string;
+  images: string[];
+  appStoreLink?: string;
+  playStoreLink?: string;
+  keywords?: string;
+}
+
+export const projects: Project[] = [
+  {
+    id: "newpark-agents",
+    title: "NewPark Agents",
+    category: "Mobile Application",
+    date: "28 Aug, 2023 ➡️ 20 Sep, 2024",
+    description: "The main idea of the application is to facilitate the work of customers so that they can create orders and follow up on their status, in addition to many features such as archive of previous orders, returns, inventory, and many other features.",
+    technologies: ["Flutter", "Firebase Cloud Messaging For Notification", "State Management : Bloc"],
+    mainImage: "/assets/img/portfolio/newparkAgents/1_Home_Page.png",
+    images: [
+       "/assets/img/portfolio/newparkAgents/1_Home_Page.png",
+       "/assets/img/portfolio/newparkAgents/2_Categories_and_Products_Pages.png",
+       "/assets/img/portfolio/newparkAgents/3_Cart_Pages.png",
+       "/assets/img/portfolio/newparkAgents/4_Report_Page.png",
+       "/assets/img/portfolio/newparkAgents/5_Orders_Pages.png",
+    ],
+    appStoreLink: "https://apps.apple.com/tr/app/newpark-agents/id6476807006?l=tr",
+    playStoreLink: "https://play.google.com/store/apps/details?id=newpark.agentMobileApplication&hl=en_US&gl=US",
+  },
+  {
+    id: "time-attendance",
+    title: "Time Attendance For Ministry of Electricity Water and Renewable Energy",
+    category: "Mobile Application",
+    date: "1 Oct, 2023 ➡️ 28 Feb, 2024",
+    description: "The application is for the Ministry of Electricity and Water in Kuwait. The main idea of the application is to follow up on employee attendance, in addition to many services such as leaves, permission, and many other features.",
+    technologies: ["Flutter", "Firebase Cloud Messaging For Notification", "State Management : GetX"],
+    mainImage: "/assets/img/portfolio/taMew/1_Splash_Page.png",
+    images: [
+        "/assets/img/portfolio/taMew/1_Splash_Page.png",
+        "/assets/img/portfolio/taMew/2_Select_Language_Page.png",
+        "/assets/img/portfolio/taMew/3_Drawer_and_Minsity_App_Page.png",
+        "/assets/img/portfolio/taMew/4_Log_Attendance_Page.png",
+        "/assets/img/portfolio/taMew/5_Questions_and_Answers_Page.png"
+    ],
+    appStoreLink: "https://apps.apple.com/us/app/mew-time-attendance/id6478931662",
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.mew.time_attendance",
+  },
+  {
+    id: "treema",
+    title: "Treema",
+    category: "Mobile & Web Application",
+    date: "1 Mar, 2024 ➡️ 1 Jul, 2024",
+    description: "An integrated e-commerce application (Mobile & Web) that displays many products and various classifications, in addition to the ability to like a specific product, a search engine has been added to find a product with specific features.",
+    technologies: ["Flutter", "Firebase Cloud Messaging For Notification", "State Management : Provider"],
+    mainImage: "/assets/img/portfolio/treema/1_Splash_Page.png",
+    images: [
+        "/assets/img/portfolio/treema/1_Splash_Page.png",
+        "/assets/img/portfolio/treema/2_Home_Page.png",
+        "/assets/img/portfolio/treema/3_Product_Details_Page.png",
+        "/assets/img/portfolio/treema/4_Cart_Page.png"
+    ],
+    appStoreLink: "https://apps.apple.com/kz/app/treema/id6503222383",
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.treema.app&hl=en",
+  },
+  {
+    id: "spot-books-pos",
+    title: "Spot Books POS",
+    category: "Mobile & Web Application",
+    date: "15 Jul, 2024 ➡️ Present",
+    description: "A comprehensive point of sale (POS) system designed for businesses to manage sales, inventory, and customer transactions efficiently. Features include real-time reporting, multi-store support, and seamless integration with payment gateways.",
+    technologies: ["Flutter", "Firebase Cloud Messaging For Notification", "State Management : Riverpod"],
+    mainImage: "/assets/img/portfolio/spotBooks/1_Splash_Page.png",
+    images: [
+        "/assets/img/portfolio/spotBooks/1_Splash_Page.png",
+        "/assets/img/portfolio/spotBooks/2_Dashboard_Page.png",
+        "/assets/img/portfolio/spotBooks/3_Home_Page.png",
+        "/assets/img/portfolio/spotBooks/4_Invoice_Format_Page.png"
+    ],
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.spotbooks.pos&hl=en",
+  },
+  {
+    id: "open-vpn",
+    title: "Open VPN",
+    category: "Mobile Application",
+    date: "1 Aug, 2024 ➡️ 15 Aug, 2024",
+    description: "A secure VPN application that allows users to connect to various servers worldwide, ensuring privacy and unrestricted internet access. Features include server selection, connection status monitoring, and data usage tracking.",
+    technologies: ["Flutter", "OpenVPN Protocol"],
+    mainImage: "/assets/img/portfolio/openVpn/1_Splash_Page.png",
+    images: [
+        "/assets/img/portfolio/openVpn/1_Splash_Page.png",
+        "/assets/img/portfolio/openVpn/2_Selected_Country_Page.png",
+        "/assets/img/portfolio/openVpn/3_Connection_VPN.png",
+        "/assets/img/portfolio/openVpn/4_Network_Details_Info_Page.png"
+    ],
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.open.vpn",
+  },
+  {
+    id: "asset-management",
+    title: "Asset Management",
+    category: "Mobile Application",
+    date: "20 Aug, 2024 ➡️ 10 Sep, 2024",
+    description: "An application designed to track and manage organizational assets. It allows users to assign assets, track their location, maintenance history, and depreciation. Features include barcode scanning and reporting.",
+    technologies: ["Flutter", "SQLite", "State Management : Bloc"],
+    mainImage: "/assets/img/portfolio/assetManagement/1_Splash_Page.png",
+    images: [
+        "/assets/img/portfolio/assetManagement/1_Splash_Page.png",
+        "/assets/img/portfolio/assetManagement/2_Home_Page.png",
+        "/assets/img/portfolio/assetManagement/3_Task_Details_Page.png",
+        "/assets/img/portfolio/assetManagement/4_Settings_Page.png"
+    ],
+  },
+  {
+    id: "rds-box",
+    title: "RDS Box",
+    category: "Mobile Application",
+    date: "15 Sep, 2024 ➡️ 30 Sep, 2024",
+    description: "A delivery management application that connects drivers with orders. It features real-time tracking, order management, and route optimization to ensure timely deliveries.",
+    technologies: ["Flutter", "Bluetooth", "State Management : Bloc"],
+    mainImage: "/assets/img/portfolio/rdsBox/1_Splash_Page.png",
+    images: [
+        "/assets/img/portfolio/rdsBox/1_Splash_Page.png",
+        "/assets/img/portfolio/rdsBox/2_Auth_Page.png",
+        "/assets/img/portfolio/rdsBox/3_User_Home_Page.png",
+        "/assets/img/portfolio/rdsBox/4_Buy_Box_Pages.png",
+        "/assets/img/portfolio/rdsBox/5_Orders_For_Driver_Pages.png"
+    ],
+  },
+  {
+    id: "wafra",
+    title: "Wafra",
+    category: "Mobile Application",
+    date: "5 Oct, 2024 ➡️ 25 Oct, 2024",
+    description: "An investment and savings application that helps users manage their portfolios, track market trends, and make informed financial decisions. Features include real-time stock data and personalized alerts.",
+    technologies: ["Flutter", "API", "State Management : Bloc"],
+    mainImage: "/assets/img/portfolio/wafra/1_Splash_Screen.png",
+    images: [
+        "/assets/img/portfolio/wafra/1_Splash_Screen.png",
+        "/assets/img/portfolio/wafra/2_Home_Page.png",
+        "/assets/img/portfolio/wafra/3_Festival_Offers_Page.png",
+        "/assets/img/portfolio/wafra/4_BarCode_Reader_Page.png",
+        "/assets/img/portfolio/wafra/5_Shareholder_Profits_Page.png",
+        "/assets/img/portfolio/wafra/6_Association_News_Page.png",
+        "/assets/img/portfolio/wafra/7_Branches_and_Services_Page.png",
+        "/assets/img/portfolio/wafra/8_Search_For_Product_Page.png",
+        "/assets/img/portfolio/wafra/9_Report_Item_Page.png",
+        "/assets/img/portfolio/wafra/10_Board_Directors_Page.png"
+    ],
+    appStoreLink: "https://apps.apple.com/kw/app/wafra/id6476486000",
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.wafra.app",
+  },
+  {
+    id: "beacon-reader",
+    title: "Beacon Reader",
+    category: "Mobile Application",
+    date: "1 Nov, 2024 ➡️ 15 Nov, 2024",
+    description: "A utility application that scans for nearby Bluetooth beacons and displays their information. Useful for proximity marketing and indoor navigation setups.",
+    technologies: ["Flutter", "Beacons", "State Management : Bloc"],
+    mainImage: "/assets/img/portfolio/beaconReader/1_Splash_Page.png",
+    images: [
+        "/assets/img/portfolio/beaconReader/1_Splash_Page.png",
+        "/assets/img/portfolio/beaconReader/2_Home_Page.png",
+        "/assets/img/portfolio/beaconReader/3_Settings_Page.png",
+        "/assets/img/portfolio/beaconReader/4_Scaning_Beacon_Page.png"
+    ],
+  },
+  {
+    id: "alsafa-exchange",
+    title: "Alsafa Exchange",
+    category: "Mobile Application",
+    date: "8 Oct, 2024 ➡️ 20 Mar, 2025",
+    description: "AlSafa Exchange mobile enabling secure authentication, seamless fund transfers via intermediary banks, transaction history tracking, account management, and advanced data security with encryption and verification.",
+    technologies: ["Flutter", "Dealing with webView", "State Management : Bloc", "Firebase Cloud Messaging For Notification"],
+    mainImage: "/assets/img/portfolio/alsafaExchange/1_Splash_Screen.png",
+    images: [
+        "/assets/img/portfolio/alsafaExchange/1_Splash_Screen.png",
+        "/assets/img/portfolio/alsafaExchange/2_Auth_Screen.png",
+        "/assets/img/portfolio/alsafaExchange/3_Home_Screen_and_Transfer_Screen.png"
+    ],
+    appStoreLink: "https://apps.apple.com/app/alsafa-exchange/id6739328522",
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.alsafa.exchange",
+  },
+  {
+    id: "trasool-online",
+    title: "Trasool Online",
+    category: "Mobile Application",
+    description: "Developed and managed a vendor and market management app (Trasool) similar to a POS system, enabling seamless inventory tracking, sales processing, and vendor operations. Enhanced efficiency in market transactions and vendor-client interactions through intuitive features.",
+    technologies: ["Flutter", "Firebase Cloud Messaging For Notification", "State Management : Bloc"],
+    mainImage: "/assets/img/portfolio/trasoolOnline/1_Splash_Page.png",
+    images: [
+        "/assets/img/portfolio/trasoolOnline/1_Splash_Page.png",
+        "/assets/img/portfolio/trasoolOnline/2_Auth_Page.png",
+        "/assets/img/portfolio/trasoolOnline/3_My_Forms_Page.png",
+        "/assets/img/portfolio/trasoolOnline/4_Send_Mail_Page.png",
+        "/assets/img/portfolio/trasoolOnline/5_Profile_Pages.png"
+    ],
+  },
+  {
+    id: "real-estate",
+    title: "Real Estate",
+    category: "Mobile Application",
+    description: "Developed and managed a user-friendly real estate app facilitating property searches, virtual tours, and seamless communication between buyers, sellers, and agents. Enhanced user experience with intuitive navigation, real-time updates, and advanced filtering options.",
+    technologies: ["Flutter", "Firebase Cloud Messaging For Notification", "State Management : Bloc"],
+    mainImage: "/assets/img/portfolio/realEstate/1_OnBoarding_and_Login_Page.png",
+    images: [
+        "/assets/img/portfolio/realEstate/1_OnBoarding_and_Login_Page.png",
+        "/assets/img/portfolio/realEstate/2_Home_Page.png",
+        "/assets/img/portfolio/realEstate/3_Details_Home_Page.png",
+        "/assets/img/portfolio/realEstate/4_Home_Page_and_Drawer.png"
+    ],
+  },
+  {
+    id: "to-know-me",
+    title: "To Know Me",
+    category: "Mobile Application",
+    description: "Social networking application made with a flutter whose main idea is to facilitate communication and acquaintance with people and to build a strong communication network. The application contains the ability to publish posts and has many features such as commenting, liking, private chatting .",
+    technologies: ["Flutter", "Firebase Cloud Messaging For Notification", "State Management : Bloc"],
+    mainImage: "/assets/img/portfolio/toKnowMe/1_Intro.png",
+    images: [
+        "/assets/img/portfolio/toKnowMe/1_Intro.png",
+        "/assets/img/portfolio/toKnowMe/2_Logining_Pages.png",
+        "/assets/img/portfolio/toKnowMe/3_MainPage_Sharing.png",
+        "/assets/img/portfolio/toKnowMe/4_Chat_CreatePost.png",
+        "/assets/img/portfolio/toKnowMe/5_Friends_SettingsPage.png",
+        "/assets/img/portfolio/toKnowMe/poster.png"
+    ],
+  },
+  {
+    id: "sallate",
+    title: "Sallate",
+    category: "Mobile Application",
+    description: "Online store flutter application It displays many products and various Categories, in addition to the ability to like a specific product, has also been added search engine has been added to find a product with specific features .",
+    technologies: ["Flutter", "Firebase Cloud Messaging For Notification", "State Management : Bloc"],
+    mainImage: "/assets/img/portfolio/salla/1_Intro.png",
+    images: [
+        "/assets/img/portfolio/salla/1_Intro.png",
+        "/assets/img/portfolio/salla/2_Home_Page.png",
+        "/assets/img/portfolio/salla/3_Product_Details.png",
+        "/assets/img/portfolio/salla/4_Categories_Page.png",
+        "/assets/img/portfolio/salla/5_Favorites_Page.png",
+        "/assets/img/portfolio/salla/6_Search_Page.png",
+        "/assets/img/portfolio/salla/7_Settings_Page.png",
+        "/assets/img/portfolio/salla/poster.png"
+    ],
+  },
+  {
+    id: "world-news",
+    title: "World News",
+    category: "Mobile Application",
+    description: "News Application made with a flutter to browse all the various news from politics, sports, science and other fields that happen in the world, I also added many features to the application, such as logging in with social media accounts, rating the application, searching for a specific news within a specific field, possibility choice theme ( light , dark ) , and more of that .",
+    technologies: ["Flutter", "Firebase Cloud Messaging For Notification", "State Management : Bloc"],
+    mainImage: "/assets/img/portfolio/worldNews/1_Intro.png",
+    images: [
+        "/assets/img/portfolio/worldNews/1_Intro.png",
+        "/assets/img/portfolio/worldNews/2_Introduction_Pages.png",
+        "/assets/img/portfolio/worldNews/3_ Main_Search_Page.png",
+        "/assets/img/portfolio/worldNews/4_Rating_Page.png",
+        "/assets/img/portfolio/worldNews/5_drawer_connect_page.png",
+        "/assets/img/portfolio/worldNews/poster.png"
+    ],
+  },
+  {
+    id: "ponder-more",
+    title: "Ponder More",
+    category: "Mobile Application",
+    description: "Flutter application He explains and clarifies the sport of yoga, in addition to tips for its practice, The application contains levels, each level has a certain number of assigned exercises , The application also contains several features such as evaluation, communication with the application developer, choice theme ( light , dark ) , and more of that .",
+    technologies: ["Flutter", "Firebase Cloud Messaging For Notification", "State Management : Bloc"],
+    mainImage: "/assets/img/portfolio/ponderMore/1_Intro.png",
+    images: [
+        "/assets/img/portfolio/ponderMore/1_Intro.png",
+        "/assets/img/portfolio/ponderMore/2_Home_Page.png",
+        "/assets/img/portfolio/ponderMore/3_Exercises_Page.png",
+        "/assets/img/portfolio/ponderMore/4_Excercise_Page.png",
+        "/assets/img/portfolio/ponderMore/5_Locked_Break_Screen.png",
+        "/assets/img/portfolio/ponderMore/6_Image_Drawer_Page.png",
+        "/assets/img/portfolio/ponderMore/7_FeedBack_Screen.png",
+        "/assets/img/portfolio/ponderMore/8_Rate_Page.png",
+        "/assets/img/portfolio/ponderMore/9_App_Developer_Page.png"
+    ],
+  },
+  {
+    id: "database-management",
+    title: "Database Management",
+    category: "Desktop Application",
+    description: "A Desktop Application made in C# language The main goal of the program is to add, modify and delete student data with the ability to store data in each of Access databases or a text file according to a specific format with the ability to save changes .",
+    technologies: ["C#", "Access Database", "File Handling"],
+    mainImage: "/assets/img/portfolio/databaseManagement/1_Login_Main_Screen.png",
+    images: [
+        "/assets/img/portfolio/databaseManagement/1_Login_Main_Screen.png",
+        "/assets/img/portfolio/databaseManagement/2_Add_Student_Screen.png",
+        "/assets/img/portfolio/databaseManagement/3_Add_Student_Screen.png",
+        "/assets/img/portfolio/databaseManagement/4_Edit_Student_Screen.png",
+        "/assets/img/portfolio/databaseManagement/5_Store_Data_Text_File_Screen.png",
+        "/assets/img/portfolio/databaseManagement/6_Store_Data_Access_Screen.png"
+    ],
+  },
+  {
+    id: "mall-to-go",
+    title: "Mall To Go",
+    category: "Desktop Application",
+    description: "A Desktop Application using C# and some design library for a mall cashier system complete with a database and other feature Like searching and sorting the items and real time editing of the inventory and a printable bill .",
+    technologies: ["C#", "SQL Server", "Crystal Reports"],
+    mainImage: "/assets/img/portfolio/mallToGo/1_Intro.png",
+    images: [
+        "/assets/img/portfolio/mallToGo/1_Intro.png",
+        "/assets/img/portfolio/mallToGo/2_Login_Page_Screen.png",
+        "/assets/img/portfolio/mallToGo/3_Edit_Account_Screen.png",
+        "/assets/img/portfolio/mallToGo/4_Print_Invoice_Screen.png"
+    ],
+  },
+  {
+    id: "lister",
+    title: "Lister",
+    category: "Web Application",
+    description: "Food Delivery app that have phone branch and web branch and back end maid from asp.net core api and my SQL database ,I personally worked with the web branch I did interfaces fully dynamic the front end UI using html ,css, js, bootstrap ,and more libraries for styling like fontawesome ,animations,and many other design libraries to achieve a dynamic fully functional wep app .",
+    technologies: ["ASP.NET Core API", "MySQL", "HTML/CSS/JS", "Bootstrap"],
+    mainImage: "/assets/img/portfolio/Lister/1_Intro.png",
+    images: [
+        "/assets/img/portfolio/lister/1_Intro.png",
+        "/assets/img/portfolio/lister/2_Create_Account_Screen.png",
+        "/assets/img/portfolio/lister/3_Home_Screen.png",
+        "/assets/img/portfolio/lister/4_Home_Screen.png",
+        "/assets/img/portfolio/lister/5_Forget_Password_Verification_Screen.png",
+        "/assets/img/portfolio/lister/6_Google_Map_Screen.png",
+        "/assets/img/portfolio/lister/7_Menu_Screen.png",
+        "/assets/img/portfolio/lister/8_Menu_Screen.png",
+        "/assets/img/portfolio/lister/9_Menu_Screen.png",
+        "/assets/img/portfolio/lister/10_Menu_Screen.png"
+    ],
+  }
+];
