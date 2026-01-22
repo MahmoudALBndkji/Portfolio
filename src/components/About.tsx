@@ -25,7 +25,7 @@ export default function About() {
             <h2 className="text-2xl font-bold text-grey mb-4 flex justify-center lg:justify-start font-jost">
               Who Am I ?
             </h2>
-            <div className="italic text-lg mb-4">
+            <div className="italic text-lg mb-4 text-center md:text-start">
               A Mobile Application Developer, My expertise spans Swift for iOS development, Kotlin for Android
               development, and Dart for Flutter, allowing me to craft seamless cross-platform applications.
               <br />
@@ -39,7 +39,7 @@ export default function About() {
               Education
             </h2>
             
-            <div className="mb-6">
+            <div className="mb-6 text-center md:text-start">
                <h3 className="text-xl font-bold font-jost">⏹️ Associate Degree TCI Software Engineering</h3>
                <h4 className="mt-2 text-base ml-8">Damascus University [ 16/09/2020 - 20/09/2022 ]</h4>
                <h5 className="mt-1 text-base ml-9">Final grade: 86.49%</h5>
@@ -47,7 +47,7 @@ export default function About() {
 
             <hr className="border-t border-grey mx-24 my-6" />
 
-             <div className="mb-6">
+             <div className="mb-6 text-center md:text-start">
                <h3 className="text-xl font-bold font-jost">⏹️ Bachelor's Degree in Computer Technologies</h3>
                <h4 className="mt-2 text-base ml-8">Damascus University [ 18/09/2022 - 21/09/2025 ]</h4>
                <h5 className="mt-1 text-base ml-9">Final grade: 80%</h5>

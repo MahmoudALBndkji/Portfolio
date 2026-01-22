@@ -70,7 +70,7 @@ export default function Hero() {
                 Download CV
               </a>
             </div>
-            <div className="flex justify-center lg:justify-start space-x-4 mb-10 md:mb-0">
+            <div className="flex justify-center lg:justify-start space-x-4 mb-10 lg:mb-0">
               {[
                 { icon: BiLogoLinkedin, href: "https://www.linkedin.com/in/mahmoud-al-bndkji-619a14241", color: "#0077b5" },
                 { icon: BiLogoStackOverflow, href: "https://stackoverflow.com/users/19486739/mahmoud-al-bndkji", color: "#ef8236" },
