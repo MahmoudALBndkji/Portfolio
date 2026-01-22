@@ -56,7 +56,7 @@ export default function Certificates() {
               spaceBetween: 50,
             },
           }}
-          className="certificateSwiper pb-12"
+          className="certificateSwiper pb-12!"
         >
           {certificates.map((cert, index) => (
             <SwiperSlide key={index} className="flex justify-center items-center">

@@ -48,7 +48,7 @@ export default function Techniques() {
                         768: { slidesPerView: 3 },
                         1024: { slidesPerView: 5 },
                     }}
-                    className="techniquesSwiper !pb-12"
+                    className="techniquesSwiper pb-12!"
                 >
                     {techniques.map((tech, index) => (
                         <SwiperSlide key={index} className="h-auto">

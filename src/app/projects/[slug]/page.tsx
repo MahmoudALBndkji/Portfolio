@@ -58,7 +58,7 @@ export default function ProjectDetails() {
                   disableOnInteraction: false,
                 }}
                 pagination={{ clickable: true }}
-                className="portfolio-details-slider pb-10"
+                className="portfolio-details-slider pb-12!"
               >
                 {project.images.map((img, index) => (
                   <SwiperSlide key={index}>
