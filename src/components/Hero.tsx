@@ -40,10 +40,10 @@ export default function Hero() {
             </h2>
             <h1 className="text-3xl lg:text-4xl font-bold mb-4 font-jost text-white text-nowrap sm:text-center lg:text-start">Mahmoud AL-Bndkji</h1>
             <div className="flex items-center text-xl lg:text-2xl mb-8 font-jost text-[rgba(255,255,255,0.8)] border-b-2 border-transparent pb-2 sm:justify-center lg:justify-start">
-               <BiCaretRight className="text-light-blue mr-2" />
-               <span className="text-nowrap">I'm a </span>
-               <span className="ml-2 text-white border-b-2 border-light-blue pb-1 text-nowrap">
-                 <ReactTyped
+              <BiCaretRight className="text-light-blue mr-2" />
+              <span className="text-nowrap">I'm a </span>
+              <span className="ml-2 text-white border-b-2 border-light-blue pb-1 text-nowrap">
+                <ReactTyped
                   strings={[
                     "Software Engineer",
                     "Mobile Application Developer",
@@ -57,7 +57,7 @@ export default function Hero() {
                   backSpeed={50}
                   loop
                 />
-               </span>
+              </span>
             </div>
 
             <div className="flex justify-center lg:justify-start mb-8">
@@ -85,9 +85,14 @@ export default function Hero() {
                   target="_blank"
                   rel="noreferrer"
                   onClick={playAudio}
-                  className="bg-[rgba(255,255,255,0.1)] p-3 rounded-full hover:bg-white transition-all duration-300 group no-underline"
+                  style={{ "--icon-color": social.color } as React.CSSProperties}
+                  className="group bg-[rgba(255,255,255,0.1)] p-3 rounded-full
+                hover:bg-white transition-all duration-300 no-underline"
                 >
-                  <social.icon className="text-2xl text-white group-hover:text-light-blue transition-colors" />
+                  <social.icon
+                    className="text-2xl text-white transition-colors duration-300
+                   group-hover:text-(--icon-color)"
+                  />
                 </a>
               ))}
             </div>

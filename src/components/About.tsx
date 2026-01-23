@@ -15,7 +15,7 @@ export default function About() {
           <div className="lg:w-1/2 flex items-center justify-center mb-8 lg:mb-0" data-aos="fade-right" data-aos-delay="100">
             <Image
               src="/assets/img/aboutMe_scection/myPhoto.jpg"
-              className="rounded-lg shadow-lg max-w-[80%] h-auto"
+              className="rounded-3xl shadow-lg max-w-[80%] h-auto"
               alt="my Photo"
               width={400}
               height={400}
