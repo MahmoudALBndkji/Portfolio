@@ -19,14 +19,14 @@ export default function Techniques() {
     return (
         <section
             id="techniques"
-            className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"
+            className="py-20 bg-linear-to-b from-white to-gray-50 relative overflow-hidden"
             data-aos="fade-up"
         >
             <div className="container mx-auto px-4">
                 <div className="text-center pb-14">
                     <h2 className="text-3xl md:text-4xl font-bold uppercase relative pb-5 font-jost text-darkness-blue
-                        before:content-[''] before:absolute before:block before:w-32 before:h-px before:bg-gray-300 before:bottom-[1px] before:left-1/2 before:-translate-x-1/2
-                        after:content-[''] after:absolute after:block after:w-10 after:h-[3px] after:bg-middle-blue after:bottom-0 after:left-1/2 after:-translate-x-1/2">
+                        before:content-[''] before:absolute before:block before:w-32 before:h-px before:bg-gray-300 before:bottom-px before:left-1/2 before:-translate-x-1/2
+                        after:content-[''] after:absolute after:block after:w-10 after:h-0.75 after:bg-middle-blue after:bottom-0 after:left-1/2 after:-translate-x-1/2">
                         Techniques
                     </h2>
                     <p className="text-lg text-gray-500 mt-4 italic">

@@ -73,3 +73,7 @@ h1, h2, h3, h4, h5, h6 {
 .animate-scaleIn {
   animation: scaleIn 0.25s ease-out;
 }
+
+.swiper-pagination-bullet-active {
+  background-color: #47b2e4 !important;
+}

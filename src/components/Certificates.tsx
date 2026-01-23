@@ -22,7 +22,7 @@ export default function Certificates() {
   ];
 
   return (
-    <section id="certificates" className="py-20 bg-white">
+    <section id="certificates" className="py-20 bg-[#f5f8fd]">
       <div className="container mx-auto px-4" data-aos="fade-up">
         <div className="text-center pb-12">
           <h2 className="text-3xl font-bold uppercase relative pb-5 font-jost text-darkness-blue before:content-[''] before:absolute before:block before:w-32 before:h-px before:bg-light-grey before:bottom-px before:left-[calc(50%-64px)] after:content-[''] after:absolute after:block after:w-10 after:h-0.75 after:bg-middle-blue after:bottom-0 after:left-[calc(50%-20px)]">
@@ -30,7 +30,6 @@ export default function Certificates() {
           </h2>
           <h5 className="text-lg text-gray-600 mt-4 italic">My Achievements</h5>
         </div>
-
         <Swiper
           modules={[Autoplay, Pagination]}
           spaceBetween={30}
