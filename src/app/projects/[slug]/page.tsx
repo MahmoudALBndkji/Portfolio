@@ -1,34 +1,31 @@
 "use client";
 
-import { notFound, useParams } from "next/navigation";
-import Image from "next/image";
+import "swiper/css";
 import Link from "next/link";
+import Image from "next/image";
+import "swiper/css/pagination";
 import { projects } from "@/data/projects";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
+import { notFound, useParams } from "next/navigation";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 
 export default function ProjectDetails() {
+
   const { slug } = useParams();
   const project = projects.find((p) => p.id === slug);
-
   if (!project) {
     return notFound();
   }
-
-  // Play click audio
   const playAudio = () => {
     const audio = new Audio("/assets/audios/mouseClick.mp3");
-    audio.play().catch(() => {});
+    audio.play().catch(() => { });
   };
 
   return (
     <main id="main">
-      {/* Breadcrumbs */}
-      <section id="breadcrumbs" className="py-10 bg-section-bg">
-        <div className="container mx-auto px-4">
+      <section id="portfolio-details" className="py-20 px-10">
+        <div className="container mx-auto px-4 my-10">
           <ol className="flex space-x-2 text-sm text-gray-600 mb-2">
             <li>
               <Link href="/#hero" className="text-middle-blue hover:underline">
@@ -40,13 +37,8 @@ export default function ProjectDetails() {
           </ol>
           <h2 className="text-2xl font-bold text-darkness-blue">{project.title} Details</h2>
         </div>
-      </section>
-
-      {/* Portfolio Details Section */}
-      <section id="portfolio-details" className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Image Slider - 8 cols on large screens */}
             <div className="lg:col-span-2">
               <Swiper
                 modules={[Autoplay, Pagination]}
@@ -61,23 +53,25 @@ export default function ProjectDetails() {
                 className="portfolio-details-slider pb-12!"
               >
                 {project.images.map((img, index) => (
-                  <SwiperSlide key={index}>
-                    <div className="relative w-full h-100 md:h-150 flex justify-center items-center bg-gray-50 rounded-lg overflow-hidden">
-                       <Image
+                  <SwiperSlide key={index} className="flex justify-center">
+                    <div className="relative w-full max-w-4xl aspect-4/3 sm:aspect-16/10 bg-[#E8E8E8] rounded-xl overflow-hidden">
+                      <Image
                         src={img}
                         alt={`Slide ${index + 1}`}
                         fill
+                        sizes="(max-width: 640px) 100vw,
+                        (max-width: 1024px) 80vw,
+                        60vw"
                         className="object-contain"
+                        priority={index === 0}
                       />
                     </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
             </div>
-
-            {/* Project Info - 4 cols on large screens */}
             <div className="lg:col-span-1">
-              <div className="bg-white p-6 shadow-lg rounded-lg mb-8">
+              <div className="bg-white p-6 shadow-lg rounded-lg mb-8 animated-border">
                 <h3 className="text-xl font-bold border-b border-gray-200 pb-4 mb-4 text-darkness-blue">
                   Project information
                 </h3>
@@ -95,7 +89,6 @@ export default function ProjectDetails() {
                     <p className="mt-2 text-justify">{project.description}</p>
                   </li>
                 </ul>
-
                 <div className="mt-6 flex flex-col space-y-3">
                   {project.appStoreLink && (
                     <a
@@ -129,7 +122,6 @@ export default function ProjectDetails() {
                   )}
                 </div>
               </div>
-
               <div className="bg-white p-6 shadow-lg rounded-lg">
                 <h3 className="text-xl font-bold border-b border-gray-200 pb-4 mb-4 text-darkness-blue">
                   Languages and Technologies used
