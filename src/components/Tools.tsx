@@ -3,7 +3,6 @@ import { tools } from "@/data/tools";
 
 export default function Tools() {
   return (
-    <>
       <section id="tools" className="py-20 bg-[#f5f8fd]">
         <div className="container mx-auto px-4" data-aos="fade-up">
           <div className="text-center pb-12">
@@ -42,6 +41,5 @@ export default function Tools() {
           </div>
         </div>
       </section>
-    </>
   );
 }

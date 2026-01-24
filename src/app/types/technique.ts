@@ -1,4 +1,6 @@
+import { StaticImageData } from "next/image";
+
 export interface Technique {
   name: string;
-  img: string;
+  img: StaticImageData | string;
 }

@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface Certificate {
-  src: string;
+  src: StaticImageData | string;
 }
