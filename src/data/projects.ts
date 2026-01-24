@@ -10,6 +10,14 @@ import { WafraImgs } from "./portfolio-images/wafra";
 import { BeaconReaderImgs } from "./portfolio-images/beaconReader";
 import { AlsafaExchangeImgs } from "./portfolio-images/alsafaExchange";
 import { TrasoolOnlineImgs } from "./portfolio-images/trasoolOnline";
+import { RealEstateImgs } from "./portfolio-images/realEstate";
+import { ToKnowMeImgs } from "./portfolio-images/toKnowMe";
+import { SallateImgs } from "./portfolio-images/sallate";
+import { WorldNewsImgs } from "./portfolio-images/worldNews";
+import { PonderMoreImgs } from "./portfolio-images/ponderMore";
+import { DatabaseManagementImgs } from "./portfolio-images/databaseManagement";
+import { MallToGoImgs } from "./portfolio-images/mallToGo";
+import { ListerImgs } from "./portfolio-images/lister";
 
 export const projects: Project[] = [
   {
@@ -189,14 +197,8 @@ export const projects: Project[] = [
       "Firebase Cloud Messaging For Notification",
       "State Management : Bloc",
     ],
-    mainImage:
-      "/assets/img/portfolio/realEstate/1_OnBoarding_and_Login_Page.png",
-    images: [
-      "/assets/img/portfolio/realEstate/1_OnBoarding_and_Login_Page.png",
-      "/assets/img/portfolio/realEstate/2_Home_Page.png",
-      "/assets/img/portfolio/realEstate/3_Details_Home_Page.png",
-      "/assets/img/portfolio/realEstate/4_Home_Page_and_Drawer.png",
-    ],
+    mainImage: RealEstateImgs[0],
+    images: RealEstateImgs,
   },
   {
     id: "to-know-me",
@@ -209,15 +211,8 @@ export const projects: Project[] = [
       "Firebase Cloud Messaging For Notification",
       "State Management : Bloc",
     ],
-    mainImage: "/assets/img/portfolio/toKnowMe/1_Intro.png",
-    images: [
-      "/assets/img/portfolio/toKnowMe/1_Intro.png",
-      "/assets/img/portfolio/toKnowMe/2_Logining_Pages.png",
-      "/assets/img/portfolio/toKnowMe/3_MainPage_Sharing.png",
-      "/assets/img/portfolio/toKnowMe/4_Chat_CreatePost.png",
-      "/assets/img/portfolio/toKnowMe/5_Friends_SettingsPage.png",
-      "/assets/img/portfolio/toKnowMe/poster.png",
-    ],
+    mainImage: ToKnowMeImgs[0],
+    images: ToKnowMeImgs,
   },
   {
     id: "sallate",
@@ -230,17 +225,8 @@ export const projects: Project[] = [
       "Firebase Cloud Messaging For Notification",
       "State Management : Bloc",
     ],
-    mainImage: "/assets/img/portfolio/salla/1_Intro.png",
-    images: [
-      "/assets/img/portfolio/salla/1_Intro.png",
-      "/assets/img/portfolio/salla/2_Home_Page.png",
-      "/assets/img/portfolio/salla/3_Product_Details.png",
-      "/assets/img/portfolio/salla/4_Categories_Page.png",
-      "/assets/img/portfolio/salla/5_Favorites_Page.png",
-      "/assets/img/portfolio/salla/6_Search_Page.png",
-      "/assets/img/portfolio/salla/7_Settings_Page.png",
-      "/assets/img/portfolio/salla/poster.png",
-    ],
+    mainImage: SallateImgs[0],
+    images: SallateImgs,
   },
   {
     id: "world-news",
@@ -253,15 +239,8 @@ export const projects: Project[] = [
       "Firebase Cloud Messaging For Notification",
       "State Management : Bloc",
     ],
-    mainImage: "/assets/img/portfolio/worldNews/1_Intro.png",
-    images: [
-      "/assets/img/portfolio/worldNews/1_Intro.png",
-      "/assets/img/portfolio/worldNews/2_Introduction_Pages.png",
-      "/assets/img/portfolio/worldNews/3_ Main_Search_Page.png",
-      "/assets/img/portfolio/worldNews/4_Rating_Page.png",
-      "/assets/img/portfolio/worldNews/5_drawer_connect_page.png",
-      "/assets/img/portfolio/worldNews/poster.png",
-    ],
+    mainImage: WorldNewsImgs[0],
+    images: WorldNewsImgs,
   },
   {
     id: "ponder-more",
@@ -274,18 +253,8 @@ export const projects: Project[] = [
       "Firebase Cloud Messaging For Notification",
       "State Management : Bloc",
     ],
-    mainImage: "/assets/img/portfolio/ponderMore/1_Intro.png",
-    images: [
-      "/assets/img/portfolio/ponderMore/1_Intro.png",
-      "/assets/img/portfolio/ponderMore/2_Home_Page.png",
-      "/assets/img/portfolio/ponderMore/3_Exercises_Page.png",
-      "/assets/img/portfolio/ponderMore/4_Excercise_Page.png",
-      "/assets/img/portfolio/ponderMore/5_Locked_Break_Screen.png",
-      "/assets/img/portfolio/ponderMore/6_Image_Drawer_Page.png",
-      "/assets/img/portfolio/ponderMore/7_FeedBack_Screen.png",
-      "/assets/img/portfolio/ponderMore/8_Rate_Page.png",
-      "/assets/img/portfolio/ponderMore/9_App_Developer_Page.png",
-    ],
+    mainImage: PonderMoreImgs[0],
+    images: PonderMoreImgs,
   },
   {
     id: "database-management",
@@ -294,16 +263,8 @@ export const projects: Project[] = [
     description:
       "A Desktop Application made in C# language The main goal of the program is to add, modify and delete student data with the ability to store data in each of Access databases or a text file according to a specific format with the ability to save changes .",
     technologies: ["C#", "Access Database", "File Handling"],
-    mainImage:
-      "/assets/img/portfolio/databaseManagement/1_Login_Main_Screen.png",
-    images: [
-      "/assets/img/portfolio/databaseManagement/1_Login_Main_Screen.png",
-      "/assets/img/portfolio/databaseManagement/2_Add_Student_Screen.png",
-      "/assets/img/portfolio/databaseManagement/3_Add_Student_Screen.png",
-      "/assets/img/portfolio/databaseManagement/4_Edit_Student_Screen.png",
-      "/assets/img/portfolio/databaseManagement/5_Store_Data_Text_File_Screen.png",
-      "/assets/img/portfolio/databaseManagement/6_Store_Data_Access_Screen.png",
-    ],
+    mainImage: DatabaseManagementImgs[0],
+    images: DatabaseManagementImgs,
   },
   {
     id: "mall-to-go",
@@ -312,13 +273,8 @@ export const projects: Project[] = [
     description:
       "A Desktop Application using C# and some design library for a mall cashier system complete with a database and other feature Like searching and sorting the items and real time editing of the inventory and a printable bill .",
     technologies: ["C#", "SQL Server", "Crystal Reports"],
-    mainImage: "/assets/img/portfolio/mallToGo/1_Intro.png",
-    images: [
-      "/assets/img/portfolio/mallToGo/1_Intro.png",
-      "/assets/img/portfolio/mallToGo/2_Login_Page_Screen.png",
-      "/assets/img/portfolio/mallToGo/3_Edit_Account_Screen.png",
-      "/assets/img/portfolio/mallToGo/4_Print_Invoice_Screen.png",
-    ],
+    mainImage: MallToGoImgs[0],
+    images: MallToGoImgs,
   },
   {
     id: "lister",
@@ -327,18 +283,7 @@ export const projects: Project[] = [
     description:
       "Food Delivery app that have phone branch and web branch and back end maid from asp.net core api and my SQL database ,I personally worked with the web branch I did interfaces fully dynamic the front end UI using html ,css, js, bootstrap ,and more libraries for styling like fontawesome ,animations,and many other design libraries to achieve a dynamic fully functional wep app .",
     technologies: ["ASP.NET Core API", "MySQL", "HTML/CSS/JS", "Bootstrap"],
-    mainImage: "/assets/img/portfolio/Lister/1_Intro.png",
-    images: [
-      "/assets/img/portfolio/lister/1_Intro.png",
-      "/assets/img/portfolio/lister/2_Create_Account_Screen.png",
-      "/assets/img/portfolio/lister/3_Home_Screen.png",
-      "/assets/img/portfolio/lister/4_Home_Screen.png",
-      "/assets/img/portfolio/lister/5_Forget_Password_Verification_Screen.png",
-      "/assets/img/portfolio/lister/6_Google_Map_Screen.png",
-      "/assets/img/portfolio/lister/7_Menu_Screen.png",
-      "/assets/img/portfolio/lister/8_Menu_Screen.png",
-      "/assets/img/portfolio/lister/9_Menu_Screen.png",
-      "/assets/img/portfolio/lister/10_Menu_Screen.png",
-    ],
+    mainImage: ListerImgs[0],
+    images: ListerImgs,
   },
 ];

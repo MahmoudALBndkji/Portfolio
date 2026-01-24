@@ -21,6 +21,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
   title: "Mahmoud AL-Bndkji Portfolio",
   description: "A Mobile Application Developer, My expertise spans Swift for iOS development, Kotlin for Android development, and Dart for Flutter.",
   keywords: "Mahmoud AL-Bndkji Portfolio, Software Engineer, Mobile Applicatoin Developer, Flutter Developer, Web Developer",
