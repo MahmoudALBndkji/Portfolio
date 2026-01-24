@@ -8,7 +8,7 @@ import { projects } from "@/data/projects";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { notFound, useParams } from "next/navigation";
-import { FaApple, FaGooglePlay } from "react-icons/fa";
+import { FaApple, FaGithub, FaGoogleDrive, FaGooglePlay } from "react-icons/fa";
 
 export default function ProjectDetails() {
 
@@ -89,19 +89,44 @@ export default function ProjectDetails() {
                     <p className="mt-2 text-justify">{project.description}</p>
                   </li>
                 </ul>
-                <div className="mt-6 flex flex-col space-y-3">
+                <div className="m-6 grid grid-cols-1 gap-4">
+                  {project.gitHubLink && (
+                    <a
+                      href={project.gitHubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={playAudio}
+                      className="
+                      group flex items-center gap-4 rounded-xl px-5 py-3
+                      bg-linear-to-r from-black via-neutral-900 to-neutral-800
+                      animated-border transition-all duration-300
+                      hover:-translate-y-1 hover:shadow-xl
+                    "
+                    >
+                      <FaGithub className="text-3xl text-white group-hover:scale-110 transition-transform" />
+                      <div className="flex flex-col leading-tight">
+                        <span className="text-xs text-gray-300">Source Code on</span>
+                        <span className="text-lg font-semibold text-white">GitHub</span>
+                      </div>
+                    </a>
+                  )}
                   {project.appStoreLink && (
                     <a
                       href={project.appStoreLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
                       onClick={playAudio}
+                      className="
+                      group flex items-center gap-4 rounded-xl px-5 py-3
+                      bg-[#909090]
+                      animated-border transition-all duration-300
+                      hover:-translate-y-1 hover:shadow-xl
+                    "
                     >
-                      <FaApple className="text-3xl mr-3" />
-                      <div className="flex flex-col">
-                        <span className="text-xs">Download on the</span>
-                        <span className="text-lg font-bold leading-none">App Store</span>
+                      <FaApple className="text-3xl text-white group-hover:scale-110 transition-transform" />
+                      <div className="flex flex-col leading-tight">
+                        <span className="text-xs text-gray-300">Download on the</span>
+                        <span className="text-lg font-semibold text-white">App Store</span>
                       </div>
                     </a>
                   )}
@@ -110,17 +135,43 @@ export default function ProjectDetails() {
                       href={project.playStoreLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
                       onClick={playAudio}
+                      className="
+                      group flex items-center gap-4 rounded-xl px-5 py-3
+                      bg-[#EA4335]
+                      animated-border transition-all duration-300
+                      hover:-translate-y-1 hover:shadow-xl
+                    "
                     >
-                      <FaGooglePlay className="text-2xl mr-3 ml-1" />
-                      <div className="flex flex-col">
-                        <span className="text-xs">Get It On</span>
-                        <span className="text-lg font-bold leading-none">Google Play</span>
+                      <FaGooglePlay className="text-3xl text-white group-hover:scale-110 transition-transform" />
+                      <div className="flex flex-col leading-tight">
+                        <span className="text-xs text-white/90">Get it on</span>
+                        <span className="text-lg font-semibold text-white">Google Play</span>
+                      </div>
+                    </a>
+                  )}
+                  {project.driveLink && (
+                    <a
+                      href={project.driveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={playAudio}
+                      className="
+                      group flex items-center gap-4 rounded-xl px-5 py-3
+                    bg-[#FBBC05]
+                      animated-border transition-all duration-300
+                      hover:-translate-y-1 hover:shadow-xl
+                    "
+                    >
+                      <FaGoogleDrive className="text-3xl text-white group-hover:scale-110 transition-transform" />
+                      <div className="flex flex-col leading-tight">
+                        <span className="text-xs text-white/80">Download from</span>
+                        <span className="text-lg font-semibold text-white">Drive</span>
                       </div>
                     </a>
                   )}
                 </div>
+
               </div>
               <div className="bg-white p-6 shadow-lg rounded-lg">
                 <h3 className="text-xl font-bold border-b border-gray-200 pb-4 mb-4 text-darkness-blue">
