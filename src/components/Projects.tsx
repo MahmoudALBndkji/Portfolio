@@ -5,7 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FaLink, FaExpand } from "react-icons/fa";
-import { projects, Project } from "@/data/projects";
+import { projects } from "@/data/projects";
+import { Project } from "@/app/types/project";
+import { filters } from "@/data/filters";
 
 export default function Projects() {
   const [filter, setFilter] = useState("*");
@@ -44,13 +46,7 @@ export default function Projects() {
         <div className="row" data-aos="fade-up" data-aos-delay="100">
           <div className="col-lg-12 flex justify-center mb-10">
             <ul className="relative flex items-center gap-2 bg-white/70 backdrop-blur-md p-2 rounded-full shadow-md border border-gray-200">
-
-              {[
-                { label: "All", value: "*" },
-                { label: "Mobile", value: ".filter-mobile" },
-                { label: "Web", value: ".filter-web" },
-                { label: "Desktop", value: ".filter-desktop" },
-              ].map((item) => (
+              {filters.map((item) => (
                 <li
                   key={item.value}
                   onClick={() => handleFilter(item.value)}

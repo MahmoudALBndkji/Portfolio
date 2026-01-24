@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
-import Image from "next/image";
-import { ReactTyped } from "react-typed";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { BiLogoLinkedin, BiLogoStackOverflow, BiLogoGithub, BiLogoBehance, BiLogoFacebook, BiLogoGoogle, BiCaretRight } from "react-icons/bi";
-import HeroImage from "../../public/assets/img/hero_scetion/hero-img.gif";
+import Image from "next/image";
+import { useEffect } from "react";
+import { ReactTyped } from "react-typed";
+import { heroLinks } from "@/data/heroLinks";
+import { BiCaretRight } from "react-icons/bi";
+import HeroImage from "@/../public/assets/img/hero_scetion/hero-img.gif";
 
 export default function Hero() {
   useEffect(() => {
@@ -59,7 +60,6 @@ export default function Hero() {
                 />
               </span>
             </div>
-
             <div className="flex justify-center lg:justify-start mb-8">
               <a
                 href="https://www.mediafire.com/file/6m5d0big9xfqwv3/CV_-_Mahmoud_AL_Bndkji%25282%2529.pdf/file"
@@ -71,14 +71,7 @@ export default function Hero() {
               </a>
             </div>
             <div className="flex justify-center lg:justify-start space-x-4 mb-10 lg:mb-0">
-              {[
-                { icon: BiLogoLinkedin, href: "https://www.linkedin.com/in/mahmoud-al-bndkji-619a14241", color: "#0077b5" },
-                { icon: BiLogoStackOverflow, href: "https://stackoverflow.com/users/19486739/mahmoud-al-bndkji", color: "#ef8236" },
-                { icon: BiLogoGithub, href: "https://github.com/MahmoudALBndkji", color: "#333" }, // GitHub dark
-                { icon: BiLogoBehance, href: "https://www.behance.net/mahmoudal-bndk1", color: "#053eff" },
-                { icon: BiLogoFacebook, href: "https://www.facebook.com/MahmoudALBndkji", color: "#1877f2" },
-                { icon: BiLogoGoogle, href: "mailto:mahmoudalbndkji@gmail.com", color: "#ea4335" },
-              ].map((social, index) => (
+              {heroLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
@@ -97,7 +90,6 @@ export default function Hero() {
               ))}
             </div>
           </div>
-
           <div
             className="w-full lg:w-1/2 order-1 lg:order-2 flex justify-center lg:justify-end hero-img"
             data-aos="zoom-in"

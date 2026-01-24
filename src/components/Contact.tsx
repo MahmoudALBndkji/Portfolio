@@ -1,7 +1,5 @@
-"use client";
-
-import { BiPhone, BiEnvelope } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
+import { BiPhone, BiEnvelope } from "react-icons/bi";
 
 export default function Contact() {
   return (
@@ -12,7 +10,6 @@ export default function Contact() {
             Contact
           </h2>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-all text-center group" data-aos="zoom-in" data-aos-delay="100">
             <div className="w-16 h-16 bg-[rgba(66,139,202,0.1)] text-light-blue rounded-full flex items-center justify-center text-3xl mx-auto mb-4 group-hover:bg-light-blue group-hover:text-white transition-colors duration-300">
@@ -29,7 +26,6 @@ export default function Contact() {
             <h4 className="text-xl font-bold mb-2 text-gray-800">Phone</h4>
             <p className="text-gray-600"><span className="text-light-blue">(+963)</span> 967140352</p>
           </div>
-
           <div className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-all text-center group" data-aos="zoom-in" data-aos-delay="300">
             <div className="w-16 h-16 bg-[rgba(66,139,202,0.1)] text-light-blue rounded-full flex items-center justify-center text-3xl mx-auto mb-4 group-hover:bg-light-blue group-hover:text-white transition-colors duration-300">
               <BiEnvelope />

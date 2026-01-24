@@ -1,21 +1,13 @@
 "use client";
 
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-export default function Techniques() {
-    const techniques = [
-        { name: "Dart", img: "/assets/img/techniques_section/dart.png" },
-        { name: "Flutter", img: "/assets/img/techniques_section/flutter.png" },
-        { name: "Kotlin", img: "/assets/img/techniques_section/kotlin.png" },
-        { name: "Swift", img: "/assets/img/techniques_section/swift.png" },
-        { name: "Ionic", img: "/assets/img/techniques_section/ionic.png" },
-        { name: "JavaScript", img: "/assets/img/techniques_section/js.png" },
-        { name: "TypeScript", img: "/assets/img/techniques_section/typescript.png" },
-    ];
+import Image from "next/image";
+import { techniques } from "@/data/techniques";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 
+export default function Techniques() {
     return (
         <section
             id="techniques"

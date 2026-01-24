@@ -1,26 +1,13 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Image from "next/image";
+import { certificates } from "@/data/certificates";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 
 export default function Certificates() {
-  const certificates = [
-    "/assets/img/certificates/1.jpg",
-    "/assets/img/certificates/2.jpg",
-    "/assets/img/certificates/3.jpg",
-    "/assets/img/certificates/4.jpg",
-    "/assets/img/certificates/5.jpg",
-    "/assets/img/certificates/6.jpg",
-    "/assets/img/certificates/7.jpg",
-    "/assets/img/certificates/8.jpg",
-    "/assets/img/certificates/9.jpg",
-    "/assets/img/certificates/10.jpg",
-    "/assets/img/certificates/11.png",
-  ];
-
   return (
     <section id="certificates" className="py-20 bg-[#f5f8fd]">
       <div className="container mx-auto px-4" data-aos="fade-up">
@@ -61,7 +48,7 @@ export default function Certificates() {
             <SwiperSlide key={index} className="flex justify-center items-center">
               <div className="relative w-full h-75 md:h-100">
                  <Image
-                  src={cert}
+                  src={cert.src}
                   alt={`Certificate ${index + 1}`}
                   fill
                   className="object-contain"
