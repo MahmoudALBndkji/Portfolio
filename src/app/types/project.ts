@@ -17,5 +17,6 @@ export interface Project {
   playStoreLink?: string;
   driveLink?: string;
   gitHubLink?: string;
+  webLink?: string;
   keywords?: string;
 }

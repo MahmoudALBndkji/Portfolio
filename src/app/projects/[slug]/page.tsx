@@ -5,13 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import "swiper/css/pagination";
 import { projects } from "@/data/projects";
+import { BsBrowserChrome } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { notFound, useParams } from "next/navigation";
 import { FaApple, FaGithub, FaGoogleDrive, FaGooglePlay } from "react-icons/fa";
 
 export default function ProjectDetails() {
-
   const { slug } = useParams();
   const project = projects.find((p) => p.id === slug);
   if (!project) {
@@ -86,10 +86,10 @@ export default function ProjectDetails() {
                   )}
                   <li>
                     <strong className="text-darkness-blue">Description:</strong>
-                    <p className="mt-2 text-justify">{project.description}</p>
+                    <p className="mt-2">{project.description}</p>
                   </li>
                 </ul>
-                <div className="m-6 grid grid-cols-1 gap-4">
+                <div className="m-6 mb-0 grid grid-cols-1 gap-4">
                   {project.gitHubLink && (
                     <a
                       href={project.gitHubLink}
@@ -107,6 +107,26 @@ export default function ProjectDetails() {
                       <div className="flex flex-col leading-tight">
                         <span className="text-xs text-gray-300">Source Code on</span>
                         <span className="text-lg font-semibold text-white">GitHub</span>
+                      </div>
+                    </a>
+                  )}
+                  {project.webLink && (
+                    <a
+                      href={project.webLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={playAudio}
+                      className="
+                      group flex items-center gap-4 rounded-xl px-5 py-3
+                      bg-[#1A6FE1]
+                      animated-border transition-all duration-300
+                      hover:-translate-y-1 hover:shadow-xl
+                    "
+                    >
+                      <BsBrowserChrome className="text-3xl text-white group-hover:scale-110 transition-transform" />
+                      <div className="flex flex-col leading-tight">
+                        <span className="text-xs text-gray-300">Explore on</span>
+                        <span className="text-lg font-semibold text-white">Web Browser</span>
                       </div>
                     </a>
                   )}

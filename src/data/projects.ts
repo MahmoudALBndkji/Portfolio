@@ -36,8 +36,6 @@ export const projects: Project[] = [
     images: NewparkImgs,
     appStoreLink:
       "https://apps.apple.com/tr/app/newpark-agents/id6476807006?l=tr",
-    playStoreLink:
-      "https://play.google.com/store/apps/details?id=newpark.agentMobileApplication&hl=en_US&gl=US",
   },
   {
     id: "time-attendance",
@@ -54,10 +52,6 @@ export const projects: Project[] = [
     ],
     mainImage: TimeAttendanceImgs[0],
     images: TimeAttendanceImgs,
-    appStoreLink:
-      "https://apps.apple.com/us/app/mew-time-attendance/id6478931662",
-    playStoreLink:
-      "https://play.google.com/store/apps/details?id=com.mew.time_attendance",
   },
   {
     id: "treema",
@@ -73,9 +67,7 @@ export const projects: Project[] = [
     ],
     mainImage: TreemaImgs[0],
     images: TreemaImgs,
-    appStoreLink: "https://apps.apple.com/kz/app/treema/id6503222383",
-    playStoreLink:
-      "https://play.google.com/store/apps/details?id=com.treema.app&hl=en",
+    webLink: "https://treema-collection.store",
   },
   {
     id: "spot-books-pos",
@@ -91,8 +83,7 @@ export const projects: Project[] = [
     ],
     mainImage: SpotBooksImgs[0],
     images: SpotBooksImgs,
-    playStoreLink:
-      "https://play.google.com/store/apps/details?id=com.spotbooks.pos&hl=en",
+    webLink: "https://spotbooks.app/",
   },
   {
     id: "open-vpn",
@@ -104,7 +95,9 @@ export const projects: Project[] = [
     technologies: ["Flutter", "OpenVPN Protocol"],
     mainImage: OpenVpnImgs[0],
     images: OpenVpnImgs,
-    playStoreLink: "https://play.google.com/store/apps/details?id=com.open.vpn",
+    gitHubLink: "https://github.com/MahmoudALBndkji/Flutter-Open-Vpn-App",
+    driveLink:
+      "https://drive.google.com/drive/folders/1Fy50TROQopNtBhVLjeeZkEnFfuVRN0jV",
   },
   {
     id: "asset-management",
@@ -127,6 +120,7 @@ export const projects: Project[] = [
     technologies: ["Flutter", "Bluetooth", "State Management : Bloc"],
     mainImage: RdsBoxImgs[0],
     images: RdsBoxImgs,
+    appStoreLink: "https://apps.apple.com/us/app/rds-box/id6744166951",
   },
   {
     id: "wafra",
@@ -138,9 +132,10 @@ export const projects: Project[] = [
     technologies: ["Flutter", "API", "State Management : Bloc"],
     mainImage: WafraImgs[0],
     images: WafraImgs,
-    appStoreLink: "https://apps.apple.com/kw/app/wafra/id6476486000",
+    appStoreLink:
+      "https://apps.apple.com/us/app/%D8%AC%D9%85%D8%B9%D9%8A%D8%A9-%D8%A7%D9%84%D9%88%D9%81%D8%B1%D8%A9-%D8%A7%D9%84%D8%B2%D8%B1%D8%A7%D8%B9%D9%8A%D8%A9/id6499200202",
     playStoreLink:
-      "https://play.google.com/store/apps/details?id=com.wafra.app",
+      "https://play.google.com/store/apps/details?id=app.wafra.victoryArch&hl=en_US&gl=US&pli=1",
   },
   {
     id: "beacon-reader",
@@ -152,6 +147,8 @@ export const projects: Project[] = [
     technologies: ["Flutter", "Beacons", "State Management : Bloc"],
     mainImage: BeaconReaderImgs[0],
     images: BeaconReaderImgs,
+    driveLink:
+      "https://drive.google.com/drive/folders/17oQmW2LcV-cbd1w45qGrOxcgQ0ZLAjaq",
   },
   {
     id: "alsafa-exchange",
@@ -168,9 +165,9 @@ export const projects: Project[] = [
     ],
     mainImage: AlsafaExchangeImgs[0],
     images: AlsafaExchangeImgs,
-    appStoreLink: "https://apps.apple.com/app/alsafa-exchange/id6739328522",
+    appStoreLink: "https://apps.apple.com/us/app/alsafa-exchange/id6739005056",
     playStoreLink:
-      "https://play.google.com/store/apps/details?id=com.alsafa.exchange",
+      "https://play.google.com/store/apps/details?id=com.exchange_app.safa&hl=en_US&gl=US",
   },
   {
     id: "trasool-online",
@@ -227,6 +224,7 @@ export const projects: Project[] = [
     ],
     mainImage: SallateImgs[0],
     images: SallateImgs,
+    gitHubLink:"https://github.com/MahmoudALBndkji/Sallate",
   },
   {
     id: "world-news",
@@ -241,6 +239,7 @@ export const projects: Project[] = [
     ],
     mainImage: WorldNewsImgs[0],
     images: WorldNewsImgs,
+    driveLink:"https://github.com/MahmoudALBndkji/News-App",
   },
   {
     id: "ponder-more",
@@ -265,6 +264,7 @@ export const projects: Project[] = [
     technologies: ["C#", "Access Database", "File Handling"],
     mainImage: DatabaseManagementImgs[0],
     images: DatabaseManagementImgs,
+    gitHubLink:"https://github.com/MahmoudALBndkji/Database-Management",
   },
   {
     id: "mall-to-go",
