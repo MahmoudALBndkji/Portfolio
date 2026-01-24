@@ -8,6 +8,7 @@ import { ReactTyped } from "react-typed";
 import { heroLinks } from "@/data/heroLinks";
 import { BiCaretRight } from "react-icons/bi";
 import HeroImage from "@/../public/assets/img/hero_scetion/hero-img.gif";
+import HiImage from "@/../public/assets/img/hero_scetion/hi.gif";
 
 export default function Hero() {
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function Hero() {
             <h2 className="text-xl md:text-2xl font-medium mb-4 flex items-center text-[rgba(255,255,255,0.8)] font-jost sm:justify-center lg:justify-start">
               Welcome To My Portfolio !
               <span className="ml-2 wave">
-                <Image src="/assets/img/hero_scetion/hi.gif" alt="hi" width={35} height={35} />
+                <Image src={HiImage} alt="hi" width={35} height={35} unoptimized/>
               </span>
             </h2>
             <h1 className="text-3xl lg:text-4xl font-bold mb-4 font-jost text-white text-nowrap sm:text-center lg:text-start">Mahmoud AL-Bndkji</h1>
@@ -102,6 +103,7 @@ export default function Hero() {
               width={500}
               height={500}
               priority
+              unoptimized
             />
           </div>
         </div>

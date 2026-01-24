@@ -3,11 +3,12 @@
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { FaLink, FaExpand } from "react-icons/fa";
-import { projects } from "@/data/projects";
-import { Project } from "@/app/types/project";
 import { filters } from "@/data/filters";
+import { projects } from "@/data/projects";
+import { useState, useEffect } from "react";
+import { Project } from "@/app/types/project";
+import { FaLink, FaExpand } from "react-icons/fa";
+import { resolveImageSrc } from "@/utils/image";
 
 export default function Projects() {
   const [filter, setFilter] = useState("*");
@@ -101,7 +102,7 @@ export default function Projects() {
                     <FaLink />
                   </Link>
                   <a
-                    href={project.mainImage}
+                    href={resolveImageSrc(project.mainImage)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-darkness-blue hover:text-middle-blue text-2xl transition-transform hover:scale-110"
