@@ -1,0 +1,52 @@
+<!--
+  TEMPLATE — Portfolio project detail pages (see also scripts/detail-page-skeleton.html)
+
+  Each *_details.html file is generated from the skeleton. To add a new project:
+  1. Add an entry to scripts/build-portfolio-details.cjs (same shape as other keys).
+  2. Run: node scripts/build-portfolio-details.cjs
+  3. Add a line to scripts/write-detail-pages.cjs → pages map.
+  4. Run: node scripts/write-detail-pages.cjs
+
+  Shared layout + behavior: assets/js/portfolio-detail-page.js
+  Content + flags: assets/data/portfolio-details.json (generated from the .cjs file)
+-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Portfolio · Project details</title>
+  <meta content="Project details — Mahmoud AL-Bndkji portfolio." name="description" />
+  <meta content="portfolio, project, Mahmoud AL-Bndkji" name="keywords" />
+  <link href="assets/img/logo/mainPage.png" rel="icon" />
+  <link href="assets/img/logo/mainPage.png" rel="apple-touch-icon" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+</head>
+
+<body oncontextmenu="return false;">
+  <div id="portfolio-detail-root" aria-busy="true" aria-live="polite"></div>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script>
+    var buttonAudio = new Audio();
+    buttonAudio.src = "assets/audios/mouseClick.mp3";
+    window.__PORTFOLIO_DETAIL_ID__ = "your_project_key";
+  </script>
+  <script src="assets/js/portfolio-detail-page.js"></script>
+</body>
+
+</html>
