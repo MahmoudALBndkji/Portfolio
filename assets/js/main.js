@@ -125,25 +125,46 @@
       }
     }
   });
-  // Orginal Preloader
+  // Preloader: remove when fully loaded; failsafe so slow assets never block UI forever
   let preloader = select("#preloader");
   if (preloader) {
-    window.addEventListener("load", () => {
-      preloader.remove();
+    const hidePreloader = () => {
+      if (preloader && preloader.parentNode) preloader.remove();
+    };
+    window.addEventListener("load", hidePreloader);
+    window.setTimeout(hidePreloader, 10000);
+  }
+  // Lightbox: single instance for both selectors (saves work & memory)
+  if (
+    typeof GLightbox !== "undefined" &&
+    (document.querySelector(".glightbox") ||
+      document.querySelector(".portfolio-lightbox"))
+  ) {
+    GLightbox({
+      selector: ".glightbox, .portfolio-lightbox",
     });
   }
-  // Initiate  glightbox
-  const glightbox = GLightbox({
-    selector: ".glightbox",
-  });
-  //  Porfolio isotope and filter
+  // Portfolio isotope and filter (home page only)
   window.addEventListener("load", () => {
     let portfolioContainer = select(".portfolio-container");
-    if (portfolioContainer) {
+    if (portfolioContainer && typeof Isotope !== "undefined") {
       let portfolioIsotope = new Isotope(portfolioContainer, {
         itemSelector: ".portfolio-item",
       });
       let portfolioFilters = select("#portfolio-flters li", true);
+      const reflowPortfolio = () => {
+        portfolioIsotope.layout();
+        if (typeof AOS !== "undefined") {
+          AOS.refresh();
+        }
+      };
+      portfolioContainer
+        .querySelectorAll(".portfolio-item img")
+        .forEach(function (img) {
+          if (img.complete) return;
+          img.addEventListener("load", reflowPortfolio, { once: true });
+          img.addEventListener("error", reflowPortfolio, { once: true });
+        });
       on(
         "click",
         "#portfolio-flters li",
@@ -164,88 +185,79 @@
       );
     }
   });
-  // Initiate portfolio lightbox
-  const portfolioLightbox = GLightbox({
-    selector: ".portfolio-lightbox",
-  });
-  // Portfolio details slider
-  new Swiper(".portfolio-details-slider", {
-    speed: 400,
+  // Portfolio details slider (project detail pages only)
+  if (
+    typeof Swiper !== "undefined" &&
+    document.querySelector(".portfolio-details-slider")
+  ) {
+    new Swiper(".portfolio-details-slider", {
+      speed: 400,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        type: "bullets",
+        clickable: true,
+      },
+    });
+  }
+  // AOS: start after DOM is ready (faster than waiting for full load)
+  function initAOS() {
+    if (typeof AOS !== "undefined") {
+      AOS.init({
+        duration: 1000,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false,
+      });
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAOS);
+  } else {
+    initAOS();
+  }
+})();
+
+// Tools section swiper (home page only; .slides-1 removed — was unused in markup)
+if (typeof Swiper !== "undefined" && document.querySelector(".slides-3")) {
+  new Swiper(".slides-3", {
+    speed: 800,
     loop: true,
     autoplay: {
-      delay: 5000,
+      delay: 1500,
       disableOnInteraction: false,
     },
+    slidesPerView: "auto",
     pagination: {
       el: ".swiper-pagination",
       type: "bullets",
       clickable: true,
     },
-  });
-  // Animation on scroll
-  window.addEventListener("load", () => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: true,
-      mirror: false,
-    });
-  });
-})();
-
-// Init swiper slider with 1 slide at once in desktop view
-new Swiper(".slides-1", {
-  speed: 800,
-  loop: true,
-  autoplay: {
-    delay: 1500,
-    disableOnInteraction: false,
-  },
-  slidesPerView: "auto",
-  pagination: {
-    el: ".swiper-pagination",
-    type: "bullets",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
-
-// Init swiper slider with 3 slides at once in desktop view
-new Swiper(".slides-3", {
-  speed: 800,
-  loop: true,
-  autoplay: {
-    delay: 1500,
-    disableOnInteraction: false,
-  },
-  slidesPerView: "auto",
-  pagination: {
-    el: ".swiper-pagination",
-    type: "bullets",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  breakpoints: {
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 40,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
-    1200: {
-      slidesPerView: 3,
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 40,
+      },
+      1200: {
+        slidesPerView: 3,
+      },
     },
-  },
-});
-// Close NavBar When Width Bigger Tablet or More
-const closeNavMobile = (size) =>
-  size.matches
-    ? document.querySelector(".mobile-nav-toggle.bi-x").click()
-    : null;
+  });
+}
+
+const closeNavMobile = (size) => {
+  if (!size.matches) return;
+  const toggle = document.querySelector(".mobile-nav-toggle.bi-x");
+  if (toggle) toggle.click();
+};
 window
   .matchMedia("(min-width: 992px)")
   .addEventListener("change", closeNavMobile);
@@ -322,15 +334,19 @@ window
 //   </nav>
 // </div>`;
 
-// Footer Component Details Project
-document.querySelector(".footer").innerHTML = `
-<div class="container footer-bottom clearfix">
-  <div class="copyright">
-    <span class="reserved"> &copy; Copyright </span>
-    <strong><span>Mahmoud AL-Bndkji</span></strong>
-  </div>
-  <div class="developed">
-    Developed with <span title="Thanks For Browsing">&#10084;</span>
-  </div>
-</div>`;
+// Footer (pages without <footer class="footer"> skip safely)
+(function () {
+  var footer = document.querySelector(".footer");
+  if (!footer) return;
+  footer.innerHTML =
+    '<div class="container footer-bottom clearfix">' +
+    '<div class="copyright">' +
+    '<span class="reserved"> &copy; Copyright </span>' +
+    "<strong><span>Mahmoud AL-Bndkji</span></strong>" +
+    "</div>" +
+    '<div class="developed">' +
+    'Developed with <span title="Thanks For Browsing">&#10084;</span>' +
+    "</div>" +
+    "</div>";
+})();
 

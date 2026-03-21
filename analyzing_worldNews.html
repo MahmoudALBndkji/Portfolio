@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta name="theme-color" content="#209dd8" />
   <title>Analyzing World News</title>
   <meta content="Diagrams Make Abstract ideas and software systems easier to
     understand through visualization. This is beneficial for
@@ -16,9 +17,10 @@
   <!-- Favicons -->
   <link href="assets/img/logo/statistics.png" rel="icon" />
   <link href="assets/img/logo/statistics.png" rel="apple-touch-icon" />
-  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
     rel="stylesheet" />
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
@@ -26,7 +28,6 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
   <!-- Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet" />
 </head>
@@ -221,22 +222,18 @@
     <!-- End Accordion Analyzing -->
   </main>
   <!-- End #main -->
+  <footer id="footer" class="footer" aria-label="Footer"></footer>
   <div id="preloader"></div>
   <a onclick="buttonAudio.play();" href="#" title="Up"
     class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-  <!-- Vendor Js Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script defer src="assets/vendor/aos/aos.js"></script>
+  <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script defer src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script>
-    const buttonAudio = new Audio();
-    buttonAudio.src = "/assets/audios/mouseClick.mp3";
+    var buttonAudio = new Audio();
+    buttonAudio.src = "assets/audios/mouseClick.mp3";
   </script>
-  <!-- Main Js File -->
-  <script src="assets/js/main.js"></script>
+  <script defer src="assets/js/main.js"></script>
 </body>
 
 </html>
