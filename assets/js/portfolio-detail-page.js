@@ -18,6 +18,16 @@
       .replace(/"/g, "&quot;");
   }
 
+  var THEME_SWITCHER_HTML =
+    '<div class="theme-switcher" id="theme-switcher" role="group" aria-label="Color theme">' +
+    '<button type="button" class="theme-switcher__btn" data-set-theme="system" title="Match system theme" aria-pressed="false">' +
+    '<i class="bi bi-circle-half" aria-hidden="true"></i><span class="visually-hidden">System</span></button>' +
+    '<button type="button" class="theme-switcher__btn" data-set-theme="light" title="Light theme" aria-pressed="false">' +
+    '<i class="bi bi-sun-fill" aria-hidden="true"></i><span class="visually-hidden">Light</span></button>' +
+    '<button type="button" class="theme-switcher__btn" data-set-theme="dark" title="Dark theme" aria-pressed="false">' +
+    '<i class="bi bi-moon-stars-fill" aria-hidden="true"></i><span class="visually-hidden">Dark</span></button>' +
+    "</div>";
+
   function storeButtonMarkup(btn) {
     var cls =
       {
@@ -47,33 +57,35 @@
 
   function renderChrome(data) {
     return (
-      '<header id="header" class="header fixed-top" aria-label="Header">' +
+      '<header id="header" class="header fixed-top header-inner-pages" aria-label="Header">' +
       '<div class="container d-flex align-items-center">' +
       '<a href="index.html">' +
       '<h1 class="logo me-auto" title="logo">' +
       '<img src="assets/img/hero_scetion/leftTag.png" alt="" loading="lazy" />' +
-      '<a href="index.html" style="color: #209dd8">Mahmoud</a>' +
+      '<a href="index.html">Mahmoud</a>' +
       '<a href="index.html">' +
       '<img src="assets/img/hero_scetion/rightTag.png" alt="" loading="lazy" />' +
       "</a>" +
       "</h1>" +
       "</a>" +
+      '<div class="header-actions">' +
       '<nav id="navbar" class="navbar" aria-label="Navbar">' +
-      "<ul>" +
+      '<div class="mobile-nav-backdrop" aria-hidden="true"></div>' +
+      '<ul id="primary-navigation">' +
       '<li title="Home" onclick="buttonAudio.play();">' +
       '<a class="nav-link scrollto active" href="index.html#hero">Home</a>' +
       "</li>" +
       '<li title="About" onclick="buttonAudio.play();">' +
-      '<a class="nav-link scrollto" href="index.html#about" style="color: #209dd8">About</a>' +
+      '<a class="nav-link scrollto" href="index.html#about">About</a>' +
       "</li>" +
       '<li title="Projects" onclick="buttonAudio.play();">' +
-      '<a class="nav-link scrollto" href="index.html#portfolio" style="color: #209dd8">Projects</a>' +
+      '<a class="nav-link scrollto" href="index.html#portfolio">Projects</a>' +
       "</li>" +
       '<li title="Tools" onclick="buttonAudio.play();">' +
-      '<a class="nav-link scrollto" href="index.html#tools" style="color: #209dd8">Tools</a>' +
+      '<a class="nav-link scrollto" href="index.html#tools">Tools</a>' +
       "</li>" +
       '<li title="Contact" onclick="buttonAudio.play();">' +
-      '<a class="nav-link scrollto" href="index.html#contact" style="color: #209dd8">Contact</a>' +
+      '<a class="nav-link scrollto" href="index.html#contact">Contact</a>' +
       "</li>" +
       '<li title="Download CV" id="list-download-cv">' +
       '<a class="nav-link scrollto" href="' +
@@ -81,8 +93,14 @@
       '" target="_blank">Download CV</a>' +
       "</li>" +
       "</ul>" +
-      '<i class="bi bi-list mobile-nav-toggle" style="color: #209dd8"></i>' +
-      "</nav>" +
+      '<button type="button" class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open menu">' +
+      '<span class="mobile-nav-toggle__box" aria-hidden="true">' +
+      '<span class="mobile-nav-toggle__bar"></span>' +
+      '<span class="mobile-nav-toggle__bar"></span>' +
+      '<span class="mobile-nav-toggle__bar"></span>' +
+      "</span></button></nav>" +
+      THEME_SWITCHER_HTML +
+      "</div>" +
       "</div>" +
       "</header>" +
       '<main id="main">' +
@@ -112,6 +130,9 @@
       "</div>" +
       '<div class="col-lg-4">' +
       '<div class="portfolio-info">' +
+      (data.category
+        ? '<p class="project-chip">' + escapeHtml(data.category) + "</p>"
+        : "") +
       "<h3>Project information</h3>" +
       "<ul>" +
       renderInfoList(data) +
@@ -259,6 +280,27 @@
     );
   }
 
+  function upsertMeta(attrName, attrValue, content) {
+    if (content == null || content === "") return;
+    var el = document.querySelector(
+      "meta[" + attrName + '="' + attrValue + '"]'
+    );
+    if (!el) {
+      el = document.createElement("meta");
+      el.setAttribute(attrName, attrValue);
+      document.head.appendChild(el);
+    }
+    el.setAttribute("content", content);
+  }
+
+  function absoluteUrl(path) {
+    try {
+      return new URL(path, window.location.href).href;
+    } catch (e) {
+      return path;
+    }
+  }
+
   function applyHeadMeta(data) {
     if (data.metaTitle) {
       document.title = data.metaTitle;
@@ -277,6 +319,21 @@
       .forEach(function (link) {
         link.setAttribute("href", icon);
       });
+
+    var ogTitle = data.metaTitle || document.title;
+    var ogDesc = data.metaDescription || "";
+    var ogImgSrc =
+      data.ogImage ||
+      (data.gallery && data.gallery[0] && data.gallery[0].src) ||
+      icon;
+    upsertMeta("property", "og:type", "article");
+    upsertMeta("property", "og:title", ogTitle);
+    upsertMeta("property", "og:description", ogDesc);
+    upsertMeta("property", "og:image", absoluteUrl(ogImgSrc));
+    upsertMeta("name", "twitter:card", "summary_large_image");
+    upsertMeta("name", "twitter:title", ogTitle);
+    upsertMeta("name", "twitter:description", ogDesc);
+    upsertMeta("name", "twitter:image", absoluteUrl(ogImgSrc));
   }
 
   function showError(root, message) {
@@ -333,6 +390,9 @@
         }
         applyHeadMeta(data);
         root.outerHTML = renderChrome(data);
+        if (window.__portfolioTheme && window.__portfolioTheme.refresh) {
+          window.__portfolioTheme.refresh();
+        }
         loadMainJs();
       })
       .catch(function (err) {

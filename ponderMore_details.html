@@ -3,8 +3,25 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <meta name="theme-color" content="#209dd8" />
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
+  <meta name="theme-color" content="#e8f4fb" />
+  <script>
+    (function () {
+      try {
+        var k = "portfolio-color-scheme-pref";
+        var v = localStorage.getItem(k);
+        if (v === "light" || v === "dark") {
+          document.documentElement.setAttribute("data-color-scheme", v);
+        }
+        var dark =
+          v === "dark" ||
+          (v !== "light" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.setAttribute("content", dark ? "#0f172a" : "#e8f4fb");
+      } catch (e) {}
+    })();
+  </script>
   <title>Portfolio · Project details</title>
   <meta content="Project details — Mahmoud AL-Bndkji portfolio." name="description" />
   <meta content="portfolio, project, Mahmoud AL-Bndkji" name="keywords" />
@@ -25,6 +42,7 @@
 </head>
 
 <body oncontextmenu="return false;">
+  <a class="skip-link" href="#main">Skip to main content</a>
   <div id="portfolio-detail-root" aria-busy="true" aria-live="polite"></div>
   <script defer src="assets/vendor/aos/aos.js"></script>
   <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -35,6 +53,7 @@
     buttonAudio.src = "assets/audios/mouseClick.mp3";
     window.__PORTFOLIO_DETAIL_ID__ = "ponderMore";
   </script>
+  <script defer src="assets/js/theme-switcher.js"></script>
   <script defer src="assets/js/portfolio-detail-page.js"></script>
 </body>
 
