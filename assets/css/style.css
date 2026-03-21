@@ -339,7 +339,6 @@ hr#sperator {
   padding: 15px 0px;
   padding-top: calc(15px + env(safe-area-inset-top, 0px));
   border-bottom: 1px solid transparent;
-  transform: translate3d(0, 0, 0);
   opacity: 1;
 }
 
@@ -357,13 +356,15 @@ hr#sperator {
  * That pins position:fixed #navbar.navbar-mobile to the header strip after
  * scroll — the sheet/backdrop look clipped or “wrong”. While the drawer is
  * open we drop the filter and lift stacking so the overlay covers the viewport.
+ * transform: none — any transform on #header makes fixed descendants use the
+ * header box as their containing block (~60px tall), so the drawer stays short.
  */
 body.mobile-nav-open #header {
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
   z-index: 9998;
   overflow: visible;
-  transform: translate3d(0, 0, 0) !important;
+  transform: none !important;
   opacity: 1 !important;
   transition-delay: 0s, 0s, 0s, 0s, 0s, 0s !important;
   pointer-events: auto !important;
@@ -736,14 +737,17 @@ body.mobile-nav-open {
   flex-direction: column;
   gap: 0.2rem;
   position: fixed;
-  top: calc(12px + env(safe-area-inset-top, 0px));
+  /* Full viewport height (requires #header transform:none while open — see above) */
+  top: 0;
+  bottom: max(5rem, calc(env(safe-area-inset-bottom, 0px) + 0.85rem));
   /* Leave gutter for fixed toggle on the right */
   right: calc(12px + 2.75rem + 10px + env(safe-area-inset-right, 0px));
-  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
   left: auto;
   width: min(19.5rem, calc(100vw - 3.5rem - 2.75rem));
+  box-sizing: border-box;
   margin: 0;
-  padding: 4.25rem 0.85rem 1.25rem;
+  padding: max(4.25rem, calc(env(safe-area-inset-top, 0px) + 3.25rem)) 0.85rem
+    max(1.5rem, calc(env(safe-area-inset-bottom, 0px) + 1rem));
   list-style: none;
   z-index: 1001;
   pointer-events: auto;
@@ -751,11 +755,11 @@ body.mobile-nav-open {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   border-radius: 1.35rem;
+  /* Solid fill so light page content never “bleaches” the sheet (was washing out link contrast). */
   background: var(--surface-elevated);
-  background: color-mix(in srgb, var(--surface-elevated) 88%, transparent);
-  -webkit-backdrop-filter: blur(22px) saturate(1.2);
-  backdrop-filter: blur(22px) saturate(1.2);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(20px) saturate(1.15);
+  backdrop-filter: blur(20px) saturate(1.15);
+  border: 1px solid var(--border-strong);
   box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.45),
     0 0 0 1px rgba(255, 255, 255, 0.06) inset;
   transform: translate3d(108%, 0, 0);
@@ -772,9 +776,19 @@ body.mobile-nav-open {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--darkGrayishBlue);
-  opacity: 0.85;
+  color: #64748b;
+  opacity: 0.95;
   pointer-events: none;
+}
+
+:root[data-color-scheme="dark"] .navbar-mobile ul::before {
+  color: #94a3b8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-color-scheme]) .navbar-mobile ul::before {
+    color: #94a3b8;
+  }
 }
 
 @keyframes mobile-nav-backdrop-in {
@@ -801,19 +815,17 @@ body.mobile-nav-open {
 
 @keyframes mobile-nav-item-in {
   from {
-    opacity: 0;
-    transform: translateX(12px);
+    transform: translateX(10px);
   }
 
   to {
-    opacity: 1;
     transform: translateX(0);
   }
 }
 
 .navbar-mobile ul li {
-  opacity: 0;
-  animation: mobile-nav-item-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 1;
+  animation: mobile-nav-item-in 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .navbar-mobile ul li:nth-child(1) {
@@ -851,7 +863,7 @@ body.mobile-nav-open {
   font-weight: 600;
   font-family: "Jost", sans-serif;
   letter-spacing: -0.02em;
-  color: var(--darknessBlue);
+  color: #0f172a;
   border-radius: 12px;
   transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out),
     transform 0.28s var(--ease-out);
@@ -860,19 +872,34 @@ body.mobile-nav-open {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  background: rgba(30, 157, 215, 0.12);
-  background: color-mix(in srgb, var(--middleBlue) 16%, transparent);
-  color: var(--middleBlue);
+  background: rgba(30, 157, 215, 0.14);
+  color: #0369a1;
   transform: translateX(2px);
 }
 
-:root[data-color-scheme="dark"] .navbar-mobile ul::before {
-  color: rgba(203, 213, 225, 0.75);
+:root[data-color-scheme="dark"] .navbar-mobile a,
+:root[data-color-scheme="dark"] .navbar-mobile a:focus {
+  color: #f1f5f9;
+}
+
+:root[data-color-scheme="dark"] .navbar-mobile a:hover,
+:root[data-color-scheme="dark"] .navbar-mobile .active,
+:root[data-color-scheme="dark"] .navbar-mobile li:hover > a {
+  background: rgba(56, 189, 248, 0.12);
+  color: #7dd3fc;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-color-scheme]) .navbar-mobile ul::before {
-    color: rgba(203, 213, 225, 0.75);
+  :root:not([data-color-scheme]) .navbar-mobile a,
+  :root:not([data-color-scheme]) .navbar-mobile a:focus {
+    color: #f1f5f9;
+  }
+
+  :root:not([data-color-scheme]) .navbar-mobile a:hover,
+  :root:not([data-color-scheme]) .navbar-mobile .active,
+  :root:not([data-color-scheme]) .navbar-mobile li:hover > a {
+    background: rgba(56, 189, 248, 0.12);
+    color: #7dd3fc;
   }
 }
 
@@ -891,7 +918,7 @@ body.mobile-nav-open {
 .navbar-mobile .getstarted,
 .navbar-mobile .getstarted:focus {
   margin: 15px;
-  color: var(--darknessBlue);
+  color: #0f172a;
 }
 
 @media (prefers-reduced-motion: reduce) {

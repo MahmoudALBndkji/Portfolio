@@ -150,11 +150,12 @@
     const navbar = select("#navbar");
     const toggle = select(".mobile-nav-toggle");
     if (!navbar || !toggle) return;
+    /* Body class first so #header drops backdrop-filter/transform before the drawer mounts (fixed positioning uses viewport). */
+    document.body.classList.add("mobile-nav-open");
     navbar.classList.add("navbar-mobile");
     toggle.classList.add("is-open");
     toggle.setAttribute("aria-expanded", "true");
     toggle.setAttribute("aria-label", "Close menu");
-    document.body.classList.add("mobile-nav-open");
     updateHeroMobileHeaderHidden();
   };
 
