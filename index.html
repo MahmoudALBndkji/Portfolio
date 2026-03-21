@@ -3,11 +3,37 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <meta name="theme-color" content="#209dd8" />
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
+  <meta name="theme-color" content="#e8f4fb" />
+  <script>
+    (function () {
+      try {
+        var k = "portfolio-color-scheme-pref";
+        var v = localStorage.getItem(k);
+        if (v === "light" || v === "dark") {
+          document.documentElement.setAttribute("data-color-scheme", v);
+        }
+        var dark =
+          v === "dark" ||
+          (v !== "light" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.setAttribute("content", dark ? "#0f172a" : "#e8f4fb");
+      } catch (e) {}
+    })();
+  </script>
   <title>Mahmoud AL-Bndkji Portfolio</title>
-  <meta content="A Mobile Application Developer, My expertise spans Swift for iOS development, Kotlin for Android
-  development, and Dart for Flutter, allowing me to craft seamless cross-platform applications" name="description" />
+  <meta content="Mobile application developer — Swift, Kotlin, Dart &amp; Flutter. Cross-platform apps with polished UI and solid engineering." name="description" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mahmoud AL-Bndkji — Portfolio" />
+  <meta property="og:description"
+    content="Mobile application developer — Swift, Kotlin, Dart &amp; Flutter. Cross-platform apps with polished UI and solid engineering." />
+  <meta property="og:image" content="assets/img/logo/mainPage.png" />
+  <meta name="twitter:image" content="assets/img/logo/mainPage.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mahmoud AL-Bndkji — Portfolio" />
+  <meta name="twitter:description"
+    content="Mobile application developer — Swift, Kotlin, Dart &amp; Flutter. Cross-platform apps with polished UI and solid engineering." />
   <meta
     content="Mahmoud AL-Bndkji Portfolio, Mahmoud AL-Bndkji, Mahmoud Portfolio, AL-Bndkji Portfolio, Software Engineer, Mobile Applicatoin Developer, Flutter Developer, Web Developer, Front-End Developer, Desktop Developer, Programmer"
     name="keywords" />
@@ -44,37 +70,88 @@
           </a>
         </h1>
       </a>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li title="Home" onclick="buttonAudio.play();">
-            <a class="nav-link scrollto active" href="#hero">Home</a>
-          </li>
-          <li title="About" onclick="buttonAudio.play();">
-            <a class="nav-link scrollto" href="#about">About</a>
-          </li>
-          <li title="Projects" onclick="buttonAudio.play();">
-            <a class="nav-link scrollto" href="#portfolio">Projects</a>
-          </li>
-          <li title="Tools" onclick="buttonAudio.play();">
-            <a class="nav-link scrollto" href="#tools">Tools</a>
-          </li>
-          <li title="Contact" onclick="buttonAudio.play();">
-            <a class="nav-link scrollto" href="#contact">Contact</a>
-          </li>
-          <li title="Download CV" id="list-download-cv" onclick="buttonAudio.play();">
-            <a class="nav-link scrollto"
-              href="https://www.mediafire.com/file/6m5d0big9xfqwv3/CV_-_Mahmoud_AL_Bndkji%25282%2529.pdf/file"
-              target="_blank">Download CV</a>
-          </li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
+      <div class="header-actions">
+        <nav id="navbar" class="navbar" aria-label="Primary">
+          <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+          <ul id="primary-navigation">
+            <li title="Home" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto active" href="#hero">Home</a>
+            </li>
+            <li title="About" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="#about">About</a>
+            </li>
+            <li title="Projects" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="#portfolio">Projects</a>
+            </li>
+            <li title="Tools" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="#tools">Tools</a>
+            </li>
+            <li title="Contact" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="#contact">Contact</a>
+            </li>
+            <li title="Download CV" id="list-download-cv" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto"
+                href="https://www.mediafire.com/file/6m5d0big9xfqwv3/CV_-_Mahmoud_AL_Bndkji%25282%2529.pdf/file"
+                target="_blank">Download CV</a>
+            </li>
+          </ul>
+          <button type="button" class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-navigation"
+            aria-label="Open menu">
+            <span class="mobile-nav-toggle__box" aria-hidden="true">
+              <span class="mobile-nav-toggle__bar"></span>
+              <span class="mobile-nav-toggle__bar"></span>
+              <span class="mobile-nav-toggle__bar"></span>
+            </span>
+          </button>
+        </nav>
+        <div class="theme-switcher" id="theme-switcher" role="group" aria-label="Color theme">
+          <button type="button" class="theme-switcher__btn" data-set-theme="system" title="Match system theme"
+            aria-pressed="false">
+            <i class="bi bi-circle-half" aria-hidden="true"></i><span class="visually-hidden">System</span>
+          </button>
+          <button type="button" class="theme-switcher__btn" data-set-theme="light" title="Light theme"
+            aria-pressed="false">
+            <i class="bi bi-sun-fill" aria-hidden="true"></i><span class="visually-hidden">Light</span>
+          </button>
+          <button type="button" class="theme-switcher__btn" data-set-theme="dark" title="Dark theme"
+            aria-pressed="false">
+            <i class="bi bi-moon-stars-fill" aria-hidden="true"></i><span class="visually-hidden">Dark</span>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
   <!-- End Header -->
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center" aria-label="Hero Section">
-    <div class="container">
+  <section id="hero" class="hero-engine d-flex align-items-center" aria-label="Hero Section">
+    <span class="hero-engine__aurora" aria-hidden="true"></span>
+    <div class="hero-floating-icons" aria-hidden="true">
+      <span class="hero-float-item hero-float-item--p1" style="--lx: 6%; --ty: 18%; --dur: 13s"><span class="hero-float-motion"><i
+            class="bi bi-code-slash"></i></span></span>
+      <span class="hero-float-item hero-float-item--p2" style="--lx: 88%; --ty: 24%; --dur: 16s"><span class="hero-float-motion"><i
+            class="bi bi-terminal"></i></span></span>
+      <span class="hero-float-item hero-float-item--p3" style="--lx: 4%; --ty: 62%; --dur: 14s"><span class="hero-float-motion"><i
+            class="bi bi-database"></i></span></span>
+      <span class="hero-float-item hero-float-item--p4" style="--lx: 92%; --ty: 58%; --dur: 18s"><span class="hero-float-motion"><i
+            class="bi bi-phone"></i></span></span>
+      <span class="hero-float-item hero-float-item--p5" style="--lx: 14%; --ty: 42%; --dur: 15s"><span class="hero-float-motion"><i
+            class="bi bi-window-stack"></i></span></span>
+      <span class="hero-float-item hero-float-item--p1" style="--lx: 82%; --ty: 12%; --dur: 17s"><span class="hero-float-motion"><i
+            class="bi bi-github"></i></span></span>
+      <span class="hero-float-item hero-float-item--p2" style="--lx: 78%; --ty: 76%; --dur: 12s"><span class="hero-float-motion"><i
+            class="bi bi-cpu"></i></span></span>
+      <span class="hero-float-item hero-float-item--p3" style="--lx: 10%; --ty: 82%; --dur: 19s"><span class="hero-float-motion"><i
+            class="bi bi-cloud"></i></span></span>
+      <span class="hero-float-item hero-float-item--p4" style="--lx: 52%; --ty: 8%; --dur: 14s"><span class="hero-float-motion"><i
+            class="bi bi-bug"></i></span></span>
+      <span class="hero-float-item hero-float-item--p5" style="--lx: 48%; --ty: 88%; --dur: 16s"><span class="hero-float-motion"><i
+            class="bi bi-gear-wide-connected"></i></span></span>
+      <span class="hero-float-item hero-float-item--p1" style="--lx: 34%; --ty: 28%; --dur: 20s"><span class="hero-float-motion"><i
+            class="bi bi-file-code"></i></span></span>
+      <span class="hero-float-item hero-float-item--p2" style="--lx: 66%; --ty: 38%; --dur: 11s"><span class="hero-float-motion"><i
+            class="bi bi-hdd-network"></i></span></span>
+    </div>
+    <div class="container hero-engine__content">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
           data-aos="fade-up" data-aos-delay="200">
@@ -88,11 +165,12 @@
           <i class="bi bi-caret-right-fill" id="caret-text">
             <span>I'm a <span class="auto-type"></span></span>
           </i>
-          <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="https://www.mediafire.com/file/6m5d0big9xfqwv3/CV_-_Mahmoud_AL_Bndkji%25282%2529.pdf/file"
-              class="btn-get-started scrollto" target="_blank" title="Download CV">Download CV</a>
-          </div>
-          <div class="info d-flex justify-content-center justify-content-lg-start">
+          <div class="hero-cta d-flex flex-column align-items-center align-items-lg-stretch gap-3 w-100">
+            <div class="text-center text-lg-start w-100">
+              <a href="https://www.mediafire.com/file/6m5d0big9xfqwv3/CV_-_Mahmoud_AL_Bndkji%25282%2529.pdf/file"
+                class="btn-get-started scrollto" target="_blank" title="Download CV">Download CV</a>
+            </div>
+            <div class="info d-flex flex-nowrap justify-content-center justify-content-lg-start w-100">
             <a href="https://www.linkedin.com/in/mahmoud-al-bndkji-619a14241" target="_blank"
               onclick="buttonAudio.play();">
               <div class="con li">
@@ -126,11 +204,13 @@
                 <i class="bi bi-google" title="Gmail"></i>
               </div>
             </a>
+            </div>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/img/hero_scetion/hero-img.gif" class="img-fluid animated" alt="hero image" title="Hero Image"
-            fetchpriority="high" decoding="async" />
+          <img src="assets/img/hero_scetion/hero-img.gif" class="img-fluid animated hero-illustration"
+            alt="Decorative hero illustration" width="480" height="480" title="Hero illustration" fetchpriority="high"
+            decoding="async" sizes="(max-width: 991px) 70vw, 480px" />
         </div>
       </div>
     </div>
@@ -141,15 +221,17 @@
     <section id="about" class="about" aria-label="About Me">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
+          <h5><i>Introduction</i></h5>
           <h2>About Me</h2>
+          <p>Background, focus areas, and education.</p>
         </div>
-        <div class="row">
+        <div class="row align-items-center g-4">
           <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-            <img src="assets/img/aboutMe_scection/myPhoto.jpg" class="mx-auto d-block" alt="my Photo" title="my Photo"
+            <img src="assets/img/aboutMe_scection/myPhoto.jpg" class="mx-auto d-block about-photo" alt="my Photo" title="my Photo"
               loading="lazy" decoding="async" />
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
-            <h2 style="color: grey" class="d-flex justify-content-center justify-content-lg-start">
+          <div class="col-lg-6 pt-2 pt-lg-0 about-content-panel" data-aos="fade-left" data-aos-delay="100">
+            <h2 class="about-subheading d-flex justify-content-center justify-content-lg-start">
               Who Am I ?
             </h2>
             <h4 class="fst-italic">
@@ -163,8 +245,8 @@
               me to deliver
               high-quality, efficient, and scalable solutions across various platforms.
             </h4>
-            <hr />
-            <h2 style="color: grey" class="d-flex justify-content-center justify-content-lg-start">
+            <hr class="about-divider" />
+            <h2 class="about-subheading d-flex justify-content-center justify-content-lg-start">
               Education
             </h2>
             <h3>⏹️ Associate Degree TCI Software Engineering</h3>
@@ -190,6 +272,7 @@
     <!-- ======= Certificates Section ======= -->
     <section id="certificates" class="certificates section-bg" aria-label="My Certificates">
       <div class="section-title">
+        <h5><i>Credentials</i></h5>
         <h2>Certificates</h2>
       </div>
       <div class="swiper certificateSwiper">
@@ -235,22 +318,26 @@
     <section id="portfolio" class="portfolio" aria-label="My Portfolio">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
+          <h5><i>Selected work</i></h5>
           <h2>Portfolio</h2>
-          <h5>
-            <i>Some of Projects</i>
-          </h5>
+          <p>Mobile, web, and desktop projects.</p>
         </div>
-        <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-          <li data-filter="*" class="filter-active" title="All" onclick="buttonAudio.play();">
+        <ul id="portfolio-flters" class="d-flex justify-content-center flex-wrap" role="group"
+          aria-label="Filter projects by category" data-aos="fade-up" data-aos-delay="100">
+          <li data-filter="*" class="filter-active" title="Show all projects" role="button" tabindex="0"
+            aria-pressed="true" onclick="buttonAudio.play();">
             All
           </li>
-          <li data-filter=".filter-mobile" title="Mobile" onclick="buttonAudio.play();">
+          <li data-filter=".filter-mobile" title="Mobile projects" role="button" tabindex="0" aria-pressed="false"
+            onclick="buttonAudio.play();">
             Mobile
           </li>
-          <li data-filter=".filter-web" title="Web" onclick="buttonAudio.play();">
+          <li data-filter=".filter-web" title="Web projects" role="button" tabindex="0" aria-pressed="false"
+            onclick="buttonAudio.play();">
             Web
           </li>
-          <li data-filter=".filter-desktop" title="Desktop" onclick="buttonAudio.play();">
+          <li data-filter=".filter-desktop" title="Desktop projects" role="button" tabindex="0" aria-pressed="false"
+            onclick="buttonAudio.play();">
             Desktop
           </li>
         </ul>
@@ -567,10 +654,9 @@
     <section id="tools" class="tools section-bg" aria-label="Tools used">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
+          <h5><i>Toolkit</i></h5>
           <h2>Tools</h2>
-          <h5>
-            <i>Software and Tools That I Use</i>
-          </h5>
+          <p>Software and tools I use for development and design.</p>
         </div>
         <div class="row">
           <ol>
@@ -685,13 +771,39 @@
     </section>
     <!-- End Tools Section -->
     <!-- ======= techniquess Section ======= -->
-    <section id="techniques" class="techniques bg-img" aria-label="Techniques used">
+    <section id="techniques" class="techniques techniques-engine" aria-label="Techniques used">
+      <span class="techniques-engine__aurora" aria-hidden="true"></span>
+      <div class="techniques-floating-icons" aria-hidden="true">
+        <span class="hero-float-item hero-float-item--p1" style="--lx: 7%; --ty: 16%; --dur: 14s"><span class="hero-float-motion"><i
+              class="bi bi-filetype-js"></i></span></span>
+        <span class="hero-float-item hero-float-item--p2" style="--lx: 91%; --ty: 22%; --dur: 17s"><span class="hero-float-motion"><i
+              class="bi bi-filetype-tsx"></i></span></span>
+        <span class="hero-float-item hero-float-item--p3" style="--lx: 4%; --ty: 52%; --dur: 15s"><span class="hero-float-motion"><i
+              class="bi bi-braces"></i></span></span>
+        <span class="hero-float-item hero-float-item--p4" style="--lx: 93%; --ty: 58%; --dur: 18s"><span class="hero-float-motion"><i
+              class="bi bi-git"></i></span></span>
+        <span class="hero-float-item hero-float-item--p5" style="--lx: 16%; --ty: 40%; --dur: 13s"><span class="hero-float-motion"><i
+              class="bi bi-window-stack"></i></span></span>
+        <span class="hero-float-item hero-float-item--p1" style="--lx: 84%; --ty: 11%; --dur: 16s"><span class="hero-float-motion"><i
+              class="bi bi-phone"></i></span></span>
+        <span class="hero-float-item hero-float-item--p2" style="--lx: 80%; --ty: 74%; --dur: 12s"><span class="hero-float-motion"><i
+              class="bi bi-layers"></i></span></span>
+        <span class="hero-float-item hero-float-item--p3" style="--lx: 9%; --ty: 80%; --dur: 19s"><span class="hero-float-motion"><i
+              class="bi bi-terminal"></i></span></span>
+        <span class="hero-float-item hero-float-item--p4" style="--lx: 52%; --ty: 9%; --dur: 14s"><span class="hero-float-motion"><i
+              class="bi bi-plugin"></i></span></span>
+        <span class="hero-float-item hero-float-item--p5" style="--lx: 47%; --ty: 86%; --dur: 16s"><span class="hero-float-motion"><i
+              class="bi bi-code-square"></i></span></span>
+        <span class="hero-float-item hero-float-item--p1" style="--lx: 33%; --ty: 26%; --dur: 20s"><span class="hero-float-motion"><i
+              class="bi bi-lightning-charge"></i></span></span>
+        <span class="hero-float-item hero-float-item--p2" style="--lx: 67%; --ty: 36%; --dur: 11s"><span class="hero-float-motion"><i
+              class="bi bi-diagram-3"></i></span></span>
+      </div>
       <div class="container" data-aos="fade-up">
         <div class="section-title">
+          <h5><i>Stack</i></h5>
           <h2>Techniques</h2>
-          <h5>
-            <i> Language and Framework That I Use </i>
-          </h5>
+          <p>Languages and frameworks I work with.</p>
         </div>
         <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
@@ -789,6 +901,7 @@
     <section id="contact" class="contact section-bg" aria-label="Contact Me">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
+          <h5><i>Get in touch</i></h5>
           <h2>Contact</h2>
         </div>
         <div class="row">
@@ -832,6 +945,7 @@
   <script defer src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script defer src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script defer src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script defer src="assets/js/theme-switcher.js"></script>
   <script defer src="assets/js/main.js"></script>
   <script defer src="assets/js/index-init.js"></script>
 </body>

@@ -67,6 +67,58 @@
     window.addEventListener("load", headerScrolled);
     onscroll(document, headerScrolled);
   }
+
+  const HERO_MOBILE_HEADER_EXIT_PX = 20;
+  const updateHeroMobileHeaderHidden = () => {
+    const body = document.body;
+    if (!selectHeader) {
+      body.classList.remove("hero-mobile-header-hidden");
+      return;
+    }
+    if (window.innerWidth > 991) {
+      body.classList.remove("hero-mobile-header-hidden");
+      selectHeader.removeAttribute("aria-hidden");
+      selectHeader.removeAttribute("inert");
+      return;
+    }
+    if (body.classList.contains("mobile-nav-open")) {
+      body.classList.remove("hero-mobile-header-hidden");
+      selectHeader.removeAttribute("aria-hidden");
+      selectHeader.removeAttribute("inert");
+      return;
+    }
+    const hero = select("#hero");
+    if (!hero) {
+      body.classList.remove("hero-mobile-header-hidden");
+      selectHeader.removeAttribute("aria-hidden");
+      selectHeader.removeAttribute("inert");
+      return;
+    }
+    const bottom = hero.getBoundingClientRect().bottom;
+    const hide = bottom > HERO_MOBILE_HEADER_EXIT_PX;
+    body.classList.toggle("hero-mobile-header-hidden", hide);
+    if (hide) {
+      selectHeader.setAttribute("aria-hidden", "true");
+      selectHeader.setAttribute("inert", "");
+    } else {
+      selectHeader.removeAttribute("aria-hidden");
+      selectHeader.removeAttribute("inert");
+    }
+  };
+
+  let heroHeaderRaf = null;
+  const scheduleHeroMobileHeader = () => {
+    if (heroHeaderRaf != null) return;
+    heroHeaderRaf = requestAnimationFrame(() => {
+      heroHeaderRaf = null;
+      updateHeroMobileHeaderHidden();
+    });
+  };
+
+  window.addEventListener("load", updateHeroMobileHeaderHidden);
+  document.addEventListener("scroll", scheduleHeroMobileHeader, { passive: true });
+  window.addEventListener("resize", updateHeroMobileHeaderHidden);
+
   // Back to top button
   let backtotop = select(".back-to-top");
   if (backtotop) {
@@ -80,11 +132,48 @@
     window.addEventListener("load", toggleBacktotop);
     onscroll(document, toggleBacktotop);
   }
-  // Mobile nav toggle
+  const closeMobileNav = () => {
+    const navbar = select("#navbar");
+    const toggle = select(".mobile-nav-toggle");
+    if (!navbar || !navbar.classList.contains("navbar-mobile")) return;
+    navbar.classList.remove("navbar-mobile");
+    if (toggle) {
+      toggle.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Open menu");
+    }
+    document.body.classList.remove("mobile-nav-open");
+    updateHeroMobileHeaderHidden();
+  };
+
+  const openMobileNav = () => {
+    const navbar = select("#navbar");
+    const toggle = select(".mobile-nav-toggle");
+    if (!navbar || !toggle) return;
+    navbar.classList.add("navbar-mobile");
+    toggle.classList.add("is-open");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close menu");
+    document.body.classList.add("mobile-nav-open");
+    updateHeroMobileHeaderHidden();
+  };
+
+  window.portfolioCloseMobileNav = closeMobileNav;
+
   on("click", ".mobile-nav-toggle", function (e) {
-    select("#navbar").classList.toggle("navbar-mobile");
-    this.classList.toggle("bi-list");
-    this.classList.toggle("bi-x");
+    e.preventDefault();
+    const navbar = select("#navbar");
+    if (navbar.classList.contains("navbar-mobile")) closeMobileNav();
+    else openMobileNav();
+  });
+
+  on("click", ".mobile-nav-backdrop", function () {
+    closeMobileNav();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    closeMobileNav();
   });
   // Mobile nav dropdowns activate
   on(
@@ -107,10 +196,7 @@
         e.preventDefault();
         let navbar = select("#navbar");
         if (navbar.classList.contains("navbar-mobile")) {
-          navbar.classList.remove("navbar-mobile");
-          let navbarToggle = select(".mobile-nav-toggle");
-          navbarToggle.classList.toggle("bi-list");
-          navbarToggle.classList.toggle("bi-x");
+          closeMobileNav();
         }
         scrollto(this.hash);
       }
@@ -165,21 +251,36 @@
           img.addEventListener("load", reflowPortfolio, { once: true });
           img.addEventListener("error", reflowPortfolio, { once: true });
         });
+      const syncFilterAria = (activeEl) => {
+        portfolioFilters.forEach(function (el) {
+          el.classList.remove("filter-active");
+          el.setAttribute("aria-pressed", "false");
+        });
+        activeEl.classList.add("filter-active");
+        activeEl.setAttribute("aria-pressed", "true");
+      };
       on(
         "click",
         "#portfolio-flters li",
         function (e) {
           e.preventDefault();
-          portfolioFilters.forEach(function (el) {
-            el.classList.remove("filter-active");
-          });
-          this.classList.add("filter-active");
+          syncFilterAria(this);
           portfolioIsotope.arrange({
             filter: this.getAttribute("data-filter"),
           });
           portfolioIsotope.on("arrangeComplete", function () {
             AOS.refresh();
           });
+        },
+        true
+      );
+      on(
+        "keydown",
+        "#portfolio-flters li",
+        function (e) {
+          if (e.key !== "Enter" && e.key !== " ") return;
+          e.preventDefault();
+          this.click();
         },
         true
       );
@@ -190,13 +291,18 @@
     typeof Swiper !== "undefined" &&
     document.querySelector(".portfolio-details-slider")
   ) {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
     new Swiper(".portfolio-details-slider", {
-      speed: 400,
+      speed: reduceMotion ? 0 : 400,
       loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-      },
+      autoplay: reduceMotion
+        ? false
+        : {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
       pagination: {
         el: ".swiper-pagination",
         type: "bullets",
@@ -208,10 +314,11 @@
   function initAOS() {
     if (typeof AOS !== "undefined") {
       AOS.init({
-        duration: 1000,
+        duration: 750,
         easing: "ease-in-out",
         once: true,
         mirror: false,
+        offset: 24,
       });
     }
   }
@@ -224,13 +331,18 @@
 
 // Tools section swiper (home page only; .slides-1 removed — was unused in markup)
 if (typeof Swiper !== "undefined" && document.querySelector(".slides-3")) {
+  const reduceMotion3 = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
   new Swiper(".slides-3", {
-    speed: 800,
+    speed: reduceMotion3 ? 0 : 800,
     loop: true,
-    autoplay: {
-      delay: 1500,
-      disableOnInteraction: false,
-    },
+    autoplay: reduceMotion3
+      ? false
+      : {
+          delay: 1500,
+          disableOnInteraction: false,
+        },
     slidesPerView: "auto",
     pagination: {
       el: ".swiper-pagination",
@@ -253,14 +365,11 @@ if (typeof Swiper !== "undefined" && document.querySelector(".slides-3")) {
   });
 }
 
-const closeNavMobile = (size) => {
-  if (!size.matches) return;
-  const toggle = document.querySelector(".mobile-nav-toggle.bi-x");
-  if (toggle) toggle.click();
-};
-window
-  .matchMedia("(min-width: 992px)")
-  .addEventListener("change", closeNavMobile);
+window.matchMedia("(min-width: 992px)").addEventListener("change", (e) => {
+  if (e.matches && typeof window.portfolioCloseMobileNav === "function") {
+    window.portfolioCloseMobileNav();
+  }
+});
 
 // // PreLoader
 // onload = () => {
@@ -340,6 +449,13 @@ window
   if (!footer) return;
   footer.innerHTML =
     '<div class="container footer-bottom clearfix">' +
+    '<nav class="footer-nav" aria-label="Quick links">' +
+    '<a href="index.html#hero">Home</a>' +
+    '<span class="footer-nav__sep" aria-hidden="true">·</span>' +
+    '<a href="index.html#portfolio">Projects</a>' +
+    '<span class="footer-nav__sep" aria-hidden="true">·</span>' +
+    '<a href="index.html#contact">Contact</a>' +
+    "</nav>" +
     '<div class="copyright">' +
     '<span class="reserved"> &copy; Copyright </span>' +
     "<strong><span>Mahmoud AL-Bndkji</span></strong>" +

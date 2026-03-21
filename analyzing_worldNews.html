@@ -3,8 +3,25 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <meta name="theme-color" content="#209dd8" />
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
+  <meta name="theme-color" content="#e8f4fb" />
+  <script>
+    (function () {
+      try {
+        var k = "portfolio-color-scheme-pref";
+        var v = localStorage.getItem(k);
+        if (v === "light" || v === "dark") {
+          document.documentElement.setAttribute("data-color-scheme", v);
+        }
+        var dark =
+          v === "dark" ||
+          (v !== "light" &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches);
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.setAttribute("content", dark ? "#0f172a" : "#e8f4fb");
+      } catch (e) {}
+    })();
+  </script>
   <title>Analyzing World News</title>
   <meta content="Diagrams Make Abstract ideas and software systems easier to
     understand through visualization. This is beneficial for
@@ -33,43 +50,68 @@
 </head>
 
 <body oncontextmenu="return false;">
+  <a class="skip-link" href="#main">Skip to main content</a>
   <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top" aria-label="Header">
+  <header id="header" class="header fixed-top header-inner-pages" aria-label="Header">
     <div class="container d-flex align-items-center">
       <a href="index.html">
         <h1 class="logo me-auto" title="logo">
           <img src="assets/img/hero_scetion/leftTag.png" alt="" loading="lazy" />
-          <a href="index.html" style="color: #209dd8">Mahmoud</a>
+          <a href="index.html">Mahmoud</a>
           <a href="index.html">
             <img src="assets/img/hero_scetion/rightTag.png" alt="" loading="lazy" />
           </a>
         </h1>
       </a>
-      <nav id="navbar" class="navbar" aria-label="Navbar">
-        <ul>
-          <li title="Home" onclick="buttonAudio.play();">
-            <a class="nav-link scrollto active" href="index.html#hero">Home</a>
-          </li>
-          <li title="About" onclick="buttonAudio.play();">
-            <a class="nav-link scrollto" href="index.html#about" style="color: #209dd8">About</a>
-          </li>
-          <li title="Projects" onclick="buttonAudio.play();">
-            <a class="nav-link scrollto" href="index.html#portfolio" style="color: #209dd8">Projects</a>
-          </li>
-          <li title="Tools" onclick="buttonAudio.play();">
-            <a class="nav-link scrollto" href="index.html#tools" style="color: #209dd8">Tools</a>
-          </li>
-          <li title="Contact" onclick="buttonAudio.play();">
-            <a class="nav-link scrollto" href="index.html#contact" style="color: #209dd8">Contact</a>
-          </li>
-          <li title="Download CV" id="list-download-cv">
-            <a class="nav-link scrollto"
-              href="https://www.mediafire.com/file/6m5d0big9xfqwv3/CV_-_Mahmoud_AL_Bndkji%25282%2529.pdf/file"
-              target="_blank">Download CV</a>
-          </li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle" style="color: #209dd8"></i>
-      </nav>
+      <div class="header-actions">
+        <nav id="navbar" class="navbar" aria-label="Navbar">
+          <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+          <ul id="primary-navigation">
+            <li title="Home" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto active" href="index.html#hero">Home</a>
+            </li>
+            <li title="About" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="index.html#about">About</a>
+            </li>
+            <li title="Projects" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="index.html#portfolio">Projects</a>
+            </li>
+            <li title="Tools" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="index.html#tools">Tools</a>
+            </li>
+            <li title="Contact" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="index.html#contact">Contact</a>
+            </li>
+            <li title="Download CV" id="list-download-cv">
+              <a class="nav-link scrollto"
+                href="https://www.mediafire.com/file/6m5d0big9xfqwv3/CV_-_Mahmoud_AL_Bndkji%25282%2529.pdf/file"
+                target="_blank">Download CV</a>
+            </li>
+          </ul>
+          <button type="button" class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-navigation"
+            aria-label="Open menu">
+            <span class="mobile-nav-toggle__box" aria-hidden="true">
+              <span class="mobile-nav-toggle__bar"></span>
+              <span class="mobile-nav-toggle__bar"></span>
+              <span class="mobile-nav-toggle__bar"></span>
+            </span>
+          </button>
+        </nav>
+        <div class="theme-switcher" id="theme-switcher" role="group" aria-label="Color theme">
+          <button type="button" class="theme-switcher__btn" data-set-theme="system" title="Match system theme"
+            aria-pressed="false">
+            <i class="bi bi-circle-half" aria-hidden="true"></i><span class="visually-hidden">System</span>
+          </button>
+          <button type="button" class="theme-switcher__btn" data-set-theme="light" title="Light theme"
+            aria-pressed="false">
+            <i class="bi bi-sun-fill" aria-hidden="true"></i><span class="visually-hidden">Light</span>
+          </button>
+          <button type="button" class="theme-switcher__btn" data-set-theme="dark" title="Dark theme"
+            aria-pressed="false">
+            <i class="bi bi-moon-stars-fill" aria-hidden="true"></i><span class="visually-hidden">Dark</span>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
   <!-- End Header -->
@@ -233,6 +275,7 @@
     var buttonAudio = new Audio();
     buttonAudio.src = "assets/audios/mouseClick.mp3";
   </script>
+  <script defer src="assets/js/theme-switcher.js"></script>
   <script defer src="assets/js/main.js"></script>
 </body>
 
