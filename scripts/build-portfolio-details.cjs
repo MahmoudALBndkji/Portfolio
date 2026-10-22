@@ -1180,7 +1180,7 @@ const portfolioDetails = {
     breadcrumbLabel: "Wakeed",
     pageHeading: "Wakeed Details",
     category: "Mobile, Web & Desktop Application",
-    projectDate: "13 Jul, 2026 ➡️ Current",
+    projectDate: "1 Jun, 2026 ➡️ Current",
     descriptionHtml:
       "Wakeed is a cloud accounting and business-management platform for individuals and small and medium-sized companies, running on Android, iOS, Windows and the web from a single Flutter codebase.<br> It covers double-entry accounting, invoices, payments, receivables, inventory, cheques and detailed financial reports, with role-based permissions, an event log, Excel import / export and backups.<br> I work on Wakeed OS, the operations suite built on top of it: HR (attendance, leaves, rosters, timesheets and service requests), projects & tasks, KPIs and reports, and a home dashboard with unified search and quick access.",
     ar: {
