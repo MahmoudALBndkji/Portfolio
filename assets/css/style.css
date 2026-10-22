@@ -2092,6 +2092,18 @@ section#about {
   position: relative;
 }
 
+.tools .container .row ol li .icon img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.tools .container .row ol li .icon i {
+  font-size: 2.75rem;
+  line-height: 1;
+  color: var(--accent-color);
+}
+
 .tools .container .row ol li .title {
   grid-area: title;
   font-size: 1.05rem;
