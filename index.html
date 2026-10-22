@@ -8,6 +8,10 @@
   <script>
     (function () {
       try {
+        if (localStorage.getItem("portfolio-lang") === "ar") {
+          document.documentElement.setAttribute("lang", "ar");
+          document.documentElement.setAttribute("dir", "rtl");
+        }
         var k = "portfolio-color-scheme-pref";
         var v = localStorage.getItem(k);
         if (v === "light" || v === "dark") {
@@ -22,8 +26,9 @@
       } catch (e) {}
     })();
   </script>
-  <title>Mahmoud AL-Bndkji Portfolio</title>
-  <meta content="Mobile application developer — Swift, Kotlin, Dart &amp; Flutter. Cross-platform apps with polished UI and solid engineering." name="description" />
+  <title data-ar="معرض أعمال Mahmoud AL-Bndkji">Mahmoud AL-Bndkji Portfolio</title>
+  <meta content="Mobile application developer — Swift, Kotlin, Dart &amp; Flutter. Cross-platform apps with polished UI and solid engineering." name="description"
+    data-ar-content="مطوّر تطبيقات موبايل — Swift، Kotlin، Dart، Flutter. تطبيقات متعددة المنصات بواجهات مصقولة وهندسة متينة." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Mahmoud AL-Bndkji — Portfolio" />
   <meta property="og:description"
@@ -42,9 +47,9 @@
   <link href="assets/img/logo/mainPage.png" rel="apple-touch-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Google Fonts (display=swap avoids invisible text during font load) -->
+  <!-- Google Fonts (display=swap avoids invisible text during font load; Cairo = Arabic) -->
   <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Cairo:400,500,600,700&display=swap"
     rel="stylesheet" />
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
@@ -59,10 +64,10 @@
 
 <body oncontextmenu="return false;">
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top" aria-label="Header">
+  <header id="header" class="fixed-top" aria-label="Header" data-ar-aria-label="الترويسة">
     <div class="container d-flex align-items-center">
       <a href="index.html">
-        <h1 class="logo me-auto" title="logo">
+        <h1 class="logo me-auto" title="logo" data-ar-title="الشعار">
           <img src="assets/img/hero_scetion/leftTag.png" alt="" loading="lazy" decoding="async" />
           <a href="index.html">Mahmoud</a>
           <a href="index.html">
@@ -71,28 +76,28 @@
         </h1>
       </a>
       <div class="header-actions">
-        <nav id="navbar" class="navbar" aria-label="Primary">
+        <nav id="navbar" class="navbar" aria-label="Primary" data-ar-aria-label="التنقل الرئيسي">
           <div class="mobile-nav-backdrop" aria-hidden="true"></div>
           <ul id="primary-navigation">
-            <li title="Home" onclick="buttonAudio.play();">
-              <a class="nav-link scrollto active" href="#hero">Home</a>
+            <li title="Home" data-ar-title="الرئيسية" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto active" href="#hero" data-ar="الرئيسية">Home</a>
             </li>
-            <li title="About" onclick="buttonAudio.play();">
-              <a class="nav-link scrollto" href="#about">About</a>
+            <li title="About" data-ar-title="نبذة عني" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="#about" data-ar="نبذة عني">About</a>
             </li>
-            <li title="Projects" onclick="buttonAudio.play();">
-              <a class="nav-link scrollto" href="#portfolio">Projects</a>
+            <li title="Projects" data-ar-title="المشاريع" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="#portfolio" data-ar="المشاريع">Projects</a>
             </li>
-            <li title="Tools" onclick="buttonAudio.play();">
-              <a class="nav-link scrollto" href="#tools">Tools</a>
+            <li title="Tools" data-ar-title="الأدوات" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="#tools" data-ar="الأدوات">Tools</a>
             </li>
-            <li title="Contact" onclick="buttonAudio.play();">
-              <a class="nav-link scrollto" href="#contact">Contact</a>
+            <li title="Contact" data-ar-title="تواصل" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="#contact" data-ar="تواصل">Contact</a>
             </li>
-            <li title="Download CV" id="list-download-cv" onclick="buttonAudio.play();">
+            <li title="Download CV" data-ar-title="تحميل السيرة الذاتية" id="list-download-cv" onclick="buttonAudio.play();">
               <a class="nav-link scrollto"
                 href="https://www.mediafire.com/file/6m5d0big9xfqwv3/CV_-_Mahmoud_AL_Bndkji%25282%2529.pdf/file"
-                target="_blank">Download CV</a>
+                target="_blank" data-ar="تحميل السيرة الذاتية">Download CV</a>
             </li>
           </ul>
           <button type="button" class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-navigation"
@@ -104,18 +109,25 @@
             </span>
           </button>
         </nav>
-        <div class="theme-switcher" id="theme-switcher" role="group" aria-label="Color theme">
+        <button type="button" class="lang-switch" title="العربية" data-ar-title="English" aria-label="Switch to Arabic"
+          data-ar-aria-label="التبديل إلى الإنجليزية">
+          <span class="lang-switch__thumb" aria-hidden="true"></span>
+          <span class="lang-switch__opt lang-switch__opt--en" lang="en" aria-hidden="true">EN</span>
+          <span class="lang-switch__opt lang-switch__opt--ar" lang="ar" aria-hidden="true">ع</span>
+        </button>
+        <div class="theme-switcher" id="theme-switcher" role="group" aria-label="Color theme"
+          data-ar-aria-label="سمة الألوان">
           <button type="button" class="theme-switcher__btn" data-set-theme="system" title="Match system theme"
-            aria-pressed="false">
-            <i class="bi bi-circle-half" aria-hidden="true"></i><span class="visually-hidden">System</span>
+            data-ar-title="مطابقة سمة النظام" aria-pressed="false">
+            <i class="bi bi-circle-half" aria-hidden="true"></i><span class="visually-hidden" data-ar="النظام">System</span>
           </button>
           <button type="button" class="theme-switcher__btn" data-set-theme="light" title="Light theme"
-            aria-pressed="false">
-            <i class="bi bi-sun-fill" aria-hidden="true"></i><span class="visually-hidden">Light</span>
+            data-ar-title="السمة الفاتحة" aria-pressed="false">
+            <i class="bi bi-sun-fill" aria-hidden="true"></i><span class="visually-hidden" data-ar="فاتح">Light</span>
           </button>
           <button type="button" class="theme-switcher__btn" data-set-theme="dark" title="Dark theme"
-            aria-pressed="false">
-            <i class="bi bi-moon-stars-fill" aria-hidden="true"></i><span class="visually-hidden">Dark</span>
+            data-ar-title="السمة الداكنة" aria-pressed="false">
+            <i class="bi bi-moon-stars-fill" aria-hidden="true"></i><span class="visually-hidden" data-ar="داكن">Dark</span>
           </button>
         </div>
       </div>
@@ -123,7 +135,8 @@
   </header>
   <!-- End Header -->
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="hero-engine d-flex align-items-center" aria-label="Hero Section">
+  <section id="hero" class="hero-engine d-flex align-items-center" aria-label="Hero Section"
+    data-ar-aria-label="القسم الرئيسي">
     <span class="hero-engine__aurora" aria-hidden="true"></span>
     <div class="hero-floating-icons" aria-hidden="true">
       <span class="hero-float-item hero-float-item--p1" style="--lx: 6%; --ty: 18%; --dur: 13s"><span class="hero-float-motion"><i
@@ -156,19 +169,21 @@
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
           data-aos="fade-up" data-aos-delay="200">
           <h2>
-            Welcome To My Portfolio !
+            <span data-ar="أهلًا بك في معرض أعمالي!">Welcome To My Portfolio !</span>
             <span class="wave">
-              <img src="assets/img/hero_scetion/hi.gif" alt="hi" width="35" title="hi" loading="lazy" decoding="async" />
+              <img src="assets/img/hero_scetion/hi.gif" alt="hi" width="35" title="hi" data-ar-alt="مرحبًا"
+                data-ar-title="مرحبًا" loading="lazy" decoding="async" />
             </span>
           </h2>
           <h1>Mahmoud AL-Bndkji</h1>
           <i class="bi bi-caret-right-fill" id="caret-text">
-            <span>I'm a <span class="auto-type"></span></span>
+            <span><span data-ar="أنا">I'm a</span> <span class="auto-type"></span></span>
           </i>
           <div class="hero-cta d-flex flex-column align-items-center align-items-lg-stretch gap-3 w-100">
             <div class="text-center text-lg-start w-100">
               <a href="https://www.mediafire.com/file/6m5d0big9xfqwv3/CV_-_Mahmoud_AL_Bndkji%25282%2529.pdf/file"
-                class="btn-get-started scrollto" target="_blank" title="Download CV">Download CV</a>
+                class="btn-get-started scrollto" target="_blank" title="Download CV"
+                data-ar-title="تحميل السيرة الذاتية" data-ar="تحميل السيرة الذاتية">Download CV</a>
             </div>
             <div class="info d-flex flex-nowrap justify-content-center justify-content-lg-start w-100">
             <a href="https://www.linkedin.com/in/mahmoud-al-bndkji-619a14241" target="_blank"
@@ -209,7 +224,8 @@
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           <img src="assets/img/hero_scetion/hero-img.gif" class="img-fluid animated hero-illustration"
-            alt="Decorative hero illustration" width="480" height="480" title="Hero illustration" fetchpriority="high"
+            alt="Decorative hero illustration" width="480" height="480" title="Hero illustration"
+            data-ar-alt="رسم توضيحي زخرفي" data-ar-title="رسم توضيحي" fetchpriority="high"
             decoding="async" sizes="(max-width: 991px) 70vw, 480px" />
         </div>
       </div>
@@ -218,23 +234,24 @@
   <!-- End Hero -->
   <main id="main">
     <!-- ======= About Me Section ======= -->
-    <section id="about" class="about" aria-label="About Me">
+    <section id="about" class="about" aria-label="About Me" data-ar-aria-label="نبذة عني">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h5><i>Introduction</i></h5>
-          <h2>About Me</h2>
-          <p>Background, focus areas, and education.</p>
+          <h5><i data-ar="تعريف">Introduction</i></h5>
+          <h2 data-ar="نبذة عني">About Me</h2>
+          <p data-ar="خلفيتي، ومجالات تركيزي، وتعليمي.">Background, focus areas, and education.</p>
         </div>
         <div class="row align-items-center g-4">
           <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
             <img src="assets/img/aboutMe_scection/myPhoto.jpg" class="mx-auto d-block about-photo" alt="my Photo" title="my Photo"
-              loading="lazy" decoding="async" />
+              data-ar-alt="صورتي" data-ar-title="صورتي" loading="lazy" decoding="async" />
           </div>
           <div class="col-lg-6 pt-2 pt-lg-0 about-content-panel" data-aos="fade-left" data-aos-delay="100">
-            <h2 class="about-subheading d-flex justify-content-center justify-content-lg-start">
+            <h2 class="about-subheading d-flex justify-content-center justify-content-lg-start" data-ar="من أنا؟">
               Who Am I ?
             </h2>
-            <h4 class="fst-italic">
+            <h4 class="fst-italic"
+              data-ar="مطوّر تطبيقات موبايل، تشمل خبرتي لغة Swift لتطوير تطبيقات iOS، ولغة Kotlin لتطوير تطبيقات Android، ولغة Dart لتطوير تطبيقات Flutter، ما يمكّنني من بناء تطبيقات متعددة المنصات تعمل بسلاسة.<br>أتقن الاستفادة من أطر عمل مثل Flutter لبناء واجهات ديناميكية ومتجاوبة وسهلة الاستخدام، وتمكّنني خبرتي في هذه التقنيات من تقديم حلول عالية الجودة وفعّالة وقابلة للتوسّع على مختلف المنصات.">
               A Mobile Application Developer, My expertise spans Swift for iOS development, Kotlin for Android
               development, and Dart for
               Flutter,
@@ -246,23 +263,23 @@
               high-quality, efficient, and scalable solutions across various platforms.
             </h4>
             <hr class="about-divider" />
-            <h2 class="about-subheading d-flex justify-content-center justify-content-lg-start">
+            <h2 class="about-subheading d-flex justify-content-center justify-content-lg-start" data-ar="التعليم">
               Education
             </h2>
-            <h3>⏹️ Associate Degree TCI Software Engineering</h3>
+            <h3 data-ar="⏹️ دبلوم تقاني في هندسة البرمجيات (TCI)">⏹️ Associate Degree TCI Software Engineering</h3>
             <h4>
-              <pre>    Damascus University [ 16/09/2020 – 20/09/2022 ]</pre>
+              <pre data-ar="    جامعة دمشق [ 16/09/2020 – 20/09/2022 ]">    Damascus University [ 16/09/2020 – 20/09/2022 ]</pre>
             </h4>
             <h5>
-              <pre>     Final grade: 86.49%</pre>
+              <pre data-ar="     المعدل النهائي: 86.49%">     Final grade: 86.49%</pre>
             </h5>
             <hr id="sperator" />
-            <h3>⏹️ Bachelor's Degree in Computer Technologies</h3>
+            <h3 data-ar="⏹️ بكالوريوس في تقنيات الحاسوب">⏹️ Bachelor's Degree in Computer Technologies</h3>
             <h4>
-              <pre>    Damascus University [ 18/09/2022 – 21/09/2025 ]</pre>
+              <pre data-ar="    جامعة دمشق [ 18/09/2022 – 21/09/2025 ]">    Damascus University [ 18/09/2022 – 21/09/2025 ]</pre>
             </h4>
             <h5>
-              <pre>     Final grade: 80%</pre>
+              <pre data-ar="     المعدل النهائي: 80%">     Final grade: 80%</pre>
             </h5>
           </div>
         </div>
@@ -270,74 +287,77 @@
     </section>
     <!-- End About Me Section -->
     <!-- ======= Certificates Section ======= -->
-    <section id="certificates" class="certificates section-bg" aria-label="My Certificates">
+    <section id="certificates" class="certificates section-bg" aria-label="My Certificates"
+      data-ar-aria-label="شهاداتي">
       <div class="section-title">
-        <h5><i>Credentials</i></h5>
-        <h2>Certificates</h2>
+        <h5><i data-ar="الاعتمادات">Credentials</i></h5>
+        <h2 data-ar="الشهادات">Certificates</h2>
       </div>
-      <div class="swiper certificateSwiper">
+      <!-- Images only: dir="ltr" keeps the carousel working when the page switches to RTL -->
+      <div class="swiper certificateSwiper" dir="ltr">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="assets/img/certificates/1.jpg" alt="Certificate 1" loading="lazy" decoding="async" />
+            <img src="assets/img/certificates/1.jpg" alt="Certificate 1" data-ar-alt="شهادة 1" loading="lazy" decoding="async" />
           </div>
           <div class="swiper-slide">
-            <img src="assets/img/certificates/2.jpg" alt="Certificate 2" loading="lazy" decoding="async" />
+            <img src="assets/img/certificates/2.jpg" alt="Certificate 2" data-ar-alt="شهادة 2" loading="lazy" decoding="async" />
           </div>
           <div class="swiper-slide">
-            <img src="assets/img/certificates/3.jpg" alt="Certificate 3" loading="lazy" decoding="async" />
+            <img src="assets/img/certificates/3.jpg" alt="Certificate 3" data-ar-alt="شهادة 3" loading="lazy" decoding="async" />
           </div>
           <div class="swiper-slide">
-            <img src="assets/img/certificates/4.jpg" alt="Certificate 4" loading="lazy" decoding="async" />
+            <img src="assets/img/certificates/4.jpg" alt="Certificate 4" data-ar-alt="شهادة 4" loading="lazy" decoding="async" />
           </div>
           <div class="swiper-slide">
-            <img src="assets/img/certificates/5.jpg" alt="Certificate 5" loading="lazy" decoding="async" />
+            <img src="assets/img/certificates/5.jpg" alt="Certificate 5" data-ar-alt="شهادة 5" loading="lazy" decoding="async" />
           </div>
           <div class="swiper-slide">
-            <img src="assets/img/certificates/6.jpg" alt="Certificate 6" loading="lazy" decoding="async" />
+            <img src="assets/img/certificates/6.jpg" alt="Certificate 6" data-ar-alt="شهادة 6" loading="lazy" decoding="async" />
           </div>
           <div class="swiper-slide">
-            <img src="assets/img/certificates/7.jpg" alt="Certificate 7" loading="lazy" decoding="async" />
+            <img src="assets/img/certificates/7.jpg" alt="Certificate 7" data-ar-alt="شهادة 7" loading="lazy" decoding="async" />
           </div>
           <div class="swiper-slide">
-            <img src="assets/img/certificates/8.jpg" alt="Certificate 8" loading="lazy" decoding="async" />
+            <img src="assets/img/certificates/8.jpg" alt="Certificate 8" data-ar-alt="شهادة 8" loading="lazy" decoding="async" />
           </div>
           <div class="swiper-slide">
-            <img src="assets/img/certificates/9.jpg" alt="Certificate 9" loading="lazy" decoding="async" />
+            <img src="assets/img/certificates/9.jpg" alt="Certificate 9" data-ar-alt="شهادة 9" loading="lazy" decoding="async" />
           </div>
           <div class="swiper-slide">
-            <img src="assets/img/certificates/10.jpg" alt="Certificate 10" loading="lazy" decoding="async" />
+            <img src="assets/img/certificates/10.jpg" alt="Certificate 10" data-ar-alt="شهادة 10" loading="lazy" decoding="async" />
           </div>
           <div class="swiper-slide">
-            <img src="assets/img/certificates/11.png" alt="Certificate 11" loading="lazy" decoding="async" />
+            <img src="assets/img/certificates/11.png" alt="Certificate 11" data-ar-alt="شهادة 11" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
     </section>
     <!-- ======= End Certificates Section ======= -->
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio" aria-label="My Portfolio">
+    <section id="portfolio" class="portfolio" aria-label="My Portfolio" data-ar-aria-label="معرض أعمالي">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h5><i>Selected work</i></h5>
-          <h2>Portfolio</h2>
-          <p>Mobile, web, and desktop projects.</p>
+          <h5><i data-ar="أعمال مختارة">Selected work</i></h5>
+          <h2 data-ar="معرض الأعمال">Portfolio</h2>
+          <p data-ar="مشاريع موبايل وويب وسطح مكتب.">Mobile, web, and desktop projects.</p>
         </div>
         <ul id="portfolio-flters" class="d-flex justify-content-center flex-wrap" role="group"
-          aria-label="Filter projects by category" data-aos="fade-up" data-aos-delay="100">
-          <li data-filter="*" class="filter-active" title="Show all projects" role="button" tabindex="0"
-            aria-pressed="true" onclick="buttonAudio.play();">
+          aria-label="Filter projects by category" data-ar-aria-label="تصفية المشاريع حسب الفئة" data-aos="fade-up"
+          data-aos-delay="100">
+          <li data-filter="*" class="filter-active" title="Show all projects" data-ar-title="عرض كل المشاريع"
+            role="button" tabindex="0" aria-pressed="true" onclick="buttonAudio.play();" data-ar="الكل">
             All
           </li>
-          <li data-filter=".filter-mobile" title="Mobile projects" role="button" tabindex="0" aria-pressed="false"
-            onclick="buttonAudio.play();">
+          <li data-filter=".filter-mobile" title="Mobile projects" data-ar-title="مشاريع الموبايل" role="button"
+            tabindex="0" aria-pressed="false" onclick="buttonAudio.play();" data-ar="موبايل">
             Mobile
           </li>
-          <li data-filter=".filter-web" title="Web projects" role="button" tabindex="0" aria-pressed="false"
-            onclick="buttonAudio.play();">
+          <li data-filter=".filter-web" title="Web projects" data-ar-title="مشاريع الويب" role="button" tabindex="0"
+            aria-pressed="false" onclick="buttonAudio.play();" data-ar="ويب">
             Web
           </li>
-          <li data-filter=".filter-desktop" title="Desktop projects" role="button" tabindex="0" aria-pressed="false"
-            onclick="buttonAudio.play();">
+          <li data-filter=".filter-desktop" title="Desktop projects" data-ar-title="مشاريع سطح المكتب" role="button"
+            tabindex="0" aria-pressed="false" onclick="buttonAudio.play();" data-ar="سطح المكتب">
             Desktop
           </li>
         </ul>
@@ -347,14 +367,14 @@
               <img src="assets/img/portfolio/wakeed/1_Dashboard_Page.jpg" class="img-fluid" alt="" decoding="async" />
             </div>
             <div class="portfolio-info">
-              <h4>Wakeed</h4>
-              <p>Mobile, Web & Desktop Application</p>
+              <h4 data-ar="وكيد">Wakeed</h4>
+              <p data-ar="تطبيق موبايل وويب وسطح مكتب">Mobile, Web & Desktop Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="wakeed_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/wakeed/1_Dashboard_Page.jpg"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -363,14 +383,14 @@
               <img src="assets/img/portfolio/alArjawi/1_Dashboard_Page.jpg" class="img-fluid" alt="" decoding="async" />
             </div>
             <div class="portfolio-info">
-              <h4>Al-Arjawi ERP</h4>
-              <p>Web Application</p>
+              <h4 data-ar="نظام العرجاوي ERP">Al-Arjawi ERP</h4>
+              <p data-ar="تطبيق ويب">Web Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="al_arjawi_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/alArjawi/1_Dashboard_Page.jpg"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -379,14 +399,14 @@
               <img src="assets/img/portfolio/messilahBeach/1_Splash_Page.jpg" class="img-fluid" alt="" decoding="async" />
             </div>
             <div class="portfolio-info">
-              <h4>Messilah Beach</h4>
-              <p>Mobile Application</p>
+              <h4 data-ar="شاطئ المسيلة">Messilah Beach</h4>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="messilah_beach_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/messilahBeach/1_Splash_Page.jpg"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -396,13 +416,13 @@
             </div>
             <div class="portfolio-info">
               <h4>Clinic Code</h4>
-              <p>Mobile Application</p>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="clinic_code_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/clinicCode/1_Home_and_Booking_Pages.jpg"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -412,13 +432,13 @@
             </div>
             <div class="portfolio-info">
               <h4>NewPark Agents</h4>
-              <p>Mobile Application</p>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="newpark_agents_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/newparkAgents/1_Home_Page.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -427,14 +447,14 @@
               <img src="assets/img/portfolio/taMew/1_Splash_Page.png" class="img-fluid" alt="" decoding="async" />
             </div>
             <div class="portfolio-info">
-              <h4>Time Attendance For Ministry of Electricity Water and Renewable Energy</h4>
-              <p>Mobile Application</p>
+              <h4 data-ar="نظام الحضور والانصراف لوزارة الكهرباء والماء والطاقة المتجددة">Time Attendance For Ministry of Electricity Water and Renewable Energy</h4>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="time_attendance_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/taMew/1_Splash_Page.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -444,13 +464,13 @@
             </div>
             <div class="portfolio-info">
               <h4>Treema</h4>
-              <p>Mobile & Web Application</p>
+              <p data-ar="تطبيق موبايل وويب">Mobile & Web Application</p>
               <div class="links">
-                <a onclick="buttonAudio.play();" href="treema_details.html" class="details-link" title="More Details"><i
+                <a onclick="buttonAudio.play();" href="treema_details.html" class="details-link" title="More Details" data-ar-title="مزيد من التفاصيل"><i
                     class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/treema/1_Splash_Page.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -460,13 +480,13 @@
             </div>
             <div class="portfolio-info">
               <h4>Spot Books POS</h4>
-              <p>Mobile & Web Application</p>
+              <p data-ar="تطبيق موبايل وويب">Mobile & Web Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="spot_books_pos_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/spotBooks/1_Splash_Page.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -476,13 +496,13 @@
             </div>
             <div class="portfolio-info">
               <h4>Open VPN</h4>
-              <p>Mobile Application</p>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="open_vpn_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/openVpn/1_Splash_Page.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -491,14 +511,14 @@
               <img src="assets/img/portfolio/assetManagement/1_Splash_Page.png" class="img-fluid" alt="" decoding="async" />
             </div>
             <div class="portfolio-info">
-              <h4>Asset Management</h4>
-              <p>Mobile Application</p>
+              <h4 data-ar="إدارة الأصول">Asset Management</h4>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="asset_management_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/assetManagement/1_Splash_Page.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -508,13 +528,13 @@
             </div>
             <div class="portfolio-info">
               <h4>RDS Box</h4>
-              <p>Mobile Application</p>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="rds_box_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/rdsBox/1_Splash_Page.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -523,14 +543,14 @@
               <img src="assets/img/portfolio/wafra/1_Splash_Screen.png" class="img-fluid" alt="" decoding="async" />
             </div>
             <div class="portfolio-info">
-              <h4>Wafra</h4>
-              <p>Mobile Application</p>
+              <h4 data-ar="جمعية الوفرة">Wafra</h4>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
-                <a onclick="buttonAudio.play();" href="wafra_details.html" class="details-link" title="More Details"><i
+                <a onclick="buttonAudio.play();" href="wafra_details.html" class="details-link" title="More Details" data-ar-title="مزيد من التفاصيل"><i
                     class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/wafra/1_Splash_Screen.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -540,13 +560,13 @@
             </div>
             <div class="portfolio-info">
               <h4>Beacon Reader</h4>
-              <p>Mobile Application</p>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="beacon_reader_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/beaconReader/1_Splash_Page.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -556,13 +576,13 @@
             </div>
             <div class="portfolio-info">
               <h4>Alsafa Exchange</h4>
-              <p>Mobile Application</p>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="alsafa_exchange_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/alsafaExchange/1_Splash_Screen.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -572,13 +592,13 @@
             </div>
             <div class="portfolio-info">
               <h4>Trasool Online</h4>
-              <p>Mobile Application</p>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="trasool_online_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/trasoolOnline/1_Splash_Page.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -587,14 +607,14 @@
               <img src="assets/img/portfolio/realEstate/1_OnBoarding_and_Login_Page.png" class="img-fluid" alt="" decoding="async" />
             </div>
             <div class="portfolio-info">
-              <h4>Real Estate</h4>
-              <p>Mobile Application</p>
+              <h4 data-ar="تطبيق العقارات">Real Estate</h4>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="real_estate_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/realEstate/1_OnBoarding_and_Login_Page.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -604,13 +624,13 @@
             </div>
             <div class="portfolio-info">
               <h4>To Know Me</h4>
-              <p>Mobile Application</p>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="toKnowMe_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/toKnowMe/1_Intro.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i
-                    class="bi bi-aspect-ratio" title="Zoom in"></i></a>
+                    class="bi bi-aspect-ratio" title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -620,13 +640,13 @@
             </div>
             <div class="portfolio-info">
               <h4>Sallate</h4>
-              <p>Mobile Application</p>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="sallate_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/Sallate/1_Intro.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bi bi-aspect-ratio"
-                    title="Zoom in"></i></a>
+                    title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -636,13 +656,13 @@
             </div>
             <div class="portfolio-info">
               <h4>World News</h4>
-              <p>Mobile Application</p>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="worldNews_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/worldNews/1_Intro.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bi bi-aspect-ratio"
-                    title="Zoom in"></i></a>
+                    title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -652,13 +672,13 @@
             </div>
             <div class="portfolio-info">
               <h4>Ponder More</h4>
-              <p>Mobile Application</p>
+              <p data-ar="تطبيق موبايل">Mobile Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="ponderMore_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/ponderMore/1_Intro.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bi bi-aspect-ratio"
-                    title="Zoom in"></i></a>
+                    title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -667,14 +687,14 @@
               <img src="assets/img/portfolio/databaseManagement/1_Login_Main_Screen.png" class="img-fluid" alt="" decoding="async" />
             </div>
             <div class="portfolio-info">
-              <h4>Database Management</h4>
-              <p>Desktop Application</p>
+              <h4 data-ar="إدارة قواعد البيانات">Database Management</h4>
+              <p data-ar="تطبيق سطح مكتب">Desktop Application</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="databaseManagement_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/databaseManagement/1_Login_Main_Screen.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bi bi-aspect-ratio"
-                    title="Zoom in"></i></a>
+                    title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -684,13 +704,13 @@
             </div>
             <div class="portfolio-info">
               <h4>Mall To Go</h4>
-              <p>Desktop Applicatoin</p>
+              <p data-ar="تطبيق سطح مكتب">Desktop Applicatoin</p>
               <div class="links">
                 <a onclick="buttonAudio.play();" href="mallToGo_details.html" class="details-link"
-                  title="More Details"><i class="bx bx-link"></i></a>
+                  title="More Details" data-ar-title="مزيد من التفاصيل"><i class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/mallToGo/1_Intro.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bi bi-aspect-ratio"
-                    title="Zoom in"></i></a>
+                    title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -700,13 +720,13 @@
             </div>
             <div class="portfolio-info">
               <h4>Lister</h4>
-              <p>Web Application</p>
+              <p data-ar="تطبيق ويب">Web Application</p>
               <div class="links">
-                <a onclick="buttonAudio.play();" href="lister_details.html" class="details-link" title="More Details"><i
+                <a onclick="buttonAudio.play();" href="lister_details.html" class="details-link" title="More Details" data-ar-title="مزيد من التفاصيل"><i
                     class="bx bx-link"></i></a>
                 <a onclick="buttonAudio.play();" href="assets/img/portfolio/Lister/1_Intro.png"
                   data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bi bi-aspect-ratio"
-                    title="Zoom in"></i></a>
+                    title="Zoom in" data-ar-title="تكبير"></i></a>
               </div>
             </div>
           </div>
@@ -715,150 +735,150 @@
     </section>
     <!-- End Portfolio Section -->
     <!-- ======= Tools Section ======= -->
-    <section id="tools" class="tools section-bg" aria-label="Tools used">
+    <section id="tools" class="tools section-bg" aria-label="Tools used" data-ar-aria-label="الأدوات المستخدمة">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h5><i>Toolkit</i></h5>
-          <h2>Tools</h2>
-          <p>An AI-assisted workflow and the tools I ship with every day.</p>
+          <h5><i data-ar="عدّة العمل">Toolkit</i></h5>
+          <h2 data-ar="الأدوات">Tools</h2>
+          <p data-ar="سير عمل مدعوم بالذكاء الاصطناعي، والأدوات التي أعمل بها يوميًا.">An AI-assisted workflow and the tools I ship with every day.</p>
         </div>
         <div class="row">
           <ol>
             <li style="--accent-color: #d97757">
               <div class="icon">
-                <img src="assets/icons/claude.svg" alt="Claude Code Icon" title="Claude Code Icon" loading="lazy"
+                <img src="assets/icons/claude.svg" alt="Claude Code Icon" title="Claude Code Icon" data-ar-alt="أيقونة Claude Code" data-ar-title="أيقونة Claude Code" loading="lazy"
                   decoding="async" />
               </div>
               <div class="title">Claude Code</div>
-              <div class="descr">
+              <div class="descr" data-ar="شريك برمجة بالذكاء الاصطناعي يخطّط ويعدّل <span>ويختبر ويراجع</span> عبر المشروع بأكمله">
                 AI pair-programmer that plans, edits, <span>tests &amp; reviews</span> across the codebase
               </div>
             </li>
             <li style="--accent-color: #1f2937">
               <div class="icon">
-                <img src="assets/icons/cursor.svg" alt="Cursor Icon" title="Cursor Icon" loading="lazy"
+                <img src="assets/icons/cursor.svg" alt="Cursor Icon" title="Cursor Icon" data-ar-alt="أيقونة Cursor" data-ar-title="أيقونة Cursor" loading="lazy"
                   decoding="async" />
               </div>
               <div class="title">Cursor</div>
-              <div class="descr">
+              <div class="descr" data-ar="محرّر مبني على الذكاء الاصطناعي بمحادثة تفهم المشروع و<span>إكمال ذكي بزر Tab</span>">
                 AI-native editor with codebase-aware chat and smart <span>Tab completion</span>
               </div>
             </li>
             <li style="--accent-color: #6366f1">
               <div class="icon"><i class="bi bi-diagram-3-fill" aria-hidden="true"></i></div>
-              <div class="title">Sub-Agents</div>
-              <div class="descr">
+              <div class="title" data-ar="الوكلاء الفرعيون">Sub-Agents</div>
+              <div class="descr" data-ar="تنسيق وكلاء ذكاء اصطناعي يعملون بالتوازي: <span>محلّل، ومطوّر، ومراجع، وضمان جودة، ومهندس DevOps</span>">
                 Orchestrating parallel AI agents: <span>analyst, developer, reviewer, QA &amp; DevOps</span>
               </div>
             </li>
             <li style="--accent-color: #0ea5a4">
               <div class="icon"><i class="bi bi-stars" aria-hidden="true"></i></div>
-              <div class="title">Agent Skills</div>
-              <div class="descr">
+              <div class="title" data-ar="مهارات الوكلاء">Agent Skills</div>
+              <div class="descr" data-ar="أدلة عمل <span>SKILL.md</span> قابلة لإعادة الاستخدام للمراجعات وفحص التصميم والإصدارات">
                 Reusable <span>SKILL.md</span> playbooks for reviews, design checks &amp; releases
               </div>
             </li>
             <li style="--accent-color: #64748b">
               <div class="icon">
-                <img src="assets/icons/mcp.svg" alt="Model Context Protocol Icon" title="Model Context Protocol Icon"
+                <img src="assets/icons/mcp.svg" alt="Model Context Protocol Icon" title="Model Context Protocol Icon" data-ar-alt="أيقونة Model Context Protocol" data-ar-title="أيقونة Model Context Protocol"
                   loading="lazy" decoding="async" />
               </div>
-              <div class="title">MCP Servers</div>
-              <div class="descr">
+              <div class="title" data-ar="خوادم MCP">MCP Servers</div>
+              <div class="descr" data-ar="ربط وكلاء الذكاء الاصطناعي بالأدوات الحقيقية عبر <span>Model Context Protocol</span>">
                 Connecting AI agents to real tools via the <span>Model Context Protocol</span>
               </div>
             </li>
             <li style="--accent-color: #3ddc84">
               <div class="icon">
-                <img src="assets/icons/androidStudio.png" alt="Android Studio Icon" title="Android Studio Icon"
+                <img src="assets/icons/androidStudio.png" alt="Android Studio Icon" title="Android Studio Icon" data-ar-alt="أيقونة Android Studio" data-ar-title="أيقونة Android Studio"
                   loading="lazy" decoding="async" />
               </div>
               <div class="title">Android Studio</div>
-              <div class="descr">
+              <div class="descr" data-ar="التطوير الأصلي لـ <span>Android بلغة Kotlin</span>، وبناء Gradle، وتحليل الأداء">
                 Native <span>Android &amp; Kotlin</span> work, Gradle builds and profiling
               </div>
             </li>
             <li style="--accent-color: #147efb">
               <div class="icon">
-                <img src="assets/icons/xcode.svg" alt="Xcode Icon" title="Xcode Icon" loading="lazy" decoding="async" />
+                <img src="assets/icons/xcode.svg" alt="Xcode Icon" title="Xcode Icon" data-ar-alt="أيقونة Xcode" data-ar-title="أيقونة Xcode" loading="lazy" decoding="async" />
               </div>
               <div class="title">Xcode</div>
-              <div class="descr">
+              <div class="descr" data-ar="التكامل الأصلي مع <span>iOS بلغة Swift</span>، والتوقيع، والنشر على App Store">
                 Native <span>iOS &amp; Swift</span> integration, signing and App Store releases
               </div>
             </li>
             <li style="--accent-color: #ffa000">
               <div class="icon">
-                <img src="assets/icons/firebase.svg" alt="Firebase Icon" title="Firebase Icon" loading="lazy"
+                <img src="assets/icons/firebase.svg" alt="Firebase Icon" title="Firebase Icon" data-ar-alt="أيقونة Firebase" data-ar-title="أيقونة Firebase" loading="lazy"
                   decoding="async" />
               </div>
               <div class="title">Firebase</div>
-              <div class="descr">
+              <div class="descr" data-ar="<span>Cloud Messaging</span> والمصادقة وقاعدة Firestore لتطبيقات الموبايل">
                 <span>Cloud Messaging</span>, Authentication &amp; Firestore for mobile apps
               </div>
             </li>
             <li style="--accent-color: #0078d7">
               <div class="icon">
                 <img src="assets/icons/visualStudioCode.png" alt="Visual Studio Code Icon"
-                  title="Visual Studio Code Icon" loading="lazy" decoding="async" />
+                  title="Visual Studio Code Icon" data-ar-alt="أيقونة Visual Studio Code" data-ar-title="أيقونة Visual Studio Code" loading="lazy" decoding="async" />
               </div>
               <div class="title">VS Code</div>
-              <div class="descr">
+              <div class="descr" data-ar="محرّر Flutter اليومي مع Dart DevTools و<span>إضافات الذكاء الاصطناعي</span>">
                 Daily Flutter editor with Dart DevTools and <span>AI extensions</span>
               </div>
             </li>
             <li style="--accent-color: #f34f29">
               <div class="icon">
-                <img src="assets/icons/git.png" alt="Git Icon" title="Git Icon" loading="lazy" decoding="async" />
+                <img src="assets/icons/git.png" alt="Git Icon" title="Git Icon" data-ar-alt="أيقونة Git" data-ar-title="أيقونة Git" loading="lazy" decoding="async" />
               </div>
               <div class="title">Git &amp; CI</div>
-              <div class="descr">
+              <div class="descr" data-ar="Conventional Commits، ومراجعات PR، وخطوط CI <span>(GitHub، Bitbucket)</span>">
                 Conventional commits, PR reviews &amp; pipelines <span>(GitHub, Bitbucket)</span>
               </div>
             </li>
             <li style="--accent-color: #a259ff">
               <div class="icon">
-                <img src="assets/icons/figma.png" alt="Figma Icon" title="Figma Icon" loading="lazy" decoding="async" />
+                <img src="assets/icons/figma.png" alt="Figma Icon" title="Figma Icon" data-ar-alt="أيقونة Figma" data-ar-title="أيقونة Figma" loading="lazy" decoding="async" />
               </div>
               <div class="title">Figma</div>
-              <div class="descr">
+              <div class="descr" data-ar="تحويل التصاميم إلى واجهات مطابقة بدقة عبر <span>Dev Mode</span>">
                 Turning designs into pixel-perfect UI with <span>Dev Mode</span>
               </div>
             </li>
             <li style="--accent-color: #ff6c37">
               <div class="icon">
-                <img src="assets/icons/postman.png" alt="Postman Icon" title="Postman Icon" loading="lazy" decoding="async" />
+                <img src="assets/icons/postman.png" alt="Postman Icon" title="Postman Icon" data-ar-alt="أيقونة Postman" data-ar-title="أيقونة Postman" loading="lazy" decoding="async" />
               </div>
               <div class="title">Postman</div>
-              <div class="descr">
+              <div class="descr" data-ar="اختبار <span>واجهات REST</span> وتوثيقها مع فريق الواجهة الخلفية">
                 Testing and documenting <span>REST APIs</span> with the backend team
               </div>
             </li>
             <li style="--accent-color: #0052cc">
               <div class="icon">
-                <img src="assets/icons/jira.svg" alt="Jira Icon" title="Jira Icon" loading="lazy" decoding="async" />
+                <img src="assets/icons/jira.svg" alt="Jira Icon" title="Jira Icon" data-ar-alt="أيقونة Jira" data-ar-title="أيقونة Jira" loading="lazy" decoding="async" />
               </div>
               <div class="title">Jira</div>
-              <div class="descr">
+              <div class="descr" data-ar="تخطيط السبرنت، والتذاكر، ولوحات <span>Agile</span> المرتبطة بكل commit">
                 Sprint planning, tickets and <span>Agile</span> boards linked to every commit
               </div>
             </li>
             <li style="--accent-color: #362d59">
               <div class="icon">
-                <img src="assets/icons/sentry.svg" alt="Sentry Icon" title="Sentry Icon" loading="lazy" decoding="async" />
+                <img src="assets/icons/sentry.svg" alt="Sentry Icon" title="Sentry Icon" data-ar-alt="أيقونة Sentry" data-ar-title="أيقونة Sentry" loading="lazy" decoding="async" />
               </div>
               <div class="title">Sentry</div>
-              <div class="descr">
+              <div class="descr" data-ar="مراقبة الأعطال والأخطاء مع <span>صحة الإصدارات</span> والفرز السريع">
                 Crash &amp; error monitoring with <span>release health</span> and fast triage
               </div>
             </li>
             <li style="--accent-color: #2ead33">
               <div class="icon">
-                <img src="assets/icons/playwright.svg" alt="Playwright Icon" title="Playwright Icon" loading="lazy"
+                <img src="assets/icons/playwright.svg" alt="Playwright Icon" title="Playwright Icon" data-ar-alt="أيقونة Playwright" data-ar-title="أيقونة Playwright" loading="lazy"
                   decoding="async" />
               </div>
               <div class="title">Playwright</div>
-              <div class="descr">
+              <div class="descr" data-ar="اختبارات واجهة شاملة (E2E) و<span>أتمتة المتصفح</span> لتطبيقات الويب">
                 End-to-end UI tests and <span>browser automation</span> for web apps
               </div>
             </li>
@@ -868,7 +888,8 @@
     </section>
     <!-- End Tools Section -->
     <!-- ======= techniquess Section ======= -->
-    <section id="techniques" class="techniques techniques-engine" aria-label="Techniques used">
+    <section id="techniques" class="techniques techniques-engine" aria-label="Techniques used"
+      data-ar-aria-label="التقنيات المستخدمة">
       <span class="techniques-engine__aurora" aria-hidden="true"></span>
       <div class="techniques-floating-icons" aria-hidden="true">
         <span class="hero-float-item hero-float-item--p1" style="--lx: 7%; --ty: 16%; --dur: 14s"><span class="hero-float-motion"><i
@@ -898,11 +919,11 @@
       </div>
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h5><i>Stack</i></h5>
-          <h2>Techniques</h2>
-          <p>Languages and frameworks I work with.</p>
+          <h5><i data-ar="الحزمة التقنية">Stack</i></h5>
+          <h2 data-ar="التقنيات">Techniques</h2>
+          <p data-ar="اللغات وأطر العمل التي أعمل بها.">Languages and frameworks I work with.</p>
         </div>
-        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="slides-3 swiper" dir="ltr" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="techniques-wrap">
@@ -995,32 +1016,33 @@
       </div>
     </section>
     <!-- End techniquess Section -->
-    <section id="contact" class="contact section-bg" aria-label="Contact Me">
+    <section id="contact" class="contact section-bg" aria-label="Contact Me" data-ar-aria-label="تواصل معي">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h5><i>Get in touch</i></h5>
-          <h2>Contact</h2>
+          <h5><i data-ar="لنبقَ على تواصل">Get in touch</i></h5>
+          <h2 data-ar="تواصل معي">Contact</h2>
         </div>
         <div class="row">
           <div class="col-xl-4 col-md-6 mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box" title="Address">
+            <div class="icon-box" title="Address" data-ar-title="العنوان">
               <div class="icon"><i class="bi bi-geo-alt"></i></div>
-              <h4>Address</h4>
-              <p>Fares Khoury Street, Damascus <span>(Syria)</span></p>
+              <h4 data-ar="العنوان">Address</h4>
+              <p data-ar="شارع فارس الخوري، دمشق <span>(سوريا)</span>">Fares Khoury Street, Damascus <span>(Syria)</span></p>
             </div>
           </div>
           <div class="col-xl-4 col-md-6 mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box" title="Phone">
+            <div class="icon-box" title="Phone" data-ar-title="الهاتف">
               <div class="icon"><i class="bi bi-telephone"></i></div>
-              <h4>Phone</h4>
-              <p><span>(+963)</span> 967140352</p>
+              <h4 data-ar="الهاتف">Phone</h4>
+              <!-- dir="ltr": keeps "(+963) 967140352" in order inside the Arabic layout -->
+              <p dir="ltr"><span>(+963)</span> 967140352</p>
             </div>
           </div>
           <div class="col-xl-4 col-md-6 mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box" title="Email">
+            <div class="icon-box" title="Email" data-ar-title="البريد الإلكتروني">
               <div class="icon"><i class="bi bi-envelope"></i></div>
-              <h4>Email</h4>
-              <p>bndkjiprogrammer@gmail.com</p>
+              <h4 data-ar="البريد الإلكتروني">Email</h4>
+              <p dir="ltr">bndkjiprogrammer@gmail.com</p>
             </div>
           </div>
         </div>
@@ -1030,10 +1052,10 @@
   </main>
   <!-- End main -->
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer" aria-label="Footer"></footer>
+  <footer id="footer" class="footer" aria-label="Footer" data-ar-aria-label="التذييل"></footer>
   <!-- End Footer -->
   <div id="preloader"></div>
-  <a onclick="buttonAudio.play();" href="#" title="Up"
+  <a onclick="buttonAudio.play();" href="#" title="Up" data-ar-title="للأعلى"
     class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Vendor + app (defer: non-blocking parse; order preserved) -->
   <script defer src="assets/vendor/typed/typed.js"></script>
@@ -1042,6 +1064,7 @@
   <script defer src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script defer src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script defer src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script defer src="assets/js/i18n.js"></script>
   <script defer src="assets/js/theme-switcher.js"></script>
   <script defer src="assets/js/main.js"></script>
   <script defer src="assets/js/index-init.js"></script>

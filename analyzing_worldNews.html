@@ -8,6 +8,10 @@
   <script>
     (function () {
       try {
+        if (localStorage.getItem("portfolio-lang") === "ar") {
+          document.documentElement.setAttribute("lang", "ar");
+          document.documentElement.setAttribute("dir", "rtl");
+        }
         var k = "portfolio-color-scheme-pref";
         var v = localStorage.getItem(k);
         if (v === "light" || v === "dark") {
@@ -22,12 +26,13 @@
       } catch (e) {}
     })();
   </script>
-  <title>Analyzing World News</title>
+  <title data-ar="تحليل World News">Analyzing World News</title>
   <meta content="Diagrams Make Abstract ideas and software systems easier to
     understand through visualization. This is beneficial for
     software engineers who need to collaborate when building
     software. UML diagrams also make it easier for software
-    engineering teams to communicate with external stakeholders." name="description" />
+    engineering teams to communicate with external stakeholders." name="description"
+    data-ar-content="تجعل المخططات الأفكار المجرّدة والأنظمة البرمجية أسهل فهمًا عبر التصوّر المرئي، وهذا مفيد لمهندسي البرمجيات الذين يتعاونون في بناء البرمجيات، كما تسهّل مخططات UML تواصل فرق هندسة البرمجيات مع أصحاب المصلحة الخارجيين." />
   <meta
     content="Unified Model Language, UML, Diagram, Analyzing Project, What is Benefit of Analyzing The Software Project, Analyzing News World Project, Diagrams for News World Project"
     name="keywords" />
@@ -37,7 +42,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Cairo:400,500,600,700&display=swap"
     rel="stylesheet" />
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
@@ -50,12 +55,12 @@
 </head>
 
 <body oncontextmenu="return false;">
-  <a class="skip-link" href="#main">Skip to main content</a>
+  <a class="skip-link" href="#main" data-ar="تخطَّ إلى المحتوى الرئيسي">Skip to main content</a>
   <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top header-inner-pages" aria-label="Header">
+  <header id="header" class="header fixed-top header-inner-pages" aria-label="Header" data-ar-aria-label="الترويسة">
     <div class="container d-flex align-items-center">
       <a href="index.html">
-        <h1 class="logo me-auto" title="logo">
+        <h1 class="logo me-auto" title="logo" data-ar-title="الشعار">
           <img src="assets/img/hero_scetion/leftTag.png" alt="" loading="lazy" />
           <a href="index.html">Mahmoud</a>
           <a href="index.html">
@@ -64,28 +69,28 @@
         </h1>
       </a>
       <div class="header-actions">
-        <nav id="navbar" class="navbar" aria-label="Navbar">
+        <nav id="navbar" class="navbar" aria-label="Navbar" data-ar-aria-label="التنقل الرئيسي">
           <div class="mobile-nav-backdrop" aria-hidden="true"></div>
           <ul id="primary-navigation">
-            <li title="Home" onclick="buttonAudio.play();">
-              <a class="nav-link scrollto active" href="index.html#hero">Home</a>
+            <li title="Home" data-ar-title="الرئيسية" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto active" href="index.html#hero" data-ar="الرئيسية">Home</a>
             </li>
-            <li title="About" onclick="buttonAudio.play();">
-              <a class="nav-link scrollto" href="index.html#about">About</a>
+            <li title="About" data-ar-title="نبذة عني" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="index.html#about" data-ar="نبذة عني">About</a>
             </li>
-            <li title="Projects" onclick="buttonAudio.play();">
-              <a class="nav-link scrollto" href="index.html#portfolio">Projects</a>
+            <li title="Projects" data-ar-title="المشاريع" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="index.html#portfolio" data-ar="المشاريع">Projects</a>
             </li>
-            <li title="Tools" onclick="buttonAudio.play();">
-              <a class="nav-link scrollto" href="index.html#tools">Tools</a>
+            <li title="Tools" data-ar-title="الأدوات" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="index.html#tools" data-ar="الأدوات">Tools</a>
             </li>
-            <li title="Contact" onclick="buttonAudio.play();">
-              <a class="nav-link scrollto" href="index.html#contact">Contact</a>
+            <li title="Contact" data-ar-title="تواصل" onclick="buttonAudio.play();">
+              <a class="nav-link scrollto" href="index.html#contact" data-ar="تواصل">Contact</a>
             </li>
-            <li title="Download CV" id="list-download-cv">
+            <li title="Download CV" data-ar-title="تحميل السيرة الذاتية" id="list-download-cv">
               <a class="nav-link scrollto"
                 href="https://www.mediafire.com/file/6m5d0big9xfqwv3/CV_-_Mahmoud_AL_Bndkji%25282%2529.pdf/file"
-                target="_blank">Download CV</a>
+                target="_blank" data-ar="تحميل السيرة الذاتية">Download CV</a>
             </li>
           </ul>
           <button type="button" class="mobile-nav-toggle" aria-expanded="false" aria-controls="primary-navigation"
@@ -97,18 +102,25 @@
             </span>
           </button>
         </nav>
-        <div class="theme-switcher" id="theme-switcher" role="group" aria-label="Color theme">
+        <button type="button" class="lang-switch" title="العربية" data-ar-title="English" aria-label="Switch to Arabic"
+          data-ar-aria-label="التبديل إلى الإنجليزية">
+          <span class="lang-switch__thumb" aria-hidden="true"></span>
+          <span class="lang-switch__opt lang-switch__opt--en" lang="en" aria-hidden="true">EN</span>
+          <span class="lang-switch__opt lang-switch__opt--ar" lang="ar" aria-hidden="true">ع</span>
+        </button>
+        <div class="theme-switcher" id="theme-switcher" role="group" aria-label="Color theme"
+          data-ar-aria-label="سمة الألوان">
           <button type="button" class="theme-switcher__btn" data-set-theme="system" title="Match system theme"
-            aria-pressed="false">
-            <i class="bi bi-circle-half" aria-hidden="true"></i><span class="visually-hidden">System</span>
+            data-ar-title="مطابقة سمة النظام" aria-pressed="false">
+            <i class="bi bi-circle-half" aria-hidden="true"></i><span class="visually-hidden" data-ar="النظام">System</span>
           </button>
           <button type="button" class="theme-switcher__btn" data-set-theme="light" title="Light theme"
-            aria-pressed="false">
-            <i class="bi bi-sun-fill" aria-hidden="true"></i><span class="visually-hidden">Light</span>
+            data-ar-title="السمة الفاتحة" aria-pressed="false">
+            <i class="bi bi-sun-fill" aria-hidden="true"></i><span class="visually-hidden" data-ar="فاتح">Light</span>
           </button>
           <button type="button" class="theme-switcher__btn" data-set-theme="dark" title="Dark theme"
-            aria-pressed="false">
-            <i class="bi bi-moon-stars-fill" aria-hidden="true"></i><span class="visually-hidden">Dark</span>
+            data-ar-title="السمة الداكنة" aria-pressed="false">
+            <i class="bi bi-moon-stars-fill" aria-hidden="true"></i><span class="visually-hidden" data-ar="داكن">Dark</span>
           </button>
         </div>
       </div>
@@ -120,13 +132,13 @@
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
         <ol>
-          <li title="Home"><a href="index.html#hero">Home</a></li>
+          <li title="Home" data-ar-title="الرئيسية"><a href="index.html#hero" data-ar="الرئيسية">Home</a></li>
           <li title="World News">
             <a href="worldNews_details.html">World News</a>
           </li>
-          <li>Analyzing World News</li>
+          <li data-ar="تحليل World News">Analyzing World News</li>
         </ol>
-        <h2>Analyzing</h2>
+        <h2 data-ar="التحليل">Analyzing</h2>
       </div>
     </section>
     <!-- End Breadcrumbs -->
@@ -136,7 +148,8 @@
         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
           <button class="accordion-button" type="button" data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-            aria-controls="panelsStayOpen-collapseOne">
+            aria-controls="panelsStayOpen-collapseOne"
+            data-ar="ما الفائدة من تحليل المشروع البرمجي ورسم مخططات UML؟">
             What is The Point of Analyzing The Software Project And Drawing a
             Unified Model Diagram ?
           </button>
@@ -144,8 +157,9 @@
         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
           aria-labelledby="panelsStayOpen-headingOne">
           <div class="accordion-body">
-            <h4>UML (Unified Model Language)</h4>
-            <h5>
+            <h4 data-ar="UML (لغة النمذجة الموحّدة)">UML (Unified Model Language)</h4>
+            <h5
+              data-ar="تجعل المخططات الأفكار المجرّدة والأنظمة البرمجية أسهل فهمًا عبر التصوّر المرئي، وهذا مفيد لمهندسي البرمجيات الذين يتعاونون في بناء البرمجيات. كما تسهّل مخططات UML تواصل فرق هندسة البرمجيات مع أصحاب المصلحة الخارجيين.<br />تساعد مخططات UML على كتابة أوصاف محددة وموجزة للبرنامج كاملًا دون إهدار الجهد والوقت.<br />رموز UML مفهومة عالميًا، وهي طريقة ممتازة لتحديد التسلسل الهرمي للمكوّنات والمكوّنات الفرعية في المنتج البرمجي.<br />يمكن التعبير بسهولة عن تدفّق المعلومات واعتماد كائن على آخر عبر أنواع مختلفة من مخططات UML.<br />تُستخدم هذه المخططات على نطاق واسع في مراحل التوثيق ضمن دورة حياة تطوير البرمجيات (SDLC) لتوضيح آلية عمل المنتج النهائي بشكل أفضل.">
               Diagrams Make Abstract ideas and software systems easier to
               understand through visualization. This is beneficial for
               software engineers who need to collaborate when building
@@ -173,24 +187,25 @@
         <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-            aria-controls="panelsStayOpen-collapseTwo">
+            aria-controls="panelsStayOpen-collapseTwo" data-ar="مخطط حالات الاستخدام وفائدته">
             Use Case Diagram and Benefit from it
           </button>
         </h2>
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
           aria-labelledby="panelsStayOpen-headingTwo">
           <div class="accordion-body diagram">
-            <h5>
+            <h5
+              data-ar="يوفّر قائمة بالأهداف يمكن استخدامها لتقدير تكلفة النظام ومدى تعقيده، ثم تتفاوض فرق المشروع على الوظائف التي تصبح متطلبات وتُبنى، إضافة إلى تفاصيل عن واجهات المستخدم أو الشاشات.">
               They provide a list of goals and this list can be used to
               establish the cost and complexity of the system. Project teams
               can then negotiate which functions become requirements and are
               built. Details about the user interfaces or screens.
             </h5>
             <div class="slide">
-              <a onclick="buttonAudio.play();" title="Use Case"
+              <a onclick="buttonAudio.play();" title="Use Case" data-ar-title="حالات الاستخدام"
                 href="assets/img/portfolio/analyzingWorldNews/Use_Case.png" data-gallery="portfolioGallery"
                 class="portfolio-lightbox preview-link"><img src="assets/img/portfolio/analyzingWorldNews/Use_Case.png"
-                  alt="Use Case Image" loading="lazy" /></a>
+                  alt="Use Case Image" data-ar-alt="صورة مخطط حالات الاستخدام" loading="lazy" /></a>
             </div>
           </div>
         </div>
@@ -199,14 +214,15 @@
         <h2 class="accordion-header" id="panelsStayOpen-headingThree">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-            aria-controls="panelsStayOpen-collapseThree">
+            aria-controls="panelsStayOpen-collapseThree" data-ar="مخطط الكيانات والعلاقات (ERD) وفائدته">
             ERD and Benefit from it
           </button>
         </h2>
         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
           aria-labelledby="panelsStayOpen-headingFour">
           <div class="accordion-body diagram">
-            <h5>
+            <h5
+              data-ar="توفّر مخططات الكيانات والعلاقات نقطة انطلاق مرئية لتصميم قواعد البيانات، ويمكن استخدامها أيضًا لتحديد متطلبات نظام المعلومات على مستوى المؤسسة.<br />وبعد إطلاق قاعدة البيانات العلائقية، يبقى مخطط ERD مرجعًا عند الحاجة لاحقًا إلى تصحيح الأخطاء أو إعادة هندسة إجراءات العمل.<br />ومع ذلك، ورغم فائدة ERD في تنظيم البيانات التي يمكن تمثيلها ببنية علائقية، فإنه لا يمثّل البيانات شبه المهيكلة أو غير المهيكلة تمثيلًا كافيًا، ولا يُرجَّح أن يفيد وحده في دمج البيانات ضمن نظام معلومات قائم.">
               Entity relationship diagrams provide a visual starting point for
               database design that can also be used to help determine
               information system requirements throughout an organization.
@@ -222,10 +238,11 @@
               pre-existing information system.
             </h5>
             <div class="slide">
-              <a onclick="buttonAudio.play();" title="Entity Relationship Diagram"
+              <a onclick="buttonAudio.play();" title="Entity Relationship Diagram" data-ar-title="مخطط الكيانات والعلاقات"
                 href="assets/img/portfolio/analyzingWorldNews/ERD.png" data-gallery="portfolioGallery"
                 class="portfolio-lightbox preview-link"><img src="assets/img/portfolio/analyzingWorldNews/ERD.png"
-                  alt="Entity Relationship Diagram Image" loading="lazy" /></a>
+                  alt="Entity Relationship Diagram Image" data-ar-alt="صورة مخطط الكيانات والعلاقات"
+                  loading="lazy" /></a>
             </div>
           </div>
         </div>
@@ -234,14 +251,15 @@
         <h2 class="accordion-header" id="panelsStayOpen-headingFour">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-            aria-controls="panelsStayOpen-collapseFour">
+            aria-controls="panelsStayOpen-collapseFour" data-ar="مخطط الأصناف (Class Diagram) وفائدته">
             Class Diagram and Benefit from it
           </button>
         </h2>
         <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
           aria-labelledby="panelsStayOpen-headingFour">
           <div class="accordion-body diagram">
-            <h5>
+            <h5
+              data-ar="مزايا مخطط الأصناف: يمنحك إحساسًا بالتوجّه، ويقدّم رؤية تفصيلية لبنية أنظمتك.<br />وفي الوقت نفسه يقدّم نظرة سريعة على التآزر بين عناصر النظام المختلفة وخصائصها وعلاقاتها.">
               The advantages of the class diagram Class diagrams give you a
               sense of orientation. They provide detailed insight into the
               structure of your systems.
@@ -251,11 +269,11 @@
               properties and relationships.
             </h5>
             <div class="slide">
-              <a onclick="buttonAudio.play();" title="Class Diagram"
+              <a onclick="buttonAudio.play();" title="Class Diagram" data-ar-title="مخطط الأصناف"
                 href="assets/img/portfolio/analyzingWorldNews/Class_Diagram.png" data-gallery="portfolioGallery"
                 class="portfolio-lightbox preview-link"><img
                   src="assets/img/portfolio/analyzingWorldNews/Class_Diagram.png" alt="Class Diagram Image"
-                  loading="lazy" /></a>
+                  data-ar-alt="صورة مخطط الأصناف" loading="lazy" /></a>
             </div>
           </div>
         </div>
@@ -264,9 +282,9 @@
     <!-- End Accordion Analyzing -->
   </main>
   <!-- End #main -->
-  <footer id="footer" class="footer" aria-label="Footer"></footer>
+  <footer id="footer" class="footer" aria-label="Footer" data-ar-aria-label="التذييل"></footer>
   <div id="preloader"></div>
-  <a onclick="buttonAudio.play();" href="#" title="Up"
+  <a onclick="buttonAudio.play();" href="#" title="Up" data-ar-title="للأعلى"
     class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <script defer src="assets/vendor/aos/aos.js"></script>
   <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -275,6 +293,7 @@
     var buttonAudio = new Audio();
     buttonAudio.src = "assets/audios/mouseClick.mp3";
   </script>
+  <script defer src="assets/js/i18n.js"></script>
   <script defer src="assets/js/theme-switcher.js"></script>
   <script defer src="assets/js/main.js"></script>
 </body>

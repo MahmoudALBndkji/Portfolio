@@ -23,6 +23,13 @@ const portfolioDetails = {
     projectDate: "6 Aug, 2026 ➡️ 4 Oct, 2026",
     descriptionHtml:
       "A production ERP for Al-Arjawi, a spices and za'atar manufacturer and distributor, built around one question: can this customer order be fulfilled — from stock, by transfer, or by manufacturing?<br> It follows the whole cycle from raw material to the delivered product: material receipts and warehouse balances, bills of material and production orders, customer orders with availability checks, transfers between sites, van sales for field reps, point of sale with daily closing, attendance & payroll, and 25+ operational reports with Excel export and print.<br> One responsive Arabic / English web app that works from phone to desktop, with role-based permissions and an audit trail of who added, edited, approved or cancelled every document.",
+    ar: {
+      name: "نظام العرجاوي ERP",
+      metaDescription:
+        "نظام ERP إنتاجي لشركة العرجاوي لتصنيع وتوزيع البهارات والزعتر، يغطي الدورة كاملة من المادة الخام حتى تسليم المنتج في تطبيق ويب متجاوب واحد بالعربية والإنجليزية.",
+      descriptionHtml:
+        "نظام ERP إنتاجي لشركة العرجاوي لتصنيع وتوزيع البهارات والزعتر، مبني حول سؤال واحد: هل يمكن تلبية طلب هذا العميل من المخزون، أو بالتحويل، أو بالتصنيع؟<br> يتابع الدورة كاملة من المادة الخام حتى تسليم المنتج: استلام المواد وأرصدة المستودعات، وقوائم المواد وأوامر الإنتاج، وطلبات العملاء مع التحقق من التوفر، والتحويلات بين المواقع، والبيع المتنقل لمندوبي المبيعات، ونقطة البيع مع الإغلاق اليومي، والحضور والرواتب، وأكثر من 25 تقريرًا تشغيليًا مع التصدير إلى Excel والطباعة.<br> تطبيق ويب متجاوب واحد بالعربية والإنجليزية يعمل من الجوال حتى سطح المكتب، مع صلاحيات حسب الأدوار وسجل تدقيق يبيّن من أضاف كل مستند أو عدّله أو اعتمده أو ألغاه.",
+    },
     technologies: [
       "Angular 21 + PrimeNG",
       ".NET 10 Web API",
@@ -80,6 +87,11 @@ const portfolioDetails = {
     projectDate: "8 Oct, 2024 ➡️ 20 Mar, 2025",
     descriptionHtml:
       "AlSafa Exchange mobile enabling secure authentication, seamless fund transfers via intermediary banks, transaction history tracking, account management, and advanced data security with encryption and verification.",
+    ar: {
+      name: "Alsafa Exchange",
+      descriptionHtml:
+        "تطبيق AlSafa Exchange للموبايل يوفّر مصادقة آمنة، وتحويلات مالية سلسة عبر بنوك وسيطة، وتتبّع سجل المعاملات، وإدارة الحساب، مع حماية متقدمة للبيانات بالتشفير والتحقق.",
+    },
     storeButtons: [
       {
         variant: "apple",
@@ -128,6 +140,11 @@ const portfolioDetails = {
     projectDate: "8 Mar, 2024 ➡️ 17 Jun, 2024",
     descriptionHtml:
       "Application for managing company assets that shows the condition of the asset and the stages it has gone through. Attachments can also be added to the asset to photograph the problem if it is not working, or photograph the asset while it is working, or document any process performed on the asset.",
+    ar: {
+      name: "إدارة الأصول",
+      descriptionHtml:
+        "تطبيق لإدارة أصول الشركة يعرض حالة كل أصل والمراحل التي مرّ بها. ويمكن إضافة مرفقات إلى الأصل لتصوير المشكلة إن كان معطّلًا، أو تصويره أثناء عمله، أو توثيق أي عملية أُجريت عليه.",
+    },
     technologies: [],
     gallery: [
       {
@@ -161,6 +178,11 @@ const portfolioDetails = {
     projectDate: "Nov 19, 2023 ➡️ 12 Feb, 2024",
     descriptionHtml:
       "A Mobile app for scanning and managing beacon devices using the Kontakt.io SDK.<br> Integrated beacon detection, proximity tracking, and data synchronization to enable location-based services and enhance user engagement.",
+    ar: {
+      name: "Beacon Reader",
+      descriptionHtml:
+        "تطبيق موبايل لمسح أجهزة Beacon وإدارتها باستخدام Kontakt.io SDK.<br> يدمج اكتشاف أجهزة Beacon، وتتبّع القرب منها، ومزامنة البيانات، لتمكين الخدمات المعتمدة على الموقع وتعزيز تفاعل المستخدمين.",
+    },
     storeButtons: [
       {
         variant: "drive",
@@ -203,6 +225,13 @@ const portfolioDetails = {
     projectDate: "28 Mar, 2024 ➡️ 22 Nov, 2025",
     descriptionHtml:
       "Clinic Code is a medical appointment platform built as two connected apps.<br> The patient app (موعدك الطبي) lets patients find doctors and clinics by specialty, city, area and working days, book an available slot instantly from a live calendar, keep a list of favorite doctors, and receive smart reminders with an organized log of their visits.<br> The doctor app gives clinics a complete workspace: patient records and medical history, visits, diagnoses, lab tests, X-rays, prescriptions and allergies, a patient queue updated in real time, and statistics with Excel export.",
+    ar: {
+      name: "Clinic Code",
+      metaDescription:
+        "Clinic Code منصة لحجز المواعيد الطبية: يبحث المرضى عن الأطباء والعيادات حسب التخصص والموقع، ويحجزون المواعيد المتاحة فورًا، ويتلقّون تذكيرات ذكية، بينما يدير الأطباء المرضى والزيارات وطابور الانتظار لحظيًا.",
+      descriptionHtml:
+        "Clinic Code منصة لحجز المواعيد الطبية مبنية من تطبيقين مترابطين.<br> تطبيق المرضى (موعدك الطبي) يتيح للمريض البحث عن الأطباء والعيادات حسب التخصص والمدينة والمنطقة وأيام الدوام، وحجز موعد متاح فورًا من تقويم مباشر، والاحتفاظ بقائمة الأطباء المفضلين، وتلقّي تذكيرات ذكية مع سجل منظّم لزياراته.<br> أما تطبيق الطبيب فيمنح العيادات مساحة عمل متكاملة: ملفات المرضى وتاريخهم الطبي، والزيارات، والتشخيصات، والتحاليل المخبرية، والصور الشعاعية، والوصفات الطبية، والحساسية، وطابور مرضى يتحدّث لحظيًا، وإحصائيات مع التصدير إلى Excel.",
+    },
     storeButtons: [
       {
         variant: "google",
@@ -258,6 +287,11 @@ const portfolioDetails = {
     projectDate: "15 Jan, 2022 ➡️ 18 Feb, 2022",
     descriptionHtml:
       "A Desktop Application made in C# language The main goal of the program is to add, modify and delete student data with the ability to store data in each of Access databases or a text file according to a specific format with the ability to save changes .",
+    ar: {
+      name: "إدارة قواعد البيانات",
+      descriptionHtml:
+        "تطبيق سطح مكتب مكتوب بلغة C#، هدفه الأساسي إضافة بيانات الطلاب وتعديلها وحذفها، مع إمكانية تخزين البيانات في قاعدة بيانات Access أو في ملف نصي وفق تنسيق محدد، وحفظ التغييرات.",
+    },
     teamMembers: "3",
     projectUrl: {
       href: "https://github.com/MahmoudALBndkji/Database-Management",
@@ -314,6 +348,11 @@ const portfolioDetails = {
     projectDate: "16 Aug, 2021 ➡️ 13 Jun, 2022",
     descriptionHtml:
       "Food Delivery app that have phone branch and web branch and back end maid from asp.net core api and my SQL database ,I personally worked with the web branch I did interfaces fully dynamic the front end UI using html ,css, js, bootstrap ,and more libraries for styling like fontawesome ,animations,and many other design libraries to achieve a dynamic fully functional wep app .",
+    ar: {
+      name: "Lister",
+      descriptionHtml:
+        "تطبيق لتوصيل الطعام له فرع للموبايل وفرع للويب، وواجهته الخلفية مبنية بـ ASP.NET Core API وقاعدة بيانات MySQL. عملت شخصيًا على فرع الويب، فبنيت واجهات ديناميكية بالكامل باستخدام HTML، CSS، JavaScript، Bootstrap، ومكتبات تصميم أخرى مثل Font Awesome ومكتبات الحركة، للوصول إلى تطبيق ويب ديناميكي متكامل الوظائف.",
+    },
     teamMembers: "5",
     technologies: ["HTML", "CSS", "JavaScript", "JQuery", "BootStrap"],
     technologiesTitle: "Languages ​​and Technologies used",
@@ -379,6 +418,11 @@ const portfolioDetails = {
     projectDate: "16 Apr, 2022 ➡️ 13 Jun, 2022",
     descriptionHtml:
       "A Desktop Application using C# and some design library for a mall cashier system complete with a database and other feature Like searching and sorting the items and real time editing of the inventory and a printable bill .",
+    ar: {
+      name: "Mall To Go",
+      descriptionHtml:
+        "تطبيق سطح مكتب بلغة C# مع مكتبات تصميم، لنظام كاشير في مول تجاري، متكامل مع قاعدة بيانات ومزايا أخرى مثل البحث في المنتجات وترتيبها، وتعديل المخزون لحظيًا، وفاتورة قابلة للطباعة.",
+    },
     teamMembers: "6",
     technologies: [
       "C# .Net Framework",
@@ -419,6 +463,13 @@ const portfolioDetails = {
     projectDate: "7 May, 2025 ➡️ 28 Nov, 2025",
     descriptionHtml:
       "The official app of Messilah Beach, Kuwait's premier family beach destination managed by UPAC.<br> Visitors discover the beach zones, pools, dining and entertainment offerings, book tickets online with instant confirmation and secure KNET payment, buy gift cards, and enter with QR-code ticket passes.<br> Fully bilingual (Arabic / English) with biometric sign-in, push notifications and screenshot protection for sensitive screens.",
+    ar: {
+      name: "شاطئ المسيلة",
+      metaDescription:
+        "التطبيق الرسمي لشاطئ المسيلة، الوجهة الشاطئية العائلية الأولى في الكويت: استكشف المسابح والمطاعم والترفيه، واحجز التذاكر أونلاين مع تأكيد فوري ودفع عبر KNET، وادخل بتذاكر رمز QR.",
+      descriptionHtml:
+        "التطبيق الرسمي لشاطئ المسيلة، الوجهة الشاطئية العائلية الأولى في الكويت والتي تديرها UPAC.<br> يستكشف الزوار مناطق الشاطئ والمسابح والمطاعم والأنشطة الترفيهية، ويحجزون التذاكر أونلاين مع تأكيد فوري ودفع آمن عبر KNET، ويشترون بطاقات الهدايا، ويدخلون بتذاكر رمز QR.<br> التطبيق ثنائي اللغة بالكامل (عربي / إنجليزي)، مع تسجيل دخول بالبصمة، وإشعارات فورية، وحماية من تصوير الشاشة في الصفحات الحساسة.",
+    },
     storeButtons: [
       {
         variant: "google",
@@ -469,6 +520,11 @@ const portfolioDetails = {
     projectDate: "28 Aug, 2023 ➡️ 20 Sep, 2024",
     descriptionHtml:
       "The main idea of the application is to facilitate the work of customers so that they can create orders and follow up on their status, in addition to many features such as archive of previous orders, returns, inventory, and many other features.",
+    ar: {
+      name: "NewPark Agents",
+      descriptionHtml:
+        "الفكرة الأساسية للتطبيق تسهيل عمل العملاء، بحيث يمكنهم إنشاء الطلبات ومتابعة حالتها، إضافة إلى مزايا كثيرة مثل أرشيف الطلبات السابقة، والمرتجعات، والمخزون، وغيرها.",
+    },
     technologies: [
       "Flutter",
       "Firebase Cloud Messaging For Notification",
@@ -512,6 +568,11 @@ const portfolioDetails = {
     projectDate: "26 Feb, 2025 ➡️ 8 Mar, 2025",
     descriptionHtml:
       "A mobile application that integrates OpenVPN functionality for secure and private internet access.<br> Easily connect, disconnect, and manage VPN profiles with a clean and user-friendly interface.",
+    ar: {
+      name: "Open VPN",
+      descriptionHtml:
+        "تطبيق موبايل يدمج وظائف OpenVPN لتصفّح آمن وخاص للإنترنت.<br> اتصل وافصل وأدِر ملفات VPN بسهولة عبر واجهة نظيفة وسهلة الاستخدام.",
+    },
     storeButtons: [
       {
         variant: "github",
@@ -565,6 +626,11 @@ const portfolioDetails = {
     projectDate: "28 Aug, 2022 ➡️ 17 Sep, 2022",
     descriptionHtml:
       "Flutter application He explains and clarifies the sport of yoga, in addition to tips for its practice, The application contains levels, each level has a certain number of assigned exercises , The application also contains several features such as evaluation, communication with the application developer, choice theme ( light , dark ) , and more of that .",
+    ar: {
+      name: "Ponder More",
+      descriptionHtml:
+        "تطبيق Flutter يشرح رياضة اليوغا ويوضّحها، إضافة إلى نصائح لممارستها. يحتوي التطبيق على مستويات، ولكل مستوى عدد محدد من التمارين، كما يضم مزايا عدة مثل التقييم، والتواصل مع مطوّر التطبيق، واختيار المظهر (فاتح / داكن)، وغير ذلك.",
+    },
     technologies: ["Flutter", "State Management : Provider"],
     technologiesTitle: "Languages ​​and Technologies used",
     gallery: [
@@ -624,6 +690,11 @@ const portfolioDetails = {
     projectDate: "7 Mar, 2024 ➡️ 2 Aug, 2024",
     descriptionHtml:
       "The app lets customers receive online store deliveries anywhere, Users order from sites like Noon Store, specifying their location and a nearby storage box.<br> Drivers deliver to the box, placing orders inside for secure pickup.<br> This method ensures deliveries without customers needing to be present, adds protection through customer-guarded boxes, and offers convenience for travelers or those with delivery issues.",
+    ar: {
+      name: "RDS Box",
+      descriptionHtml:
+        "يتيح التطبيق للعملاء استلام طلبات المتاجر الإلكترونية في أي مكان؛ إذ يطلب المستخدم من مواقع مثل متجر نون مع تحديد موقعه وصندوق تخزين قريب منه.<br> يوصل السائق الطلب إلى الصندوق ويضعه داخله ليستلمه العميل بأمان.<br> تضمن هذه الطريقة إتمام التوصيل دون الحاجة إلى وجود العميل، وتضيف حماية عبر صناديق يحرسها العميل، وتوفّر الراحة للمسافرين ولمن يواجهون صعوبات في الاستلام.",
+    },
     technologies: [
       "Flutter",
       "Firebase Cloud Messaging For Notification",
@@ -667,6 +738,11 @@ const portfolioDetails = {
     projectDate: "6 Jan, 2023 ➡️ 7 May, 2023",
     descriptionHtml:
       "Developed and managed a user-friendly real estate app facilitating property searches, virtual tours, and seamless communication between buyers, sellers, and agents.<br> Enhanced user experience with intuitive navigation, real-time updates, and advanced filtering options",
+    ar: {
+      name: "تطبيق العقارات",
+      descriptionHtml:
+        "طوّرت وأدرت تطبيق عقارات سهل الاستخدام يسهّل البحث عن العقارات، والجولات الافتراضية، والتواصل السلس بين المشترين والبائعين والوسطاء.<br> حسّنت تجربة المستخدم بتنقّل بديهي، وتحديثات لحظية، وخيارات تصفية متقدمة.",
+    },
     technologies: [],
     gallery: [
       {
@@ -700,6 +776,11 @@ const portfolioDetails = {
     projectDate: "19 Oct, 2022 ➡️ 5 Nov, 2022",
     descriptionHtml:
       "Online store flutter application It displays many products and various Categories, in addition to the ability to like a specific product, has also been added search engine has been added to find a product with specific features .",
+    ar: {
+      name: "Sallate",
+      descriptionHtml:
+        "تطبيق متجر إلكتروني بـ Flutter يعرض منتجات كثيرة وأقسامًا متنوعة، مع إمكانية الإعجاب بمنتج معيّن، كما أُضيف محرك بحث للعثور على منتج بمواصفات محددة.",
+    },
     projectUrl: {
       href: "https://github.com/MahmoudALBndkji/Sallate",
       title: "Source Code",
@@ -765,6 +846,11 @@ const portfolioDetails = {
     projectDate: "Oct 19, 2024 ➡️ 29 Jan, 2025",
     descriptionHtml:
       "Contributed to the development of a Point of Sale (POS) system (SpotBooks POS) designed to streamline sales, inventory management, and transaction processing for businesses.<br>Enhanced user experience with real-time data tracking, reporting, and seamless payment integration",
+    ar: {
+      name: "Spot Books POS",
+      descriptionHtml:
+        "ساهمت في تطوير نظام نقاط بيع (SpotBooks POS) مصمّم لتبسيط المبيعات وإدارة المخزون ومعالجة المعاملات للشركات.<br>حسّنت تجربة المستخدم بتتبّع البيانات لحظيًا، والتقارير، وتكامل سلس مع وسائل الدفع.",
+    },
     storeButtons: [
       {
         variant: "website",
@@ -813,6 +899,11 @@ const portfolioDetails = {
     projectDate: "Oct 17, 2024 ➡️ 15 Mar, 2025",
     descriptionHtml:
       "Time attendance project efficiently manages employee hours. It calculates entry and exit times, enabling flexible inquiries into employee movements.<br> With a user-friendly interface, it streamlines operations and optimizes productivity, providing accurate attendance records and valuable workforce insights.",
+    ar: {
+      name: "نظام الحضور والانصراف لوزارة الكهرباء والماء والطاقة المتجددة",
+      descriptionHtml:
+        "يدير مشروع الحضور والانصراف ساعات عمل الموظفين بكفاءة؛ إذ يحسب أوقات الدخول والخروج ويتيح استعلامات مرنة عن حركات الموظفين.<br> وبواجهة سهلة الاستخدام، يبسّط العمليات ويرفع الإنتاجية، ويوفّر سجلات حضور دقيقة ورؤى قيّمة عن القوى العاملة.",
+    },
     storeButtons: [
       {
         variant: "google",
@@ -866,6 +957,11 @@ const portfolioDetails = {
     projectDate: "22 Nov, 2022 ➡️ Current",
     descriptionHtml:
       "Social networking application made with a flutter whose main idea is to facilitate communication and acquaintance with people and to build a strong communication network. The application contains the ability to publish posts and has many features such as commenting, liking, private chatting .",
+    ar: {
+      name: "To Know Me",
+      descriptionHtml:
+        "تطبيق تواصل اجتماعي مبني بـ Flutter، فكرته الأساسية تسهيل التواصل والتعارف بين الناس وبناء شبكة تواصل قوية. يتيح التطبيق نشر المنشورات، ويضم مزايا كثيرة مثل التعليق، والإعجاب، والمحادثات الخاصة.",
+    },
     technologies: ["Flutter", "Firebase", "State Management : Bloc"],
     technologiesTitle: "Languages ​​and Technologies used",
     gallery: [
@@ -910,6 +1006,11 @@ const portfolioDetails = {
     projectDate: "Jan 20, 2025 ➡️ 12 Mar, 2025",
     descriptionHtml:
       "Developed and maintained a fully functional e-commerce website for Treema Collection using modern web technologies.<br> Implemented product catalog, shopping cart, secure checkout, and user-friendly design to enhance customer experience.",
+    ar: {
+      name: "Treema",
+      descriptionHtml:
+        "طوّرت وصنت متجرًا إلكترونيًا متكامل الوظائف لـ Treema Collection باستخدام تقنيات ويب حديثة.<br> نفّذت كتالوج المنتجات، وسلة التسوق، والدفع الآمن، وتصميمًا سهل الاستخدام لتحسين تجربة العملاء.",
+    },
     storeButtons: [
       {
         variant: "website",
@@ -952,6 +1053,11 @@ const portfolioDetails = {
     projectDate: "3 Dec, 2024 ➡️ 14 Jan, 2025",
     descriptionHtml:
       "Developed and managed a vendor and market management app (Trasool) similar to a POS system, enabling seamless inventory tracking, sales processing, and vendor operations. Enhanced efficiency in market transactions and vendor-client interactions through intuitive features.",
+    ar: {
+      name: "Trasool Online",
+      descriptionHtml:
+        "طوّرت وأدرت تطبيقًا لإدارة البائعين والأسواق (Trasool) يشبه أنظمة نقاط البيع، يتيح تتبّع المخزون ومعالجة المبيعات وعمليات البائعين بسلاسة، ويرفع كفاءة معاملات السوق والتفاعل بين البائعين والعملاء عبر مزايا بديهية.",
+    },
     technologies: [],
     gallery: [
       {
@@ -990,6 +1096,11 @@ const portfolioDetails = {
     projectDate: "15 Apr, 2024 ➡️ 19 Jul, 2024",
     descriptionHtml:
       "The application provides the possibility of managing charitable works and also gives the latest news about the charitable association, the branches, and the services available provided by the association, in addition to many other features, also a beautiful appearance and is easy to use for any user.",
+    ar: {
+      name: "جمعية الوفرة",
+      descriptionHtml:
+        "يتيح التطبيق إدارة الأعمال الخيرية، ويعرض آخر أخبار الجمعية وفروعها والخدمات التي تقدّمها، إضافة إلى مزايا أخرى كثيرة، بمظهر جميل وسهولة استخدام لأي مستخدم.",
+    },
     storeButtons: [
       {
         variant: "apple",
@@ -1072,6 +1183,13 @@ const portfolioDetails = {
     projectDate: "13 Jul, 2026 ➡️ Current",
     descriptionHtml:
       "Wakeed is a cloud accounting and business-management platform for individuals and small and medium-sized companies, running on Android, iOS, Windows and the web from a single Flutter codebase.<br> It covers double-entry accounting, invoices, payments, receivables, inventory, cheques and detailed financial reports, with role-based permissions, an event log, Excel import / export and backups.<br> I work on Wakeed OS, the operations suite built on top of it: HR (attendance, leaves, rosters, timesheets and service requests), projects & tasks, KPIs and reports, and a home dashboard with unified search and quick access.",
+    ar: {
+      name: "وكيد",
+      metaDescription:
+        "وكيد منصة سحابية للمحاسبة وإدارة الأعمال للأفراد والشركات الصغيرة والمتوسطة، متاحة على Android، iOS، Windows والويب من قاعدة كود Flutter واحدة.",
+      descriptionHtml:
+        "وكيد منصة سحابية للمحاسبة وإدارة الأعمال للأفراد والشركات الصغيرة والمتوسطة، تعمل على Android، iOS، Windows والويب من قاعدة كود Flutter واحدة.<br> تغطي المحاسبة بالقيد المزدوج، والفواتير، والمدفوعات، والذمم المدينة، والمخزون، والشيكات، وتقارير مالية مفصّلة، مع صلاحيات حسب الأدوار، وسجل أحداث، واستيراد وتصدير Excel، ونسخ احتياطي.<br> أعمل على Wakeed OS، حزمة العمليات المبنية فوقها: الموارد البشرية (الحضور، والإجازات، وجداول المناوبات، وسجلات الدوام، والطلبات الخدمية)، والمشاريع والمهام، ومؤشرات الأداء والتقارير، ولوحة رئيسية مع بحث موحّد ووصول سريع.",
+    },
     storeButtons: [
       {
         variant: "website",
@@ -1156,6 +1274,11 @@ const portfolioDetails = {
     },
     descriptionHtml:
       "News Application made with a flutter to browse all the various news from politics, sports, science and other fields that happen in the world, I also added many features to the application, such as logging in with social media accounts, rating the application, searching for a specific news within a specific field, possibility choice theme ( light , dark ) , and more of that .",
+    ar: {
+      name: "World News",
+      descriptionHtml:
+        "تطبيق أخبار مبني بـ Flutter لتصفّح مختلف الأخبار من السياسة والرياضة والعلوم وغيرها من المجالات حول العالم. أضفت إلى التطبيق مزايا كثيرة مثل تسجيل الدخول بحسابات التواصل الاجتماعي، وتقييم التطبيق، والبحث عن خبر معيّن ضمن مجال محدد، واختيار المظهر (فاتح / داكن)، وغير ذلك.",
+    },
     projectUrl: {
       href: "https://github.com/MahmoudALBndkji/News-App",
       title: "Source Code",
@@ -1198,6 +1321,217 @@ const portfolioDetails = {
     ],
   },
 };
+
+/*
+ * Arabic: each project carries its own `ar` name + description above; the
+ * strings shared across projects are translated once here. Brand and tech
+ * names that read the same in Arabic (Flutter, Kotlin, …) pass through.
+ */
+const CATEGORY_AR = {
+  "Mobile Application": "تطبيق موبايل",
+  "Web Application": "تطبيق ويب",
+  "Desktop Application": "تطبيق سطح مكتب",
+  "Mobile & Web Application": "تطبيق موبايل وويب",
+  "Mobile, Web & Desktop Application": "تطبيق موبايل وويب وسطح مكتب",
+};
+
+const MONTHS_AR = {
+  Jan: "يناير",
+  Feb: "فبراير",
+  Mar: "مارس",
+  Apr: "أبريل",
+  May: "مايو",
+  Jun: "يونيو",
+  Jul: "يوليو",
+  Aug: "أغسطس",
+  Sep: "سبتمبر",
+  Oct: "أكتوبر",
+  Nov: "نوفمبر",
+  Dec: "ديسمبر",
+};
+
+const TECH_AR = {
+  "SignalR For Real-Time Notifications": "SignalR للإشعارات الفورية",
+  "JWT Authentication & Role-Based Permissions":
+    "مصادقة JWT وصلاحيات حسب الأدوار",
+  "Localization : Arabic & English (RTL)":
+    "تعدد اللغات : العربية والإنجليزية (RTL)",
+  "xUnit Unit & Integration Tests": "اختبارات الوحدات والتكامل بـ xUnit",
+  "Dealing with webView": "التعامل مع WebView",
+  "State Management : Bloc": "إدارة الحالة : Bloc",
+  "State Management : Bloc / Cubit": "إدارة الحالة : Bloc / Cubit",
+  "State Management : Get": "إدارة الحالة : Get",
+  "State Management : Provider": "إدارة الحالة : Provider",
+  "Firebase Cloud Messaging For Notification":
+    "Firebase Cloud Messaging للإشعارات",
+  "Clean Architecture": "المعمارية النظيفة (Clean Architecture)",
+  "SignalR For Real-Time Updates": "SignalR للتحديثات الفورية",
+  "Google Sign-In": "تسجيل الدخول عبر Google",
+  "Localization : Arabic & English": "تعدد اللغات : العربية والإنجليزية",
+  "Stream & Binary File": "Stream والملفات الثنائية",
+  "Access database": "قاعدة بيانات Access",
+  "Sql server database": "قاعدة بيانات SQL Server",
+  "Bunifu Library For Design": "مكتبة Bunifu للتصميم",
+  "KNET Payment Gateway via WebView": "بوابة الدفع KNET عبر WebView",
+  "QR Code Tickets": "تذاكر برمز QR",
+  "Biometric Authentication": "المصادقة الحيوية (البصمة / الوجه)",
+  "Background Service": "خدمة تعمل في الخلفية (Background Service)",
+  "E-Commerce API": "واجهة برمجية للتجارة الإلكترونية (API)",
+  "Print Invoices": "طباعة الفواتير",
+  "Kontakt SDK For Scaning Beacon Device": "Kontakt SDK لمسح أجهزة Beacon",
+  "Flutter (Android, iOS, Web & Windows)":
+    "Flutter (Android، iOS، الويب، Windows)",
+  "Dio & REST APIs": "Dio وواجهات REST",
+  "go_router & Deep Links": "go_router والروابط العميقة (Deep Links)",
+  "Responsive Data Grids & Dashboards": "جداول بيانات ولوحات تحكم متجاوبة",
+  "Bitbucket Pipelines CI": "التكامل المستمر عبر Bitbucket Pipelines",
+};
+
+const GALLERY_AR = {
+  "Login Page": "صفحة تسجيل الدخول",
+  "Point of Sale Page": "صفحة نقطة البيع",
+  "Production & Customer Orders Pages": "صفحتا أوامر الإنتاج وطلبات العملاء",
+  "Stock Balances & Transfer Orders Pages":
+    "صفحتا أرصدة المخزون وأوامر التحويل",
+  "Mobile Dashboard & Van Sale Pages":
+    "لوحة التحكم والبيع المتنقل على الجوال",
+  "Mobile Van Stock & Production Orders Pages":
+    "مخزون السيارة وأوامر الإنتاج على الجوال",
+  "Authentication Page": "صفحة المصادقة",
+  "Home Page & Transfer Money Page": "الصفحة الرئيسية وصفحة تحويل الأموال",
+  "Home Page": "الصفحة الرئيسية",
+  "Task Details Page": "صفحة تفاصيل المهمة",
+  "Settings Page": "صفحة الإعدادات",
+  "Scaning Beacon Page": "صفحة مسح أجهزة Beacon",
+  "Home & Favorites Pages": "الصفحة الرئيسية وصفحة المفضلة",
+  "Search & Filter Pages": "صفحتا البحث والتصفية",
+  "Clinic Details & Booking Pages": "صفحتا تفاصيل العيادة والحجز",
+  "Clinics & Drawer Pages": "صفحة العيادات والقائمة الجانبية",
+  "Add Student Screen": "شاشة إضافة طالب",
+  "Edit Student Screen": "شاشة تعديل طالب",
+  "Store Data Text File Screen": "شاشة حفظ البيانات في ملف نصي",
+  "Store Data Access Screen": "شاشة حفظ البيانات في Access",
+  "Create Account Screen": "شاشة إنشاء حساب",
+  "Home Screen": "الشاشة الرئيسية",
+  "Forget Password Verification Screen": "شاشة التحقق لاستعادة كلمة المرور",
+  "Google Map Screen": "شاشة خرائط Google",
+  "Menu Screen": "شاشة قائمة الطعام",
+  "Login Screen": "شاشة تسجيل الدخول",
+  "Edit Account Screen": "شاشة تعديل الحساب",
+  "Print Invoice Screen": "شاشة طباعة الفاتورة",
+  "Discover & About Pages": "صفحتا الاستكشاف ونبذة عنا",
+  "Offering & Services Pages": "صفحتا العروض والخدمات",
+  "Entertainment Page": "صفحة الترفيه",
+  "Categories & Products Pages": "صفحتا الأقسام والمنتجات",
+  "Cart Pages": "صفحات السلة",
+  "Reports Page": "صفحة التقارير",
+  "Orders Pages": "صفحات الطلبات",
+  "Selected Country Page": "صفحة اختيار الدولة",
+  "Connection VPN Page": "صفحة الاتصال بـ VPN",
+  "Network Details Info Page": "صفحة تفاصيل الشبكة",
+  "Excercises Screen": "شاشة التمارين",
+  "Locked Level & Break Time Screen": "شاشة المستوى المقفل ووقت الاستراحة",
+  "Change Image & Drawer Screen": "شاشة تغيير الصورة والقائمة الجانبية",
+  "FeedBack Screen": "شاشة الملاحظات",
+  "Rate Screen": "شاشة التقييم",
+  "App Developer Screen": "شاشة مطوّر التطبيق",
+  "User Home Page": "الصفحة الرئيسية للمستخدم",
+  "Buy Box Pages": "صفحات شراء صندوق",
+  "Orders For Driver Pages": "صفحات طلبات السائق",
+  "Details Home Page": "صفحة تفاصيل العقار",
+  "Home Page & Drawer": "الصفحة الرئيسية والقائمة الجانبية",
+  "Product Details Screen": "شاشة تفاصيل المنتج",
+  "Categories Screen": "شاشة الأقسام",
+  "Favorites Screen": "شاشة المفضلة",
+  "Search Screen": "شاشة البحث",
+  "Settings Screen": "شاشة الإعدادات",
+  Poster: "ملصق التطبيق",
+  "Dashboard Page": "صفحة لوحة التحكم",
+  "Invoice Format Page": "صفحة تنسيق الفاتورة",
+  "Select Language Page": "صفحة اختيار اللغة",
+  "Drawer & Minsity App Page": "القائمة الجانبية وصفحة تطبيق الوزارة",
+  "Log Attendance Page": "صفحة سجل الحضور",
+  "Questions & Answers Page": "صفحة الأسئلة والأجوبة",
+  "Login & Register Screen": "شاشة تسجيل الدخول وإنشاء حساب",
+  "Chat & Create Post Screen": "شاشة المحادثة وإنشاء منشور",
+  "Friends & Settings Screen": "شاشة الأصدقاء والإعدادات",
+  "Product Details Page": "صفحة تفاصيل المنتج",
+  "Cart Page": "صفحة السلة",
+  "My Forms Page": "صفحة نماذجي",
+  "Send Mail Page": "صفحة إرسال بريد",
+  "Profile Pages": "صفحات الملف الشخصي",
+  "Festival Offers Page": "صفحة عروض المهرجان",
+  "BarCode Reader Page": "صفحة قارئ الباركود",
+  "Shareholder Profits Page": "صفحة أرباح المساهمين",
+  "Association News Page": "صفحة أخبار الجمعية",
+  "Branches and Services Page": "صفحة الفروع والخدمات",
+  "Search For Product Page": "صفحة البحث عن منتج",
+  "Report Item Page": "صفحة الإبلاغ عن منتج",
+  "Board Directors Page": "صفحة مجلس الإدارة",
+  "Issued Cheque Pages": "صفحات الشيكات الصادرة",
+  "Roles, Cloud Storage & API": "الأدوار والتخزين السحابي والـ API",
+  "Event Log, Interactive UI & Backup":
+    "سجل الأحداث والواجهة التفاعلية والنسخ الاحتياطي",
+  "Introduction Screens": "شاشات التعريف",
+  "Home & Search Screen": "الشاشة الرئيسية والبحث",
+  "Login & Drawer Screen": "شاشة تسجيل الدخول والقائمة الجانبية",
+};
+
+const missing = [];
+
+function lookup(map, key, where) {
+  if (map[key] != null) return map[key];
+  missing.push(`${where}: "${key}"`);
+  return key;
+}
+
+/** "6 Aug, 2026" or "Nov 19, 2023" → "6 أغسطس 2026"; "Current" → "حتى الآن" */
+function dateAr(s, where) {
+  if (s === "Current") return "حتى الآن";
+  const m =
+    s.match(/^(\d{1,2}) ([A-Z][a-z]{2}), (\d{4})$/) ||
+    s.match(/^([A-Z][a-z]{2}) (\d{1,2}), (\d{4})$/);
+  if (!m) {
+    missing.push(`${where} date: "${s}"`);
+    return s;
+  }
+  const [day, month] = /^\d/.test(m[1]) ? [m[1], m[2]] : [m[2], m[1]];
+  return `${day} ${lookup(MONTHS_AR, month, where)} ${m[3]}`;
+}
+
+/** In RTL the range reads right to left, so the arrow points left */
+function projectDateAr(range, where) {
+  return range
+    .split("➡️")
+    .map((s) => dateAr(s.trim(), where))
+    .join(" ⬅️ ");
+}
+
+for (const [id, p] of Object.entries(portfolioDetails)) {
+  const own = p.ar || {};
+  if (!own.name || !own.descriptionHtml) missing.push(`${id}: ar.name / ar.descriptionHtml`);
+  const name = own.name || p.breadcrumbLabel;
+  const descriptionHtml = own.descriptionHtml || p.descriptionHtml;
+  p.ar = {
+    metaTitle: `تفاصيل ${name}`,
+    metaDescription:
+      own.metaDescription || descriptionHtml.replace(/<br>\s*/g, " "),
+    breadcrumbLabel: name,
+    pageHeading: `تفاصيل ${name}`,
+    category: lookup(CATEGORY_AR, p.category, id),
+    projectDate: projectDateAr(p.projectDate, id),
+    descriptionHtml,
+    technologiesTitle: "اللغات والتقنيات المستخدمة",
+    technologies: (p.technologies || []).map((t) => TECH_AR[t] || t),
+    gallery: (p.gallery || []).map((g) => lookup(GALLERY_AR, g.title, id)),
+  };
+}
+
+if (missing.length) {
+  console.warn(
+    "Missing Arabic (English is shown instead):\n  " + missing.join("\n  ")
+  );
+}
 
 fs.mkdirSync(outDir, { recursive: true });
 fs.writeFileSync(

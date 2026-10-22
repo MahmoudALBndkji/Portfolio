@@ -8,6 +8,10 @@
   <script>
     (function () {
       try {
+        if (localStorage.getItem("portfolio-lang") === "ar") {
+          document.documentElement.setAttribute("lang", "ar");
+          document.documentElement.setAttribute("dir", "rtl");
+        }
         var k = "portfolio-color-scheme-pref";
         var v = localStorage.getItem(k);
         if (v === "light" || v === "dark") {
@@ -30,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Cairo:400,500,600,700&display=swap"
     rel="stylesheet" />
   <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -42,7 +46,7 @@
 </head>
 
 <body oncontextmenu="return false;">
-  <a class="skip-link" href="#main">Skip to main content</a>
+  <a class="skip-link" href="#main" data-ar="تخطَّ إلى المحتوى الرئيسي">Skip to main content</a>
   <div id="portfolio-detail-root" aria-busy="true" aria-live="polite"></div>
   <script defer src="assets/vendor/aos/aos.js"></script>
   <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -53,6 +57,7 @@
     buttonAudio.src = "assets/audios/mouseClick.mp3";
     window.__PORTFOLIO_DETAIL_ID__ = "time_attendance";
   </script>
+  <script defer src="assets/js/i18n.js"></script>
   <script defer src="assets/js/theme-switcher.js"></script>
   <script defer src="assets/js/portfolio-detail-page.js"></script>
 </body>

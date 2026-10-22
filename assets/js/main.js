@@ -24,6 +24,10 @@
   const onscroll = (el, listener) => {
     el.addEventListener("scroll", listener);
   };
+  // English / Arabic string for text built here (see i18n.js)
+  const tr = (en, ar) =>
+    window.portfolioI18n ? window.portfolioI18n.pick(en, ar) : en;
+  const isRtl = () => document.documentElement.getAttribute("dir") === "rtl";
   // Navbar links active state on scroll
   let navbarlinks = select("#navbar .scrollto", true);
   const navbarlinksActive = () => {
@@ -140,7 +144,7 @@
     if (toggle) {
       toggle.classList.remove("is-open");
       toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Open menu");
+      toggle.setAttribute("aria-label", tr("Open menu", "فتح القائمة"));
     }
     document.body.classList.remove("mobile-nav-open");
     updateHeroMobileHeaderHidden();
@@ -155,9 +159,20 @@
     navbar.classList.add("navbar-mobile");
     toggle.classList.add("is-open");
     toggle.setAttribute("aria-expanded", "true");
-    toggle.setAttribute("aria-label", "Close menu");
+    toggle.setAttribute("aria-label", tr("Close menu", "إغلاق القائمة"));
     updateHeroMobileHeaderHidden();
   };
+
+  const syncMobileToggleLabel = () => {
+    const toggle = select(".mobile-nav-toggle");
+    if (!toggle) return;
+    const open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute(
+      "aria-label",
+      open ? tr("Close menu", "إغلاق القائمة") : tr("Open menu", "فتح القائمة")
+    );
+  };
+  syncMobileToggleLabel();
 
   window.portfolioCloseMobileNav = closeMobileNav;
 
@@ -227,9 +242,11 @@
     (document.querySelector(".glightbox") ||
       document.querySelector(".portfolio-lightbox"))
   ) {
-    GLightbox({
+    const lightbox = GLightbox({
       selector: ".glightbox, .portfolio-lightbox",
     });
+    // Captions come from the title attributes, which change with the language
+    document.addEventListener("portfolio:langchange", () => lightbox.reload());
   }
   // Portfolio isotope and filter (home page only)
   window.addEventListener("load", () => {
@@ -237,6 +254,16 @@
     if (portfolioContainer && typeof Isotope !== "undefined") {
       let portfolioIsotope = new Isotope(portfolioContainer, {
         itemSelector: ".portfolio-item",
+        // Arabic (RTL): first card on the right
+        originLeft: !isRtl(),
+      });
+      document.addEventListener("portfolio:langchange", () => {
+        // Re-flow for the new direction without animating the cards across
+        const duration = portfolioIsotope.options.transitionDuration;
+        portfolioIsotope.options.originLeft = !isRtl();
+        portfolioIsotope.options.transitionDuration = 0;
+        portfolioIsotope.layout();
+        portfolioIsotope.options.transitionDuration = duration;
       });
       let portfolioFilters = select("#portfolio-flters li", true);
       const reflowPortfolio = () => {
@@ -328,6 +355,12 @@
   } else {
     initAOS();
   }
+
+  // Language switch: Arabic text changes heights and the layout direction
+  document.addEventListener("portfolio:langchange", () => {
+    syncMobileToggleLabel();
+    if (typeof AOS !== "undefined") AOS.refresh();
+  });
 })();
 
 // Tools section swiper (home page only; .slides-1 removed — was unused in markup)
@@ -450,20 +483,22 @@ window.matchMedia("(min-width: 992px)").addEventListener("change", (e) => {
   if (!footer) return;
   footer.innerHTML =
     '<div class="container footer-bottom clearfix">' +
-    '<nav class="footer-nav" aria-label="Quick links">' +
-    '<a href="index.html#hero">Home</a>' +
+    '<nav class="footer-nav" aria-label="Quick links" data-ar-aria-label="روابط سريعة">' +
+    '<a href="index.html#hero" data-ar="الرئيسية">Home</a>' +
     '<span class="footer-nav__sep" aria-hidden="true">·</span>' +
-    '<a href="index.html#portfolio">Projects</a>' +
+    '<a href="index.html#portfolio" data-ar="المشاريع">Projects</a>' +
     '<span class="footer-nav__sep" aria-hidden="true">·</span>' +
-    '<a href="index.html#contact">Contact</a>' +
+    '<a href="index.html#contact" data-ar="تواصل">Contact</a>' +
     "</nav>" +
     '<div class="copyright">' +
-    '<span class="reserved"> &copy; Copyright </span>' +
+    '<span class="reserved" data-ar=" &copy; جميع الحقوق محفوظة "> &copy; Copyright </span>' +
     "<strong><span>Mahmoud AL-Bndkji</span></strong>" +
     "</div>" +
     '<div class="developed">' +
-    'Developed with <span title="Thanks For Browsing">&#10084;</span>' +
+    '<span class="developed__label" data-ar="صُنع بـ">Developed with</span> ' +
+    '<span title="Thanks For Browsing" data-ar-title="شكرًا لزيارتك">&#10084;</span>' +
     "</div>" +
     "</div>";
+  if (window.portfolioI18n) window.portfolioI18n.apply(footer);
 })();
 

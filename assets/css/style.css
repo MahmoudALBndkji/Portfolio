@@ -501,6 +501,226 @@ body.mobile-nav-open #header {
 }
 
 /*--------------------------------------------------------------
+# Language switch (EN / ع)
+--------------------------------------------------------------*/
+
+/*
+ * --pos 0 = English, 1 = Arabic. The page language sets it; while a switch is
+ * pending (.is-to-*) the thumb slides first, then i18n.js swaps the page.
+ */
+.lang-switch {
+  --pos: 0;
+  --track-w: 4.75rem;
+  --track-h: 2rem;
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  flex-shrink: 0;
+  width: calc(var(--track-w) + 8px);
+  height: calc(var(--track-h) + 8px);
+  padding: 3px;
+  margin: 0;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  color: var(--white);
+  cursor: pointer;
+  /* EN stays on the left and ع on the right in both directions */
+  direction: ltr;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+}
+
+html[lang="ar"] .lang-switch {
+  --pos: 1;
+}
+
+:root .lang-switch.is-to-ar {
+  --pos: 1;
+}
+
+:root .lang-switch.is-to-en {
+  --pos: 0;
+}
+
+#header.header-scrolled .lang-switch,
+#header.header-inner-pages .lang-switch {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.lang-switch:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.lang-switch:focus-visible {
+  outline: 2px solid var(--lightMiddleBlue);
+  outline-offset: 2px;
+}
+
+.lang-switch__thumb {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 3px;
+  width: calc(50% - 3px);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #67cdf5 0%, var(--darkBlue) 100%);
+  box-shadow: 0 3px 12px rgba(30, 157, 215, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transform: translateX(calc(var(--pos) * 100%));
+  /* Slight overshoot so the thumb settles like a spring */
+  transition: transform 0.42s cubic-bezier(0.34, 1.45, 0.64, 1),
+    box-shadow 0.25s var(--ease-out);
+}
+
+.lang-switch:hover .lang-switch__thumb {
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.lang-switch:active .lang-switch__thumb {
+  transform: translateX(calc(var(--pos) * 100%)) scale(0.92);
+}
+
+.lang-switch__opt {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  font-weight: 700;
+  user-select: none;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+.lang-switch__opt--en {
+  font-family: "Jost", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  opacity: calc(1 - var(--pos) * 0.4);
+  transform: scale(calc(1 - var(--pos) * 0.08));
+}
+
+.lang-switch__opt--ar {
+  font-family: "Cairo", sans-serif;
+  font-size: 1rem;
+  /* Cairo sits low in its line box; nudge the glyph to optical centre */
+  padding-bottom: 2px;
+  opacity: calc(0.6 + var(--pos) * 0.4);
+  transform: scale(calc(0.92 + var(--pos) * 0.08));
+}
+
+/* Desktop: the last nav link has no end padding, so give the switch room */
+@media (min-width: 992px) {
+  .lang-switch {
+    margin-inline-start: 0.75rem;
+  }
+}
+
+/* Phones: logo + menu + language + theme must share one header row */
+@media (max-width: 420px) {
+  .header-actions {
+    gap: 0.25rem;
+  }
+
+  #header .logo {
+    font-size: 19px;
+  }
+
+  #header .logo img {
+    max-height: 30px;
+    max-width: 30px;
+  }
+
+  .lang-switch {
+    --track-w: 3.5rem;
+  }
+
+  .lang-switch__opt--en {
+    font-size: 0.6875rem;
+    letter-spacing: 0.03em;
+  }
+
+  .lang-switch__opt--ar {
+    font-size: 0.9375rem;
+  }
+}
+
+/* Matches the smaller theme buttons at this width */
+@media (max-width: 360px) {
+  .lang-switch {
+    --track-h: 1.75rem;
+  }
+}
+
+/* Smallest phones: one round button showing the language to switch to */
+@media (max-width: 359px) {
+  .header-actions {
+    gap: 2px;
+  }
+
+  #header .logo {
+    font-size: 17px;
+    white-space: nowrap;
+  }
+
+  #header .logo img {
+    max-height: 27px;
+    max-width: 27px;
+  }
+
+  .lang-switch {
+    --track-w: 1.75rem;
+    grid-template-columns: 1fr;
+  }
+
+  .lang-switch__thumb {
+    display: none;
+  }
+
+  .lang-switch__opt {
+    grid-area: 1 / 1;
+  }
+
+  .lang-switch__opt--en {
+    opacity: var(--pos);
+    transform: rotate(calc((1 - var(--pos)) * -90deg)) scale(calc(0.6 + var(--pos) * 0.4));
+  }
+
+  .lang-switch__opt--ar {
+    opacity: calc(1 - var(--pos));
+    transform: rotate(calc(var(--pos) * 90deg)) scale(calc(1 - var(--pos) * 0.4));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-switch__thumb,
+  .lang-switch__opt {
+    transition: none;
+  }
+}
+
+/* Swapping language: cross-fade the page (View Transitions) or a quick fade */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.38s;
+  animation-timing-function: var(--ease-out);
+}
+
+html.lang-fading body {
+  opacity: 0;
+}
+
+body {
+  transition: opacity 0.16s var(--ease-out);
+}
+
+/*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
 
@@ -2979,5 +3199,330 @@ section#about {
   #footer .developed {
     margin-top: 5px;
     padding-top: 4px;
+  }
+}
+
+#footer .developed .developed__label {
+  font-size: inherit;
+  color: inherit;
+}
+
+/*--------------------------------------------------------------
+# Arabic (lang="ar") and RTL layout (dir="rtl")
+# i18n.js sets both attributes together on <html>.
+--------------------------------------------------------------*/
+
+/* Arabic type: Cairo everywhere a Latin face was set; cursive script, so no
+   letter-spacing, uppercase or synthetic italics */
+html[lang="ar"] body,
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6,
+html[lang="ar"] .navbar-mobile a,
+html[lang="ar"] .navbar-mobile ul::before,
+html[lang="ar"] #hero h1,
+html[lang="ar"] #hero h2,
+html[lang="ar"] #hero #caret-text span,
+html[lang="ar"] #hero .btn-get-started,
+html[lang="ar"] #portfolio-details .container .portfolio-info ul a.btn-get-started,
+html[lang="ar"] .section-title h5,
+html[lang="ar"] .section-title h2,
+html[lang="ar"] .about .about-subheading,
+html[lang="ar"] .about .about-content-panel h4 pre,
+html[lang="ar"] .about .about-content-panel h5 pre,
+html[lang="ar"] .contact .icon-box h4,
+html[lang="ar"] .tools .container .row ol li .title,
+html[lang="ar"] .tools .container .row ol li .descr,
+html[lang="ar"] .techniques .techniques-item h3,
+html[lang="ar"] .portfolio #portfolio-flters li,
+html[lang="ar"] .portfolio-details .portfolio-info .project-chip,
+html[lang="ar"] .accordion .accordion-item .accordion-body h5,
+html[lang="ar"] .glightbox-container .gslide-title,
+html[lang="ar"] #footer .developed {
+  font-family: "Cairo", sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+html[lang="ar"] .fst-italic,
+html[lang="ar"] #hero #caret-text span,
+html[lang="ar"] #footer .copyright {
+  font-style: normal !important;
+}
+
+html[lang="ar"] .about .about-content-panel h4.fst-italic {
+  line-height: 1.9;
+}
+
+/* Cairo's tall glyphs would otherwise give these <pre> lines a scrollbar */
+html[lang="ar"] .about .about-content-panel h4 pre,
+html[lang="ar"] .about .about-content-panel h5 pre {
+  overflow: visible;
+}
+
+html[lang="ar"] .portfolio-details .portfolio-info ul {
+  line-height: 1.75;
+}
+
+html[lang="ar"] .navbar-mobile ul::before {
+  content: "القائمة";
+  font-size: 0.8125rem;
+}
+
+/* Bootstrap LTR utilities used in the markup */
+[dir="rtl"] .me-auto {
+  margin-right: 0 !important;
+  margin-left: auto !important;
+}
+
+@media (min-width: 992px) {
+  [dir="rtl"] .text-lg-start {
+    text-align: right !important;
+  }
+}
+
+/* Off-screen to the right: overflow on the left would scroll in RTL */
+[dir="rtl"] .skip-link {
+  left: auto;
+  right: -9999px;
+}
+
+[dir="rtl"] .skip-link:focus {
+  right: 0.75rem;
+}
+
+[dir="rtl"] .back-to-top {
+  right: auto;
+  left: -20px;
+}
+
+[dir="rtl"] .back-to-top.active {
+  right: auto;
+  left: 20px;
+}
+
+/* Header + navigation */
+[dir="rtl"] .header-actions {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* The logo is a Latin </Mahmoud> mark: keep its tags in reading order */
+[dir="rtl"] #header .logo {
+  direction: ltr;
+}
+
+[dir="rtl"] .navbar a,
+[dir="rtl"] .navbar a:focus {
+  padding: 10px 30px 10px 0;
+}
+
+[dir="rtl"] .navbar-mobile a,
+[dir="rtl"] .navbar-mobile a:focus {
+  padding: 0.85rem 1rem;
+}
+
+[dir="rtl"] .navbar-mobile .mobile-nav-toggle {
+  right: auto;
+  left: calc(12px + env(safe-area-inset-left, 0px));
+}
+
+[dir="rtl"] .navbar-mobile ul {
+  right: auto;
+  left: calc(12px + 2.75rem + 10px + env(safe-area-inset-left, 0px));
+  transform: translate3d(-108%, 0, 0);
+}
+
+[dir="rtl"] .navbar-mobile ul::before {
+  left: auto;
+  right: 1.25rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [dir="rtl"] .navbar-mobile ul {
+    animation-name: mobile-nav-panel-in-rtl;
+  }
+
+  [dir="rtl"] .navbar-mobile ul li {
+    animation-name: mobile-nav-item-in-rtl;
+  }
+
+  [dir="rtl"] .navbar-mobile a:hover,
+  [dir="rtl"] .navbar-mobile .active,
+  [dir="rtl"] .navbar-mobile li:hover>a {
+    transform: translateX(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [dir="rtl"] .navbar-mobile ul {
+    transform: none;
+  }
+}
+
+@keyframes mobile-nav-panel-in-rtl {
+  from {
+    transform: translate3d(-108%, 0, 0);
+    opacity: 0.92;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes mobile-nav-item-in-rtl {
+  from {
+    transform: translateX(-10px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Hero: the caret points toward the text */
+[dir="rtl"] #hero #caret-text::before {
+  transform: scaleX(-1);
+}
+
+/* Contact cards: accent border on the start side */
+[dir="rtl"] .contact .icon-box {
+  border-left: 1px solid var(--border-subtle);
+  border-right: 3px solid var(--middleBlue);
+}
+
+[dir="rtl"] .contact .icon-box:hover {
+  border-color: rgba(71, 178, 228, 0.35);
+}
+
+/* Tools cards: mirror the folded-corner shapes */
+[dir="rtl"] .tools .container .row ol li .icon {
+  border-radius: 0 var(--borderR) 0 0;
+}
+
+[dir="rtl"] .tools .container .row ol li .title,
+[dir="rtl"] .tools .container .row ol li .descr {
+  filter: drop-shadow(-0.125rem 0.125rem 0.075rem rgba(0, 0, 0, 0.25));
+}
+
+[dir="rtl"] .tools .container .row ol li .descr::before {
+  right: auto;
+  left: 1.5rem;
+}
+
+[dir="rtl"] .tools .container .row ol li::after {
+  border-radius: 0 0 0 var(--borderR);
+  background-image: linear-gradient(200deg,
+      rgba(255, 255, 255, 0.25),
+      transparent 25% 75%,
+      rgba(0, 0, 0, 0.25));
+}
+
+[dir="rtl"] .tools .container .row ol li::before {
+  border-radius: var(--borderR) 0 0 0;
+}
+
+/* Portfolio card overlay corner brackets */
+[dir="rtl"] .portfolio .portfolio-item .portfolio-info::before {
+  left: auto;
+  right: 35px;
+  border-left: 0;
+  border-right: 3px solid var(--corneerWhiteness);
+}
+
+[dir="rtl"] .portfolio .portfolio-item .portfolio-info::after {
+  right: auto;
+  left: 35px;
+  border-right: 0;
+  border-left: 3px solid var(--corneerWhiteness);
+}
+
+/* Detail pages: the description's scrollbar moves to the left in RTL */
+[dir="rtl"] .portfolio-details .portfolio-info ul li#description {
+  border-radius: 8px 15px 15px 8px;
+  border-color: var(--middleBlue) var(--middleBlue) var(--middleBlue) transparent;
+}
+
+@media (max-width: 992px) {
+  [dir="rtl"] .portfolio-details .portfolio-info ul li#description {
+    border-color: var(--middleBlue);
+  }
+}
+
+[dir="rtl"] .portfolio-details .portfolio-info ul li a span {
+  margin-left: 0;
+  margin-right: 3px;
+}
+
+/* Store buttons: icon on the start (right) side */
+[dir="rtl"] .market-btn {
+  padding-left: 0.875rem;
+  padding-right: 2.8125rem;
+  background-position: center right 0.75rem;
+}
+
+[dir="rtl"] .portfolio-details .portfolio-info ul li.store-buttons .market-btn {
+  padding: 0.375rem 2.375rem 0.375rem 0.5rem;
+  background-position: center right 0.5rem;
+}
+
+[dir="rtl"] .portfolio-details .portfolio-info ul li.store-buttons .market-btn span {
+  margin-right: 0;
+}
+
+@container (min-width: 360px) {
+  [dir="rtl"] .portfolio-details .portfolio-info ul li.store-buttons .market-btn {
+    padding: 0.375rem 2.625rem 0.375rem 0.625rem;
+    background-position: center right 0.625rem;
+  }
+}
+
+@container (max-width: 303px) {
+  [dir="rtl"] .portfolio-details .portfolio-info ul li.store-buttons .market-btn {
+    padding: 2.125rem 0.375rem 0.5rem;
+    background-position: top 0.5rem center;
+  }
+}
+
+/* Breadcrumbs */
+[dir="rtl"] .breadcrumbs ol li+li {
+  padding-left: 0;
+  padding-right: 10px;
+}
+
+[dir="rtl"] .breadcrumbs ol li+li::before {
+  padding-right: 0;
+  padding-left: 10px;
+}
+
+/* Accordion (Bootstrap LTR build) */
+[dir="rtl"] .accordion-button {
+  text-align: right;
+}
+
+[dir="rtl"] .accordion-button::after {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Footer */
+[dir="rtl"] #footer .copyright {
+  float: right;
+}
+
+[dir="rtl"] #footer .developed {
+  float: left;
+}
+
+@media (max-width: 768px) {
+
+  [dir="rtl"] #footer .copyright,
+  [dir="rtl"] #footer .developed {
+    float: none;
   }
 }

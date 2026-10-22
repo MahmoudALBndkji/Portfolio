@@ -28,17 +28,34 @@
   }
 
   if (typeof Typed !== "undefined" && document.querySelector(".auto-type")) {
-    new Typed(".auto-type", {
-      strings: [
+    var TYPED_STRINGS = {
+      en: [
         "Software Engineering",
         "Mobile Developer",
         "Flutter Developer",
         "Android Developer",
         "iOS Developer",
       ],
-      typeSpeed: 40,
-      backSpeed: 20,
-      loop: true,
-    });
+      ar: [
+        "مهندس برمجيات",
+        "مطوّر تطبيقات موبايل",
+        "مطوّر Flutter",
+        "مطوّر Android",
+        "مطوّر iOS",
+      ],
+    };
+    var typed = null;
+    var startTyped = function () {
+      var lang = window.portfolioI18n ? window.portfolioI18n.lang() : "en";
+      if (typed) typed.destroy();
+      typed = new Typed(".auto-type", {
+        strings: TYPED_STRINGS[lang],
+        typeSpeed: 40,
+        backSpeed: 20,
+        loop: true,
+      });
+    };
+    startTyped();
+    document.addEventListener("portfolio:langchange", startTyped);
   }
 })();
