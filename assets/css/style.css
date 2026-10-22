@@ -2803,6 +2803,69 @@ section#about {
   text-decoration: none;
 }
 
+/* Detail pages: store buttons two per row, equal widths.
+   Sized by the info column's width (container query), not the viewport,
+   because that column is narrowest on mid-size laptops. */
+.portfolio-details .portfolio-info ul li.store-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+  container-type: inline-size;
+}
+
+.portfolio-details .portfolio-info ul li.store-buttons .market-btn {
+  display: block;
+  margin: 0;
+  min-width: 0;
+  padding: 0.375rem 0.5rem 0.375rem 2.375rem;
+  background-position: center left 0.5rem;
+  background-size: 1.375rem 1.375rem;
+}
+
+.portfolio-details .portfolio-info ul li.store-buttons .market-btn span {
+  margin-left: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+  white-space: nowrap;
+}
+
+.portfolio-details .portfolio-info ul li.store-buttons .market-btn .market-button-title {
+  color: #222;
+  font-size: 0.875rem;
+}
+
+.portfolio-details .portfolio-info ul li.store-buttons .market-btn .market-button-subtitle {
+  color: #888;
+  font-size: 0.6875rem;
+}
+
+@container (min-width: 360px) {
+  .portfolio-details .portfolio-info ul li.store-buttons .market-btn {
+    padding: 0.375rem 0.625rem 0.375rem 2.625rem;
+    background-position: center left 0.625rem;
+    background-size: 1.5rem 1.5rem;
+  }
+
+  .portfolio-details .portfolio-info ul li.store-buttons .market-btn .market-button-title {
+    font-size: 1rem;
+  }
+
+  .portfolio-details .portfolio-info ul li.store-buttons .market-btn .market-button-subtitle {
+    font-size: 0.75rem;
+  }
+}
+
+/* Too narrow for icon + text side by side: stack the icon above the text */
+@container (max-width: 303px) {
+  .portfolio-details .portfolio-info ul li.store-buttons .market-btn {
+    padding: 2.125rem 0.375rem 0.5rem;
+    text-align: center;
+    background-position: top 0.5rem center;
+    background-size: 1.375rem 1.375rem;
+  }
+}
+
 .market-btn:focus {
   outline: none;
 }

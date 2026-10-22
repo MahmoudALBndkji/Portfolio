@@ -253,7 +253,10 @@
     }
 
     if (data.storeButtons && data.storeButtons.length) {
-      html += data.storeButtons.map(storeButtonMarkup).join("");
+      html +=
+        '<li class="store-buttons">' +
+        data.storeButtons.map(storeButtonMarkup).join("") +
+        "</li>";
     }
 
     return html;
