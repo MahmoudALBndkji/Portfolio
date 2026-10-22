@@ -36,6 +36,7 @@
         github: "market-btn github-btn",
         drive: "market-btn googl-drive-btn",
         website: "market-btn website-btn",
+        microsoft: "market-btn microsoft-btn",
       }[btn.variant] || "market-btn website-btn";
     var sub = escapeHtml(btn.subtitle || "");
     var tit = escapeHtml(btn.title || "");

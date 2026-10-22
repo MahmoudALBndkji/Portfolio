@@ -1,4 +1,57 @@
 {
+  "al_arjawi": {
+    "metaTitle": "Al-Arjawi ERP Details",
+    "metaDescription": "Production ERP for Al-Arjawi, a spices and za'atar manufacturer and distributor, covering the full cycle from raw material to the delivered product in one responsive Arabic / English web app.",
+    "metaKeywords": "Web Application, ERP, Angular Application, .NET Application, Al-Arjawi ERP, Manufacturing ERP, Inventory Management, Point of Sale, Distribution",
+    "favicon": "assets/img/logo/alArjawi.png",
+    "breadcrumbLabel": "Al-Arjawi ERP",
+    "pageHeading": "Al-Arjawi ERP Details",
+    "category": "Web Application",
+    "projectDate": "6 Aug, 2026 ➡️ 4 Oct, 2026",
+    "descriptionHtml": "A production ERP for Al-Arjawi, a spices and za'atar manufacturer and distributor, built around one question: can this customer order be fulfilled — from stock, by transfer, or by manufacturing?<br> It follows the whole cycle from raw material to the delivered product: material receipts and warehouse balances, bills of material and production orders, customer orders with availability checks, transfers between sites, van sales for field reps, point of sale with daily closing, attendance & payroll, and 25+ operational reports with Excel export and print.<br> One responsive Arabic / English web app that works from phone to desktop, with role-based permissions and an audit trail of who added, edited, approved or cancelled every document.",
+    "technologies": [
+      "Angular 21 + PrimeNG",
+      ".NET 10 Web API",
+      "Entity Framework Core + PostgreSQL",
+      "SignalR For Real-Time Notifications",
+      "JWT Authentication & Role-Based Permissions",
+      "Localization : Arabic & English (RTL)",
+      "xUnit Unit & Integration Tests"
+    ],
+    "technologiesTitle": "Languages and Technologies used",
+    "gallery": [
+      {
+        "title": "Login Page",
+        "src": "assets/img/portfolio/alArjawi/2_Login_Page.jpg",
+        "alt": "Login Page"
+      },
+      {
+        "title": "Point of Sale Page",
+        "src": "assets/img/portfolio/alArjawi/3_POS_Sale_Page.jpg",
+        "alt": "Point of Sale Page"
+      },
+      {
+        "title": "Production & Customer Orders Pages",
+        "src": "assets/img/portfolio/alArjawi/4_Production_and_Customer_Orders_Pages.jpg",
+        "alt": "Production & Customer Orders Pages"
+      },
+      {
+        "title": "Stock Balances & Transfer Orders Pages",
+        "src": "assets/img/portfolio/alArjawi/5_Stock_Balances_and_Transfer_Orders_Pages.jpg",
+        "alt": "Stock Balances & Transfer Orders Pages"
+      },
+      {
+        "title": "Mobile Dashboard & Van Sale Pages",
+        "src": "assets/img/portfolio/alArjawi/6_Mobile_Dashboard_and_Van_Sale_Pages.jpg",
+        "alt": "Mobile Dashboard & Van Sale Pages"
+      },
+      {
+        "title": "Mobile Van Stock & Production Orders Pages",
+        "src": "assets/img/portfolio/alArjawi/7_Mobile_Van_Stock_and_Production_Pages.jpg",
+        "alt": "Mobile Van Stock & Production Orders Pages"
+      }
+    ]
+  },
   "alsafa_exchange": {
     "metaTitle": "Alsafa Exchange Details",
     "metaDescription": " AlSafa Exchange mobile enabling secure authentication, seamless fund transfers via intermediary banks, transaction history tracking, account management, and advanced data security with encryption and verification.",
@@ -110,6 +163,57 @@
         "title": "Scaning Beacon Page",
         "src": "assets/img/portfolio/beaconReader/4_Scaning_Beacon_Page.png",
         "alt": "Scaning Beacon Page"
+      }
+    ]
+  },
+  "clinic_code": {
+    "metaTitle": "Clinic Code Details",
+    "metaDescription": "Clinic Code is a medical appointment platform: patients find doctors and clinics by specialty and location, book available appointments instantly and receive smart reminders, while doctors manage patients, visits and a live queue.",
+    "metaKeywords": "Mobile Application, Flutter Application, Clinic Code Application, Medical Appointment App, Doctor Booking App, Clinic Management App",
+    "favicon": "assets/img/logo/clinicCode.png",
+    "breadcrumbLabel": "Clinic Code",
+    "pageHeading": "Clinic Code Details",
+    "category": "Mobile Application",
+    "projectDate": "28 Mar, 2024 ➡️ 22 Nov, 2025",
+    "descriptionHtml": "Clinic Code is a medical appointment platform built as two connected apps.<br> The patient app (موعدك الطبي) lets patients find doctors and clinics by specialty, city, area and working days, book an available slot instantly from a live calendar, keep a list of favorite doctors, and receive smart reminders with an organized log of their visits.<br> The doctor app gives clinics a complete workspace: patient records and medical history, visits, diagnoses, lab tests, X-rays, prescriptions and allergies, a patient queue updated in real time, and statistics with Excel export.",
+    "storeButtons": [
+      {
+        "variant": "google",
+        "href": "https://play.google.com/store/apps/details?id=com.clinic.code.patient",
+        "subtitle": "Get It On",
+        "title": "Google Play"
+      }
+    ],
+    "technologies": [
+      "Flutter",
+      "State Management : Bloc / Cubit",
+      "Clean Architecture",
+      "SignalR For Real-Time Updates",
+      "Firebase Cloud Messaging For Notification",
+      "Google Sign-In",
+      "Localization : Arabic & English"
+    ],
+    "technologiesTitle": "Languages and Technologies used",
+    "gallery": [
+      {
+        "title": "Home & Favorites Pages",
+        "src": "assets/img/portfolio/clinicCode/2_Home_and_Favorites_Pages.jpg",
+        "alt": "Home & Favorites Pages"
+      },
+      {
+        "title": "Search & Filter Pages",
+        "src": "assets/img/portfolio/clinicCode/3_Search_and_Filter_Pages.jpg",
+        "alt": "Search & Filter Pages"
+      },
+      {
+        "title": "Clinic Details & Booking Pages",
+        "src": "assets/img/portfolio/clinicCode/4_Clinic_Details_and_Booking_Pages.jpg",
+        "alt": "Clinic Details & Booking Pages"
+      },
+      {
+        "title": "Clinics & Drawer Pages",
+        "src": "assets/img/portfolio/clinicCode/5_Clinics_and_Drawer_Pages.jpg",
+        "alt": "Clinics & Drawer Pages"
       }
     ]
   },
@@ -265,6 +369,52 @@
         "title": "Print Invoice Screen",
         "src": "assets/img/portfolio/mallToGo/4_Print_Invoice_Screen.png",
         "alt": "Print Invoice Screen"
+      }
+    ]
+  },
+  "messilah_beach": {
+    "metaTitle": "Messilah Beach Details",
+    "metaDescription": "Official app of Messilah Beach, Kuwait's premier family beach destination: explore pools, dining and entertainment, book tickets online with instant confirmation and KNET payment, and enter with QR-code passes.",
+    "metaKeywords": "Mobile Application, Flutter Application, Messilah Beach Application, Messilah Beach App, Beach Booking App, Ticket Booking App",
+    "favicon": "assets/img/logo/messilahBeach.png",
+    "breadcrumbLabel": "Messilah Beach",
+    "pageHeading": "Messilah Beach Details",
+    "category": "Mobile Application",
+    "projectDate": "7 May, 2025 ➡️ 28 Nov, 2025",
+    "descriptionHtml": "The official app of Messilah Beach, Kuwait's premier family beach destination managed by UPAC.<br> Visitors discover the beach zones, pools, dining and entertainment offerings, book tickets online with instant confirmation and secure KNET payment, buy gift cards, and enter with QR-code ticket passes.<br> Fully bilingual (Arabic / English) with biometric sign-in, push notifications and screenshot protection for sensitive screens.",
+    "storeButtons": [
+      {
+        "variant": "google",
+        "href": "https://play.google.com/store/apps/details?id=com.messilah.beach&hl=en_US&gl=US",
+        "subtitle": "Get It On",
+        "title": "Google Play"
+      }
+    ],
+    "technologies": [
+      "Flutter",
+      "State Management : Bloc",
+      "KNET Payment Gateway via WebView",
+      "QR Code Tickets",
+      "Biometric Authentication",
+      "Firebase Cloud Messaging For Notification",
+      "Localization : Arabic & English"
+    ],
+    "technologiesTitle": "Languages and Technologies used",
+    "gallery": [
+      {
+        "title": "Discover & About Pages",
+        "src": "assets/img/portfolio/messilahBeach/2_Discover_and_About_Pages.jpg",
+        "alt": "Discover & About Pages"
+      },
+      {
+        "title": "Offering & Services Pages",
+        "src": "assets/img/portfolio/messilahBeach/3_Offering_Pages.jpg",
+        "alt": "Offering & Services Pages"
+      },
+      {
+        "title": "Entertainment Page",
+        "src": "assets/img/portfolio/messilahBeach/4_Entertainment_Page.jpg",
+        "alt": "Entertainment Page"
       }
     ]
   },
@@ -832,6 +982,80 @@
         "title": "Board Directors Page",
         "src": "assets/img/portfolio/wafra/10_Board_Directors_Page.png",
         "alt": "Board Directors Page"
+      }
+    ]
+  },
+  "wakeed": {
+    "metaTitle": "Wakeed Details",
+    "metaDescription": "Wakeed is a cloud accounting and business-management platform for individuals and small and medium-sized companies, available on Android, iOS, Windows and the web from one Flutter codebase.",
+    "metaKeywords": "Mobile Application, Web Application, Desktop Application, Flutter Application, Wakeed, Wakeed App, Cloud Accounting, ERP, HR Management, Project Management",
+    "favicon": "assets/img/logo/wakeed.png",
+    "breadcrumbLabel": "Wakeed",
+    "pageHeading": "Wakeed Details",
+    "category": "Mobile, Web & Desktop Application",
+    "projectDate": "13 Jul, 2026 ➡️ Current",
+    "descriptionHtml": "Wakeed is a cloud accounting and business-management platform for individuals and small and medium-sized companies, running on Android, iOS, Windows and the web from a single Flutter codebase.<br> It covers double-entry accounting, invoices, payments, receivables, inventory, cheques and detailed financial reports, with role-based permissions, an event log, Excel import / export and backups.<br> I work on Wakeed OS, the operations suite built on top of it: HR (attendance, leaves, rosters, timesheets and service requests), projects & tasks, KPIs and reports, and a home dashboard with unified search and quick access.",
+    "storeButtons": [
+      {
+        "variant": "website",
+        "href": "https://wakeed.app/",
+        "subtitle": "Explore On",
+        "title": "Web Browser"
+      },
+      {
+        "variant": "apple",
+        "href": "https://apps.apple.com/us/app/%D9%88%D9%83%D9%8A%D8%AF/id6469051733",
+        "subtitle": "Download on the",
+        "title": "App Store"
+      },
+      {
+        "variant": "google",
+        "href": "https://play.google.com/store/apps/details?id=app.wakeed&hl=en",
+        "subtitle": "Get It On",
+        "title": "Google Play"
+      },
+      {
+        "variant": "microsoft",
+        "href": "https://apps.microsoft.com/detail/9n720h9xnqks?hl=ar-SA&gl=PS",
+        "subtitle": "Get It From",
+        "title": "Microsoft Store"
+      }
+    ],
+    "technologies": [
+      "Flutter (Android, iOS, Web & Windows)",
+      "State Management : Bloc / Cubit",
+      "Dio & REST APIs",
+      "go_router & Deep Links",
+      "Responsive Data Grids & Dashboards",
+      "Localization : Arabic & English (RTL)",
+      "Bitbucket Pipelines CI"
+    ],
+    "technologiesTitle": "Languages and Technologies used",
+    "gallery": [
+      {
+        "title": "Dashboard Page",
+        "src": "assets/img/portfolio/wakeed/2_Dashboard_Page.jpg",
+        "alt": "Dashboard Page"
+      },
+      {
+        "title": "Issued Cheque Pages",
+        "src": "assets/img/portfolio/wakeed/3_Issued_Cheque_Pages.jpg",
+        "alt": "Issued Cheque Pages"
+      },
+      {
+        "title": "Settings Page",
+        "src": "assets/img/portfolio/wakeed/4_Settings_Page.jpg",
+        "alt": "Settings Page"
+      },
+      {
+        "title": "Roles, Cloud Storage & API",
+        "src": "assets/img/portfolio/wakeed/5_Roles_Cloud_Storage_and_API.jpg",
+        "alt": "Roles, Cloud Storage & API"
+      },
+      {
+        "title": "Event Log, Interactive UI & Backup",
+        "src": "assets/img/portfolio/wakeed/6_Event_Log_and_Backup.jpg",
+        "alt": "Event Log, Interactive UI & Backup"
       }
     ]
   },

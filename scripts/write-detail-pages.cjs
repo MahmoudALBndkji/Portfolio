@@ -12,12 +12,15 @@ const skel = fs.readFileSync(
 );
 
 const pages = {
+  "al_arjawi_details.html": "al_arjawi",
   "alsafa_exchange_details.html": "alsafa_exchange",
   "asset_management_details.html": "asset_management",
   "beacon_reader_details.html": "beacon_reader",
+  "clinic_code_details.html": "clinic_code",
   "databaseManagement_details.html": "databaseManagement",
   "lister_details.html": "lister",
   "mallToGo_details.html": "mallToGo",
+  "messilah_beach_details.html": "messilah_beach",
   "newpark_agents_details.html": "newpark_agents",
   "open_vpn_details.html": "open_vpn",
   "ponderMore_details.html": "ponderMore",
@@ -30,6 +33,7 @@ const pages = {
   "treema_details.html": "treema",
   "trasool_online_details.html": "trasool_online",
   "wafra_details.html": "wafra",
+  "wakeed_details.html": "wakeed",
   "worldNews_details.html": "worldNews",
 };
 
