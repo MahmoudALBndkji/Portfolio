@@ -1180,7 +1180,7 @@ const portfolioDetails = {
     breadcrumbLabel: "Wakeed",
     pageHeading: "Wakeed Details",
     category: "Mobile, Web & Desktop Application",
-    projectDate: "1 Jun, 2026 ➡️ Current",
+    projectDate: "Jun, 2026 ➡️ Current",
     descriptionHtml:
       "Wakeed is a cloud accounting and business-management platform for individuals and small and medium-sized companies, running on Android, iOS, Windows and the web from a single Flutter codebase.<br> It covers double-entry accounting, invoices, payments, receivables, inventory, cheques and detailed financial reports, with role-based permissions, an event log, Excel import / export and backups.<br> I work on Wakeed OS, the operations suite built on top of it: HR (attendance, leaves, rosters, timesheets and service requests), projects & tasks, KPIs and reports, and a home dashboard with unified search and quick access.",
     ar: {
@@ -1485,9 +1485,11 @@ function lookup(map, key, where) {
   return key;
 }
 
-/** "6 Aug, 2026" or "Nov 19, 2023" → "6 أغسطس 2026"; "Current" → "حتى الآن" */
+/** "6 Aug, 2026" or "Nov 19, 2023" → "6 أغسطس 2026"; "Jun, 2026" → "يونيو 2026"; "Current" → "حتى الآن" */
 function dateAr(s, where) {
   if (s === "Current") return "حتى الآن";
+  const monthOnly = s.match(/^([A-Z][a-z]{2}), (\d{4})$/);
+  if (monthOnly) return `${lookup(MONTHS_AR, monthOnly[1], where)} ${monthOnly[2]}`;
   const m =
     s.match(/^(\d{1,2}) ([A-Z][a-z]{2}), (\d{4})$/) ||
     s.match(/^([A-Z][a-z]{2}) (\d{1,2}), (\d{4})$/);
