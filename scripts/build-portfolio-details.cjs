@@ -307,20 +307,6 @@ const portfolioDetails = {
     projectDate: "28 Aug, 2023 ➡️ 20 Sep, 2024",
     descriptionHtml:
       "The main idea of the application is to facilitate the work of customers so that they can create orders and follow up on their status, in addition to many features such as archive of previous orders, returns, inventory, and many other features.",
-    storeButtons: [
-      {
-        variant: "apple",
-        href: "https://apps.apple.com/tr/app/newpark-agents/id6476807006?l=tr",
-        subtitle: "Download on the",
-        title: "App Store",
-      },
-      {
-        variant: "google",
-        href: "https://play.google.com/store/apps/details?id=newpark.agentMobileApplication&hl=en_US&gl=US",
-        subtitle: "Get It On",
-        title: "Google Play",
-      },
-    ],
     technologies: [
       "Flutter",
       "Firebase Cloud Messaging For Notification",
@@ -476,14 +462,6 @@ const portfolioDetails = {
     projectDate: "7 Mar, 2024 ➡️ 2 Aug, 2024",
     descriptionHtml:
       "The app lets customers receive online store deliveries anywhere, Users order from sites like Noon Store, specifying their location and a nearby storage box.<br> Drivers deliver to the box, placing orders inside for secure pickup.<br> This method ensures deliveries without customers needing to be present, adds protection through customer-guarded boxes, and offers convenience for travelers or those with delivery issues.",
-    storeButtons: [
-      {
-        variant: "apple",
-        href: "https://apps.apple.com/us/app/rds-box-app/id6738136465",
-        subtitle: "Download on the",
-        title: "App Store",
-      },
-    ],
     technologies: [
       "Flutter",
       "Firebase Cloud Messaging For Notification",
@@ -673,6 +651,14 @@ const portfolioDetails = {
     projectDate: "Oct 17, 2024 ➡️ 15 Mar, 2025",
     descriptionHtml:
       "Time attendance project efficiently manages employee hours. It calculates entry and exit times, enabling flexible inquiries into employee movements.<br> With a user-friendly interface, it streamlines operations and optimizes productivity, providing accurate attendance records and valuable workforce insights.",
+    storeButtons: [
+      {
+        variant: "google",
+        href: "https://play.google.com/store/apps/details?id=kw.mew.fingerprint&pcampaignid=web_share",
+        subtitle: "Get It On",
+        title: "Google Play",
+      },
+    ],
     technologies: [
       "Flutter",
       "Kotlin",
