@@ -8,8 +8,8 @@
 (function () {
   "use strict";
 
-  var CV_HREF =
-    "https://www.mediafire.com/file/6m5d0big9xfqwv3/CV_-_Mahmoud_AL_Bndkji%25282%2529.pdf/file";
+  var CV_HREF = "assets/cv/Mahmoud-AL-Bndkji-CV.pdf";
+  var CV_FILE_NAME = "CV - Mahmoud AL Bndkji.pdf";
 
   /* Store button labels shared by every project */
   var STORE_AR = {
@@ -100,7 +100,7 @@
       '" href="' +
       escapeHtml(href) +
       '"' +
-      (href === CV_HREF ? ' target="_blank"' : "") +
+      (href === CV_HREF ? ' download="' + escapeHtml(CV_FILE_NAME) + '"' : "") +
       arText(ar) +
       ">" +
       en +
