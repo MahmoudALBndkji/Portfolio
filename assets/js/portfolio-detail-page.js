@@ -312,8 +312,8 @@
       ar.category && escapeHtml(ar.category)
     );
     html += infoItem(
-      "Project date ",
-      "تاريخ المشروع ",
+      "My work period ",
+      "فترة عملي على المشروع ",
       escapeHtml(data.projectDate),
       ar.projectDate && escapeHtml(ar.projectDate)
     );
